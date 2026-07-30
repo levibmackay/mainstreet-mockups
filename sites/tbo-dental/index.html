@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Toenjes, Brizzee &amp; Orme Dentistry — Family Dental Care in the Upper Valley</title>
+<style>
+  :root{
+    --mint-950:#0f2f2c;
+    --mint-800:#175e58;
+    --mint-700:#1d746c;
+    --mint-600:#268e84;
+    --mint-500:#3fb8b0;
+    --mint-400:#6cc9c2;
+    --mint-200:#c6ece8;
+    --mint-100:#e4f7f5;
+    --coral-600:#e35d43;
+    --coral-500:#f27a5d;
+    --coral-400:#ff9a7d;
+    --coral-100:#ffe3d8;
+    --white:#ffffff;
+    --cream:#fbfefd;
+    --ink:#173836;
+    --ink-soft:#3f5c59;
+    --line: rgba(23,56,54,0.12);
+    --focus:#e35d43;
+    --shadow-sm: 0 12px 30px -18px rgba(15,47,44,0.35);
+    --shadow-lg: 0 24px 60px -24px rgba(15,47,44,0.4);
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --round: ui-rounded, "SF Pro Rounded", var(--sans);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{ max-width:100%; display:block; }
+  a{ color:inherit; }
+
+  h1,h2,h3{
+    font-family:var(--round);
+    color:var(--mint-950);
+    line-height:1.15;
+    margin:0 0 0.5em;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  p{ margin:0 0 1em; color:var(--ink-soft); }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:3px;
+    border-radius:8px;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:60;
+    background:rgba(251,254,253,0.0);
+    transition:background-color .35s ease, box-shadow .35s ease;
+    padding-block:1.2rem;
+  }
+  header.site.scrolled{
+    background:rgba(251,254,253,0.94);
+    backdrop-filter:blur(8px);
+    box-shadow:0 10px 30px -18px rgba(15,47,44,0.3);
+  }
+  header.site .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    transition:transform .35s ease;
+    transform-origin:top center;
+  }
+  header.site.scrolled .nav-row{ transform:scale(0.94); }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.65rem;
+    text-decoration:none;
+    color:var(--mint-950);
+  }
+  .brand-mark{ width:40px; height:40px; flex:none; }
+  .brand-text{
+    font-family:var(--round);
+    font-weight:800;
+    font-size:1.02rem;
+    line-height:1.2;
+  }
+  .brand-text small{
+    display:block;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--mint-600);
+  }
+
+  nav.primary{
+    display:flex;
+    align-items:center;
+    gap:clamp(1rem, 2.4vw, 2rem);
+  }
+  nav.primary a:not(.nav-cta){
+    text-decoration:none;
+    font-size:0.94rem;
+    font-weight:700;
+    color:var(--mint-950);
+    padding:0.5rem 0.15rem;
+    border-bottom:2px solid transparent;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  nav.primary a:not(.nav-cta):hover{ border-color:var(--coral-500); }
+
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:var(--coral-500);
+    color:var(--white) !important;
+    padding:0.65rem 1.2rem;
+    border-radius:999px;
+    font-size:0.92rem;
+    font-weight:800;
+    text-decoration:none;
+    min-height:44px;
+    box-shadow:var(--shadow-sm);
+    transition:background-color .25s ease, transform .2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ background:var(--coral-600); transform:translateY(-1px); }
+
+  .nav-toggle{
+    display:none;
+    background:var(--mint-100);
+    border:none;
+    border-radius:14px;
+    width:46px; height:46px;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:var(--mint-800);
+  }
+  .nav-toggle svg{ width:22px; height:22px; }
+
+  @media (max-width: 800px){
+    nav.primary{
+      position:fixed;
+      inset:0 0 0 auto;
+      height:100vh;
+      width:min(82vw, 340px);
+      background:var(--mint-950);
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:center;
+      gap:1.6rem;
+      padding:2rem 2.2rem;
+      transform:translateX(100%);
+      transition:transform .4s ease;
+      z-index:70;
+    }
+    nav.primary.open{ transform:translateX(0); }
+    nav.primary a:not(.nav-cta){ color:var(--mint-100); font-size:1.15rem; }
+    nav.primary a:not(.nav-cta):hover{ border-color:var(--coral-400); }
+    .nav-cta{ width:100%; justify-content:center; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{ opacity:1; transform:none; }
+  .stagger .reveal:nth-child(1){ transition-delay:.02s; }
+  .stagger .reveal:nth-child(2){ transition-delay:.12s; }
+  .stagger .reveal:nth-child(3){ transition-delay:.22s; }
+  .stagger .reveal:nth-child(4){ transition-delay:.32s; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.55rem;
+    min-height:48px;
+    padding:0.9rem 1.7rem;
+    border-radius:999px;
+    font-weight:800;
+    font-size:0.98rem;
+    text-decoration:none;
+    transition:background-color .25s ease, color .25s ease, transform .2s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .btn svg{ width:20px; height:20px; flex:none; }
+  .btn-primary{
+    background:var(--coral-500);
+    color:var(--white);
+    box-shadow:var(--shadow-sm);
+  }
+  .btn-primary:hover{ background:var(--coral-600); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+  .btn-secondary{
+    background:var(--mint-800);
+    color:var(--white);
+    box-shadow:var(--shadow-sm);
+  }
+  .btn-secondary:hover{ background:var(--mint-950); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+  .btn-ghost{
+    background:transparent;
+    border:2px solid var(--mint-600);
+    color:var(--mint-950);
+  }
+  .btn-ghost:hover{ background:var(--mint-100); transform:translateY(-2px); }
+  .btn-ghost-invert{
+    background:transparent;
+    border:2px solid rgba(255,255,255,0.55);
+    color:var(--white);
+  }
+  .btn-ghost-invert:hover{ background:rgba(255,255,255,0.12); border-color:var(--white); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding-block:clamp(4.5rem, 11vw, 7.5rem) clamp(4.5rem, 9vw, 6.5rem);
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 60% 50% at 82% 0%, rgba(255,138,109,0.16), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 10% 10%, rgba(63,184,176,0.22), transparent 60%),
+      linear-gradient(180deg, var(--mint-100) 0%, var(--cream) 70%);
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:clamp(2rem, 5vw, 4rem);
+    align-items:center;
+  }
+  @media (max-width: 880px){
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+  .hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:0.55rem;
+    font-size:0.8rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--mint-700);
+    background:var(--white);
+    border:1px solid var(--mint-200);
+    padding:0.5rem 1rem;
+    border-radius:999px;
+    margin-bottom:1.5rem;
+    box-shadow:var(--shadow-sm);
+  }
+  .hero-eyebrow svg{ width:16px; height:16px; color:var(--coral-500); }
+  .hero h1{
+    font-size:clamp(2.3rem, 5.6vw, 3.9rem);
+    max-width:15ch;
+    margin-bottom:0.55em;
+  }
+  .hero h1 span{ color:var(--mint-600); }
+  .hero-lede{
+    max-width:46ch;
+    font-size:clamp(1.05rem, 1.6vw, 1.18rem);
+    color:var(--ink-soft);
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-top:2.2rem;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.5rem 2.25rem;
+    margin-top:2.75rem;
+  }
+  .hero-meta .stat{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+  }
+  .hero-meta .stat svg{ width:26px; height:26px; flex:none; color:var(--coral-500); }
+  .hero-meta strong{
+    display:block;
+    font-family:var(--round);
+    font-size:1.15rem;
+    color:var(--mint-950);
+  }
+  .hero-meta span{ font-size:0.85rem; color:var(--ink-soft); }
+
+  .hero-art{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-art svg{ width:100%; max-width:400px; height:auto; }
+
+  /* ---------- Section shell ---------- */
+  section{
+    padding-block:clamp(4rem, 9vw, 6.5rem);
+    position:relative;
+  }
+  .section-head{
+    max-width:42rem;
+    margin-bottom:clamp(2.25rem, 5vw, 3.25rem);
+  }
+  .section-head.centered{ margin-inline:auto; text-align:center; max-width:38rem; }
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--coral-600);
+    margin-bottom:0.9rem;
+  }
+  .section-head.centered .kicker{ justify-content:center; }
+  .section-head h2{ font-size:clamp(1.75rem, 3.4vw, 2.4rem); }
+  .section-head p{ font-size:1.05rem; max-width:40ch; }
+  .section-head.centered p{ margin-inline:auto; }
+
+  /* ---------- Services ---------- */
+  .services{ background:var(--white); }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1.5rem;
+  }
+  .service-card{
+    background:var(--mint-100);
+    border-radius:26px;
+    padding:2rem 1.85rem;
+    box-shadow:var(--shadow-sm);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .service-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .service-icon{
+    width:52px; height:52px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--white);
+    border-radius:16px;
+    margin-bottom:1.1rem;
+    color:var(--mint-700);
+    box-shadow:var(--shadow-sm);
+  }
+  .service-icon svg{ width:28px; height:28px; }
+  .service-card h3{ font-size:1.15rem; margin-bottom:0.45rem; }
+  .service-card p{ font-size:0.98rem; margin-bottom:0; }
+
+  /* ---------- Why us ---------- */
+  .why{
+    background:linear-gradient(180deg, var(--mint-950), var(--mint-800));
+    color:var(--mint-100);
+  }
+  .why .kicker{ color:var(--coral-400); }
+  .why .section-head h2, .why .section-head.centered h2{ color:var(--white); }
+  .why .section-head p{ color:var(--mint-200); }
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.75rem;
+    align-items:stretch;
+  }
+  .why-card{
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:24px;
+    padding:2.2rem;
+  }
+  .why-card .why-icon{
+    width:48px; height:48px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.12);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--coral-400);
+    margin-bottom:1.1rem;
+  }
+  .why-card .why-icon svg{ width:26px; height:26px; }
+  .why-card h3{ color:var(--white); font-size:1.15rem; }
+  .why-card p{ color:var(--mint-200); margin-bottom:0.4rem; font-size:0.98rem; }
+  .rating-row{
+    display:flex;
+    align-items:baseline;
+    gap:0.6rem;
+    margin-bottom:0.7rem;
+  }
+  .rating-row .score{
+    font-family:var(--round);
+    font-size:2.3rem;
+    color:var(--white);
+    font-weight:800;
+  }
+  .rating-row .stars{ display:flex; gap:0.15rem; color:var(--coral-400); }
+  .rating-row .stars svg{ width:18px; height:18px; }
+  .source-note{ font-size:0.82rem; color:rgba(198,236,232,0.75); margin-bottom:0; }
+
+  /* ---------- Locations centerpiece ---------- */
+  .locations{ background:var(--cream); }
+  .loc-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:clamp(1.75rem, 4vw, 2.5rem);
+  }
+  .loc-card{
+    position:relative;
+    background:var(--white);
+    border-radius:32px;
+    padding:clamp(2rem, 4vw, 2.75rem);
+    box-shadow:var(--shadow-lg);
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+  }
+  .loc-card .loc-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    align-self:flex-start;
+    background:var(--mint-100);
+    color:var(--mint-700);
+    font-weight:800;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:0.4rem 0.9rem;
+    border-radius:999px;
+  }
+  .loc-card .loc-badge svg{ width:14px; height:14px; }
+  .loc-card .loc-town{
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+  }
+  .loc-card .loc-town svg{ width:38px; height:38px; flex:none; color:var(--coral-500); }
+  .loc-card h3{ font-size:1.6rem; margin:0; }
+  .loc-card address{
+    font-style:normal;
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .loc-card .loc-phone-btn{
+    margin-top:auto;
+  }
+  .loc-card .loc-phone-btn .btn{ width:100%; font-size:1.05rem; }
+
+  /* ---------- Contact / CTA ---------- */
+  .contact{
+    background:linear-gradient(160deg, var(--mint-600), var(--mint-800));
+    color:var(--white);
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .contact::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 100%, rgba(255,138,109,0.22), transparent 65%);
+    pointer-events:none;
+  }
+  .contact .wrap{ position:relative; z-index:1; }
+  .contact .section-head.centered h2{ color:var(--white); }
+  .contact .section-head.centered p{ color:var(--mint-100); }
+  .contact .kicker{ color:var(--coral-100); }
+  .contact-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1.25rem;
+    max-width:640px;
+    margin:2.25rem auto 0;
+  }
+  .contact-card{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:24px;
+    padding:1.75rem 1.5rem;
+  }
+  .contact-card h3{ color:var(--white); font-size:1.15rem; margin-bottom:1rem; }
+  .contact-card .btn{ width:100%; }
+  .contact-fineprint{
+    margin-top:2.5rem;
+    font-size:0.85rem;
+    color:var(--mint-100);
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    background:var(--mint-950);
+    color:rgba(230,247,245,0.75);
+    padding-block:2.5rem;
+    font-size:0.88rem;
+  }
+  footer.site .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    justify-content:space-between;
+    align-items:center;
+  }
+  footer.site .foot-brand{
+    font-family:var(--round);
+    color:var(--white);
+    font-weight:800;
+    font-size:1rem;
+  }
+  footer.site .foot-note{ color:rgba(230,247,245,0.55); }
+
+  .concept-note{
+    text-align:center;
+    font-size:0.82rem;
+    color:var(--mint-100);
+    background:var(--mint-950);
+    padding:0.9rem 1rem 1.4rem;
+    margin:0;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{
+      animation:none !important;
+      transition:none !important;
+    }
+    .reveal{ opacity:1 !important; transform:none !important; }
+    .service-card:hover, .btn:hover{ transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="visually-hidden" href="#main">Skip to main content</a>
+
+<header class="site" id="siteHeader">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 44 44" role="img" aria-hidden="true">
+        <title>Toenjes, Brizzee &amp; Orme Dentistry mark</title>
+        <circle cx="22" cy="22" r="20" fill="var(--mint-100)"/>
+        <path d="M15 17 C15 13 18 11 22 11 C26 11 29 13 29 17 C29 22 27 26 25.5 30 C24.8 32 23.6 33 22 33 C20.4 33 19.2 32 18.5 30 C17 26 15 22 15 17 Z" fill="none" stroke="var(--mint-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19 17.5 C19.5 16 20.5 15.5 22 15.5 C23.5 15.5 24.5 16 25 17.5" fill="none" stroke="var(--coral-500)" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">Toenjes, Brizzee &amp; Orme<small>Family Dentistry</small></span>
+    </a>
+    <nav class="primary" id="primaryNav" aria-label="Primary">
+      <a href="#care">Family Care</a>
+      <a href="#why">Why Us</a>
+      <a href="#locations">Locations</a>
+      <a class="nav-cta" href="tel:+12086243757">Call Saint Anthony</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-eyebrow reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Serving Saint Anthony &amp; Ashton, Idaho
+        </p>
+        <h1 class="reveal">Family dental care, right here in the <span>Upper Valley</span>.</h1>
+        <p class="hero-lede reveal">Toenjes, Brizzee &amp; Orme Dentistry takes care of smiles across two Upper Valley towns, a local family dental practice built around straightforward, friendly visits for every generation.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="tel:+12086243757">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Call Saint Anthony
+          </a>
+          <a class="btn btn-secondary" href="tel:+12086527868">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Call Ashton
+          </a>
+        </div>
+        <div class="hero-meta reveal">
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>4.7 / 5</strong><span>from 27 reviews</span></div>
+          </div>
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.4"/></svg>
+            <div><strong>2 Locations</strong><span>Saint Anthony &amp; Ashton</span></div>
+          </div>
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19c1.5-3 3.5-4 4-6 .4-1.6-1-2-1-3.5A2.5 2.5 0 0 1 9.5 7c1 0 1.5.5 2.5.5S13.5 7 14.5 7A2.5 2.5 0 0 1 17 9.5c0 1.5-1.4 1.9-1 3.5.5 2 2.5 3 4 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Family Care</strong><span>Every age, one practice</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art reveal" style="transition-delay:.15s" role="img" aria-label="Decorative illustration of a smiling family and a friendly tooth character surrounded by soft geometric shapes">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <title>Decorative illustration of a friendly tooth character with family shapes</title>
+          <circle cx="200" cy="200" r="180" fill="var(--mint-100)"/>
+          <circle cx="330" cy="80" r="34" fill="var(--coral-100)"/>
+          <circle cx="60" cy="320" r="26" fill="var(--coral-100)"/>
+          <path d="M150 130 C150 105 172 90 200 90 C228 90 250 105 250 130 C250 175 236 210 222 250 C215 270 208 280 200 280 C192 280 185 270 178 250 C164 210 150 175 150 130 Z" fill="var(--white)" stroke="var(--mint-700)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M172 132 C176 116 186 110 200 110 C214 110 224 116 228 132" fill="none" stroke="var(--coral-500)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="184" cy="165" r="7" fill="var(--mint-500)"/>
+          <circle cx="216" cy="165" r="7" fill="var(--mint-500)"/>
+          <path d="M186 190 Q200 202 214 190" fill="none" stroke="var(--mint-700)" stroke-width="3.2" stroke-linecap="round"/>
+          <g transform="translate(90,300)">
+            <circle cx="0" cy="0" r="16" fill="var(--mint-500)"/>
+            <path d="M-14 22 Q0 8 14 22 L14 40 L-14 40 Z" fill="var(--mint-500)"/>
+          </g>
+          <g transform="translate(300,310)">
+            <circle cx="0" cy="0" r="20" fill="var(--coral-500)"/>
+            <path d="M-17 26 Q0 10 17 26 L17 46 L-17 46 Z" fill="var(--coral-500)"/>
+          </g>
+          <g transform="translate(200,320)">
+            <circle cx="0" cy="0" r="24" fill="var(--mint-700)"/>
+            <path d="M-20 30 Q0 12 20 30 L20 54 L-20 54 Z" fill="var(--mint-700)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="care">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">What We Offer</span>
+        <h2>Family dental care, made simple</h2>
+        <p>Straightforward visits for the whole family, from routine checkups to everyday dental care in a calm, welcoming office.</p>
+      </div>
+      <div class="service-grid stagger">
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12.5 9.5 17 19 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Checkups &amp; Cleanings</h3>
+          <p>Regular checkups and cleanings to help keep everyone's teeth in good shape, visit after visit.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19c1.5-3 3.5-4 4-6 .4-1.6-1-2-1-3.5A2.5 2.5 0 0 1 9.5 7c1 0 1.5.5 2.5.5S13.5 7 14.5 7A2.5 2.5 0 0 1 17 9.5c0 1.5-1.4 1.9-1 3.5.5 2 2.5 3 4 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Care for Every Age</h3>
+          <p>From your youngest kids to grandparents, we take care of the whole family's teeth under one roof.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-linecap="round"/><path d="M8.5 13c.7 1.3 2 2 3.5 2s2.8-.7 3.5-2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>A Calm, Friendly Visit</h3>
+          <p>Unhurried appointments in a relaxed setting: the kind of dental visit that doesn't feel intimidating.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.4"/></svg>
+          </div>
+          <h3>Two Local Offices</h3>
+          <p>Convenient dental care whether you're in Saint Anthony or Ashton, the same family practice, close to home.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Why Families Choose Us</span>
+        <h2>A familiar name across the Upper Valley</h2>
+      </div>
+      <div class="why-grid stagger">
+        <div class="why-card reveal">
+          <div class="rating-row">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.2 9h6.7l-5.4 4 2 6.5L12 15.8 6.5 19.5l2-6.5-5.4-4h6.7Z"/></svg>
+            </span>
+            <span class="score">4.7</span>
+          </div>
+          <h3>27 patient reviews</h3>
+          <p>Our current aggregate rating figure, gathered across public review sources (not a specific quoted review).</p>
+          <p class="source-note">4.7 stars from 27 reviews.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 21 C20 15 23 11.5 23 8" stroke-linecap="round" opacity="0"/><circle cx="12" cy="8" r="2.4"/></svg>
+          </div>
+          <h3>Two Upper Valley Locations</h3>
+          <p>An office in Saint Anthony and an office in Ashton: two towns, one family dental practice.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19c1.5-3 3.5-4 4-6 .4-1.6-1-2-1-3.5A2.5 2.5 0 0 1 9.5 7c1 0 1.5.5 2.5.5S13.5 7 14.5 7A2.5 2.5 0 0 1 17 9.5c0 1.5-1.4 1.9-1 3.5.5 2 2.5 3 4 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>An Established Local Practice</h3>
+          <p>A family-oriented dental practice that's part of the community in Saint Anthony and Ashton, Idaho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="locations" id="locations">
+    <div class="wrap">
+      <div class="section-head centered reveal">
+        <span class="kicker">Two Towns, One Practice</span>
+        <h2>Find your nearest office</h2>
+        <p>Whichever town you're in, there's a friendly office and a phone number just for you.</p>
+      </div>
+      <div class="loc-grid stagger">
+        <div class="loc-card reveal">
+          <span class="loc-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Office One
+          </span>
+          <div class="loc-town">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.4"/></svg>
+            <h3>Saint Anthony</h3>
+          </div>
+          <address>305 E 5th St N<br>Saint Anthony, Idaho</address>
+          <div class="loc-phone-btn">
+            <a class="btn btn-primary" href="tel:+12086243757">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Call Saint Anthony: (208) 624-3757
+            </a>
+          </div>
+        </div>
+        <div class="loc-card reveal" style="transition-delay:.12s">
+          <span class="loc-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Office Two
+          </span>
+          <div class="loc-town">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21 C7 15 4 11.5 4 8a8 8 0 0 1 16 0c0 3.5-3 7-8 13Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.4"/></svg>
+            <h3>Ashton</h3>
+          </div>
+          <address>Serving Ashton, Idaho</address>
+          <div class="loc-phone-btn">
+            <a class="btn btn-secondary" href="tel:+12086527868">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Call Ashton: (208) 652-7868
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head centered reveal">
+        <span class="kicker">Get In Touch</span>
+        <h2>Ready when your family is</h2>
+        <p>Call the office nearest you and we'll help you find a time that works.</p>
+      </div>
+      <div class="contact-cards stagger">
+        <div class="contact-card reveal">
+          <h3>Saint Anthony</h3>
+          <a class="btn btn-primary" href="tel:+12086243757">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            (208) 624-3757
+          </a>
+        </div>
+        <div class="contact-card reveal" style="transition-delay:.12s">
+          <h3>Ashton</h3>
+          <a class="btn btn-ghost-invert" href="tel:+12086527868">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            (208) 652-7868
+          </a>
+        </div>
+      </div>
+      <p class="contact-fineprint reveal">Toenjes, Brizzee &amp; Orme Dentistry, serving Saint Anthony and Ashton, Idaho.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="foot-brand">Toenjes, Brizzee &amp; Orme Dentistry</span>
+    <span class="foot-note">Saint Anthony &amp; Ashton, Idaho · 4.7★ from 27 reviews</span>
+  </div>
+</footer>
+
+<p class="concept-note">Concept design proposal — not affiliated with or endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
+
+<script>
+(function(){
+  "use strict";
+
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 30){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>

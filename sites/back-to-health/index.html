@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back to Health Chiropractic — Chiropractic Care in Rexburg, Idaho</title>
+<style>
+  :root{
+    --forest: #2c4a3b;
+    --forest-dark: #1e3329;
+    --forest-light: #3d6350;
+    --terracotta: #c1704f;
+    --terracotta-dark: #a5583b;
+    --oat: #f3ece1;
+    --oat-dark: #e8dcc8;
+    --bone: #faf6ef;
+    --ink: #23281f;
+    --line: rgba(44,74,59,0.18);
+    --focus: #c1704f;
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+  body{
+    margin:0;
+    background: var(--bone);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3{
+    font-family: var(--serif);
+    color: var(--forest-dark);
+    margin: 0 0 0.5em;
+    line-height: 1.08;
+  }
+
+  p{ margin: 0 0 1em; }
+
+  a{ color: inherit; }
+
+  img, svg{ max-width: 100%; display:block; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  :focus-visible{
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- topographic texture (shared background) ---------- */
+  .contours{
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+
+  /* ---------- header ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,246,239,0.86);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .3s ease, background-color .3s ease, transform .35s ease;
+  }
+  @media (prefers-reduced-motion: reduce){
+    header.site{ transition: none; }
+  }
+  header.site.is-scrolled{
+    box-shadow: 0 6px 24px -12px rgba(30,51,41,0.35);
+  }
+  header.site.is-hidden{
+    transform: translateY(-100%);
+  }
+  .site-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 1rem;
+    padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .brand{
+    display:flex; align-items:center; gap:0.65rem;
+    text-decoration:none;
+    color: var(--forest-dark);
+  }
+  .brand-mark{ width: 38px; height: 38px; flex: none; }
+  .brand-text{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing: 0.01em;
+  }
+  .brand-text span{
+    display:block;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.62em;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta-dark);
+    margin-top: 0.15em;
+  }
+  nav.links{
+    display:flex; gap: clamp(1rem, 2vw, 1.8rem);
+    font-size: 0.94rem;
+    font-weight: 600;
+  }
+  nav.links a{
+    text-decoration:none;
+    padding: 0.4rem 0.1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ nav.links a{ transition:none; } }
+  nav.links a:hover{ border-color: var(--terracotta); }
+  .call-pill{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background: var(--forest);
+    color: var(--bone);
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration:none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    min-height: 44px;
+    transition: background-color .2s ease, transform .2s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ .call-pill{ transition:none; } }
+  .call-pill:hover{ background: var(--forest-dark); }
+  @media (min-width: 1px){ .call-pill:active{ transform: scale(0.97); } }
+  @media (prefers-reduced-motion: reduce){ .call-pill:active{ transform:none; } }
+
+  @media (max-width: 760px){
+    nav.links{ display:none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position: relative;
+    background: linear-gradient(160deg, var(--forest) 0%, var(--forest-dark) 62%, #17251d 100%);
+    color: var(--oat);
+    padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(4rem, 10vw, 8rem);
+    overflow: hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(circle at 18% 20%, rgba(255,255,255,0.06), transparent 45%),
+                       radial-gradient(circle at 85% 75%, rgba(193,112,79,0.18), transparent 50%);
+  }
+  .hero-grid{
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 880px){
+    .hero-grid{ grid-template-columns: 1fr; }
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:0.55rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.1rem;
+  }
+  .eyebrow::before{
+    content:""; width: 28px; height: 2px; background: var(--terracotta);
+  }
+  .hero h1{
+    color: var(--bone);
+    font-size: clamp(2.3rem, 5.4vw, 3.9rem);
+    font-weight: 600;
+    max-width: 16ch;
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--terracotta);
+  }
+  .hero-lede{
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    color: rgba(250,246,239,0.86);
+    max-width: 46ch;
+    margin-bottom: 2rem;
+  }
+  .hero-ctas{
+    display:flex; flex-wrap:wrap; gap: 0.9rem;
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration:none;
+    padding: 0.85rem 1.6rem;
+    border-radius: 8px;
+    min-height: 44px;
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ .btn{ transition:none; } }
+  .btn-primary{
+    background: var(--terracotta);
+    color: var(--bone);
+    box-shadow: 0 10px 26px -10px rgba(193,112,79,0.55);
+  }
+  .btn-primary:hover{ background: var(--terracotta-dark); transform: translateY(-2px); }
+  .btn-ghost{
+    background: transparent;
+    color: var(--oat);
+    border: 1.5px solid rgba(250,246,239,0.4);
+  }
+  .btn-ghost:hover{ border-color: var(--oat); background: rgba(250,246,239,0.08); transform: translateY(-2px); }
+
+  .hero-figure{
+    position: relative;
+    justify-self: center;
+    width: min(340px, 90%);
+  }
+  .hero-figure svg{ width: 100%; height: auto; }
+
+  .hero-stats{
+    position: relative;
+    z-index: 1;
+    display:flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+    padding-top: clamp(1.75rem, 4vw, 2.5rem);
+    border-top: 1px solid rgba(250,246,239,0.16);
+  }
+  .stat{
+    min-width: 140px;
+  }
+  .stat b{
+    display:block;
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+    color: var(--bone);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat span{
+    font-size: 0.85rem;
+    color: rgba(250,246,239,0.72);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- band divider ---------- */
+  .band-divider{
+    height: 46px;
+    width: 100%;
+    display:block;
+  }
+
+  /* ---------- section basics ---------- */
+  section{ position: relative; }
+  .section-pad{ padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+  .section-head{
+    max-width: 640px;
+    margin-bottom: clamp(2.25rem, 5vw, 3.25rem);
+  }
+  .section-head.center{ margin-inline:auto; text-align:center; }
+  .kicker{
+    display:block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta-dark);
+    margin-bottom: 0.75rem;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  }
+  .section-head p{
+    color: #4a5245;
+    font-size: 1.05rem;
+  }
+
+  /* reveal-on-scroll */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.is-visible{ opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---------- services ---------- */
+  .services{
+    background: var(--oat);
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card{
+    background: var(--bone);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.9rem 1.7rem;
+    position: relative;
+  }
+  .service-card svg{ width: 40px; height: 40px; margin-bottom: 1rem; color: var(--forest); }
+  .service-card h3{ font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .service-card p{ color: #4a5245; font-size: 0.98rem; margin-bottom: 0; }
+
+  /* ---------- trust / 20 years ---------- */
+  .trust{
+    background: var(--forest-dark);
+    color: var(--oat);
+    overflow: hidden;
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 6vw, 4.5rem);
+    align-items: center;
+  }
+  @media (max-width: 880px){
+    .trust-grid{ grid-template-columns: 1fr; }
+  }
+  .big-number{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(5.5rem, 14vw, 9.5rem);
+    line-height: 0.85;
+    color: var(--terracotta);
+    letter-spacing: -0.01em;
+  }
+  .big-number sup{
+    font-size: 0.32em;
+    top: -0.5em;
+    color: var(--oat);
+  }
+  .big-number-label{
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(250,246,239,0.8);
+    margin-top: 0.5rem;
+  }
+  .trust .section-head h2{ color: var(--bone); }
+  .trust .section-head p{ color: rgba(250,246,239,0.82); }
+  .trust-facts{
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+  .trust-facts li{
+    display:flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    font-size: 1.02rem;
+    color: rgba(250,246,239,0.92);
+  }
+  .trust-facts svg{
+    width: 22px; height: 22px; flex: none; margin-top: 0.15rem; color: var(--terracotta);
+  }
+  .reviews-note{
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250,246,239,0.18);
+    font-size: 0.98rem;
+    color: rgba(250,246,239,0.78);
+  }
+  .reviews-note b{ color: var(--bone); font-family: var(--serif); font-size: 1.15rem; }
+
+  /* ---------- location ---------- */
+  .location{
+    background: var(--bone);
+  }
+  .location-grid{
+    display:grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 880px){
+    .location-grid{ grid-template-columns: 1fr; }
+  }
+  .map-card{
+    background: var(--forest);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map-card svg{ position:absolute; inset:0; width:100%; height:100%; opacity:0.55; }
+  .pin-wrap{ position: relative; z-index:1; text-align:center; color: var(--oat); padding: 2rem; }
+  .pin-wrap svg.pin{ width:46px; height:46px; margin: 0 auto 0.75rem; color: var(--terracotta); }
+  .pin-wrap .addr{
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--bone);
+  }
+  .location-copy .fact-list{
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .location-copy .fact-list li{
+    display:flex; gap: 0.85rem; align-items:flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .location-copy .fact-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .location-copy .fact-list svg{ width:22px; height:22px; flex:none; color: var(--forest); margin-top: 0.15rem; }
+  .location-copy .fact-list strong{ display:block; color: var(--forest-dark); font-family: var(--serif); font-size: 1.05rem; }
+  .location-copy .fact-list span{ color: #4a5245; font-size: 0.95rem; }
+  .location-copy .fact-list a{ text-decoration: underline; text-decoration-color: var(--terracotta); text-underline-offset: 3px; }
+
+  /* ---------- contact / CTA ---------- */
+  .cta{
+    background: linear-gradient(150deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+    color: var(--bone);
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(circle at 80% 10%, rgba(255,255,255,0.14), transparent 45%);
+  }
+  .cta-inner{ position:relative; z-index:1; max-width: 700px; margin:0 auto; }
+  .cta h2{ color: var(--bone); font-size: clamp(1.9rem, 4.4vw, 2.8rem); }
+  .cta p{ color: rgba(250,246,239,0.9); font-size: 1.1rem; max-width: 50ch; margin-inline:auto; margin-bottom: 2.25rem; }
+  .cta-buttons{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+  .cta .btn-primary{
+    background: var(--forest-dark);
+    box-shadow: 0 10px 26px -10px rgba(30,51,41,0.6);
+  }
+  .cta .btn-primary:hover{ background: var(--forest); }
+  .cta .btn-ghost{ border-color: rgba(250,246,239,0.55); }
+  .cta .btn-ghost:hover{ border-color: var(--bone); background: rgba(250,246,239,0.12); }
+
+  /* ---------- footer ---------- */
+  footer.site{
+    background: var(--forest-dark);
+    color: rgba(250,246,239,0.75);
+    padding: 2.5rem 0 1.5rem;
+  }
+  .footer-grid{
+    display:flex; flex-wrap:wrap; gap: 1.5rem 3rem; justify-content: space-between; align-items:flex-start;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(250,246,239,0.14);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:0.6rem; }
+  .footer-brand svg{ width:30px; height:30px; }
+  .footer-brand span{ font-family: var(--serif); font-weight:700; color: var(--bone); font-size:1.05rem; }
+  .footer-contact{ display:flex; flex-direction:column; gap: 0.4rem; font-size: 0.95rem; }
+  .footer-contact a{ text-decoration: none; }
+  .footer-contact a:hover{ text-decoration: underline; }
+  .footer-note{
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(250,246,239,0.55);
+  }
+
+  .concept-note{
+    background: var(--forest-dark);
+    color: rgba(250,246,239,0.65);
+    font-size: 0.82rem;
+    text-align:center;
+    padding: 1rem 1.25rem 1.6rem;
+    margin: 0;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="site-nav">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <title>Back to Health Chiropractic mark</title>
+        <circle cx="24" cy="24" r="22" fill="#2c4a3b"/>
+        <path d="M14 30c3-8 6-14 10-14s7 6 10 14" stroke="#c1704f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="14" r="2.6" fill="#f3ece1"/>
+      </svg>
+      <span class="brand-text">Back to Health<span>Chiropractic · Rexburg</span></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#services">Care</a>
+      <a href="#trust">20+ Years</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="call-pill" href="tel:+12083592264">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.5.56 1.5 1.5 0 0 1 1.5 1.5v3.4A1.5 1.5 0 0 1 20.4 22 17.9 17.9 0 0 1 2 3.6 1.5 1.5 0 0 1 3.5 2h3.4A1.5 1.5 0 0 1 8.4 3.5a11 11 0 0 0 .56 3.5 1.5 1.5 0 0 1-.37 1.5z" stroke-linejoin="round"/></svg>
+      (208) 359-2264
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal" id="heroText">
+        <span class="eyebrow">Rexburg, Idaho</span>
+        <h1>Chiropractic care, <em>grounded</em> in this community.</h1>
+        <p class="hero-lede">Back to Health Chiropractic has been treating Rexburg for more than two decades: straightforward chiropractic care from people who've been doing this a long time, right here at 60 S 2nd W.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+12083592264">Call (208) 359-2264</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-figure reveal" id="heroFigure" style="transition-delay:.12s">
+        <svg viewBox="0 0 300 340" role="img" aria-hidden="true">
+          <title>Layered contour illustration representing the Rexburg landscape</title>
+          <path d="M20 260c40-30 80 20 130 0s70-50 130-10v90H20z" fill="#3d6350" opacity="0.55"/>
+          <path d="M0 290c50-24 90 16 140-4s80-40 160 4v50H0z" fill="#c1704f" opacity="0.4"/>
+          <g fill="none" stroke="#f3ece1" stroke-width="1.4" opacity="0.55">
+            <path d="M40 150c50-40 90-40 130 0s90 40 130 0"/>
+            <path d="M50 180c45-36 85-36 120 0s85 36 120 0"/>
+            <path d="M60 210c40-30 80-30 110 0s80 30 110 0"/>
+          </g>
+          <circle cx="150" cy="90" r="34" fill="#f3ece1"/>
+          <path d="M126 108c8-20 18-30 24-30s16 10 24 30" stroke="#c1704f" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="wrap hero-stats">
+      <div class="stat reveal"><b>20+</b><span>Years serving Rexburg</span></div>
+      <div class="stat reveal" style="transition-delay:.08s"><b>76</b><span>Patient reviews</span></div>
+      <div class="stat reveal" style="transition-delay:.16s"><b>1</b><span>Rexburg location, 60 S 2nd W</span></div>
+    </div>
+  </section>
+
+  <svg class="band-divider" viewBox="0 0 1200 46" preserveAspectRatio="none" role="presentation" aria-hidden="true">
+    <path d="M0 20c100-16 200 16 300 6s200-24 300-8 200 22 300 6 200-18 300 2v20H0z" fill="#f3ece1"/>
+  </svg>
+
+  <!-- SERVICES -->
+  <section class="services section-pad" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">What we do</span>
+        <h2>Chiropractic care, plainly explained.</h2>
+        <p>We treat the whole person, not just the symptom that brought you in. It's general chiropractic care aimed at helping your body move and function the way it's supposed to.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v6l4 4-4 4v4M8 21h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Chiropractic Adjustments</h3>
+          <p>Hands-on chiropractic care focused on spinal health and helping your body move without restriction.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.1s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-5 6-6 8-6s6.5 1 8 6" stroke-linecap="round"/></svg>
+          <h3>Whole-Person Visits</h3>
+          <p>Every visit starts with listening. We look at how your whole body is functioning, not just where it hurts.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.2s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-7h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Ongoing Care</h3>
+          <p>For patients managing pain over time, we work with you on a plan that fits how your body is actually responding.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.3s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" stroke-linejoin="round"/></svg>
+          <h3>New Patient Visits</h3>
+          <p>New to the practice? Call and we'll walk you through what a first visit looks like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / 20 YEARS -->
+  <section class="trust section-pad" id="trust">
+    <div class="wrap trust-grid">
+      <div class="reveal">
+        <div class="big-number">20<sup>+</sup></div>
+        <div class="big-number-label">Years in practice</div>
+      </div>
+      <div>
+        <div class="section-head reveal">
+          <span class="kicker">Why patients keep coming back</span>
+          <h2>Two decades of showing up for Rexburg.</h2>
+          <p>Back to Health Chiropractic has been part of this community for more than 20 years. That's not a marketing line, it's just how long the doors have been open at 60 S 2nd W.</p>
+        </div>
+        <ul class="trust-facts">
+          <li class="reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>
+            <span>Over 20 years of continuous chiropractic care in Rexburg, long enough to see patients, and their families, through different chapters of life.</span>
+          </li>
+          <li class="reveal" style="transition-delay:.1s">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 21V9l8-6 8 6v12" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke-linejoin="round"/></svg>
+            <span>A single, established location on 2nd West, not a franchise, not a rotating cast of providers passing through town.</span>
+          </li>
+          <li class="reveal" style="transition-delay:.2s">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>A practice built on repeat patients, the kind of longevity that only comes from people coming back.</span>
+          </li>
+        </ul>
+        <div class="reviews-note reveal">
+          <b>76 reviews</b> from patients in the Rexburg area.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="band-divider" viewBox="0 0 1200 46" preserveAspectRatio="none" role="presentation" aria-hidden="true">
+    <path d="M0 26c100 16 200-16 300-6s200 24 300 8 200-22 300-6 200 18 300-2v26H0z" fill="#faf6ef"/>
+  </svg>
+
+  <!-- LOCATION -->
+  <section class="location section-pad" id="location">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Find us</span>
+        <h2>Rooted on 2nd West.</h2>
+        <p>Back to Health Chiropractic is located in Rexburg, Idaho: easy to find, easy to get to, and easy to call ahead.</p>
+      </div>
+      <div class="location-grid">
+        <div class="map-card reveal">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
+            <g fill="none" stroke="#f3ece1" stroke-width="1.2" opacity="0.4">
+              <path d="M0 60c60-30 120-30 180 0s120 30 180 0"/>
+              <path d="M0 110c60-30 120-30 180 0s120 30 180 0"/>
+              <path d="M0 160c60-30 120-30 180 0s120 30 180 0"/>
+              <path d="M0 210c60-30 120-30 180 0s120 30 180 0"/>
+              <path d="M0 260c60-30 120-30 180 0s120 30 180 0"/>
+            </g>
+          </svg>
+          <div class="pin-wrap">
+            <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="img" aria-hidden="true"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4"/></svg>
+            <div class="addr">60 S 2nd W<br>Rexburg, Idaho</div>
+          </div>
+        </div>
+        <div class="location-copy">
+          <ul class="fact-list">
+            <li class="reveal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4"/></svg>
+              <span><strong>Address</strong><span>60 S 2nd W, Rexburg, Idaho</span></span>
+            </li>
+            <li class="reveal" style="transition-delay:.1s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.5.56 1.5 1.5 0 0 1 1.5 1.5v3.4A1.5 1.5 0 0 1 20.4 22 17.9 17.9 0 0 1 2 3.6 1.5 1.5 0 0 1 3.5 2h3.4A1.5 1.5 0 0 1 8.4 3.5a11 11 0 0 0 .56 3.5 1.5 1.5 0 0 1-.37 1.5z" stroke-linejoin="round"/></svg>
+              <span><strong>Phone</strong><span><a href="tel:+12083592264">(208) 359-2264</a></span></span>
+            </li>
+            <li class="reveal" style="transition-delay:.2s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Email</strong><span><a href="mailto:Back2healthrexburg@gmail.com">Back2healthrexburg@gmail.com</a></span></span>
+            </li>
+            <li class="reveal" style="transition-delay:.3s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>
+              <span><strong>Scheduling</strong><span>Call to schedule; new and returning patients welcome.</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section-pad" id="contact">
+    <div class="wrap cta-inner">
+      <h2 class="reveal">Ready when you are.</h2>
+      <p class="reveal" style="transition-delay:.08s">Reach out by phone or email. Back to Health Chiropractic is here in Rexburg, ready to talk through your care.</p>
+      <div class="cta-buttons reveal" style="transition-delay:.16s">
+        <a class="btn btn-primary" href="tel:+12083592264">Call (208) 359-2264</a>
+        <a class="btn btn-ghost" href="mailto:Back2healthrexburg@gmail.com">Email the practice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header = document.getElementById('siteHeader');
+  var lastY = window.scrollY;
+
+  function onScroll(){
+    var y = window.scrollY;
+    if (y > 12) header.classList.add('is-scrolled'); else header.classList.remove('is-scrolled');
+    if (!reduceMotion){
+      if (y > lastY && y > 140) header.classList.add('is-hidden');
+      else header.classList.remove('is-hidden');
+    }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if ('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><title>Back to Health Chiropractic mark</title><circle cx="24" cy="24" r="22" fill="#3d6350"/><path d="M14 30c3-8 6-14 10-14s7 6 10 14" stroke="#c1704f" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+        <span>Back to Health Chiropractic</span>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+12083592264">(208) 359-2264</a>
+        <a href="mailto:Back2healthrexburg@gmail.com">Back2healthrexburg@gmail.com</a>
+        <span>60 S 2nd W, Rexburg, Idaho</span>
+      </div>
+    </div>
+    <p class="footer-note">Back to Health Chiropractic, Rexburg, Idaho.</p>
+  </div>
+  <p class="concept-note">Concept design proposal — not affiliated with or endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
+</footer>
+
+</body>
+</html>

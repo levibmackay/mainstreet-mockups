@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Coppers Plumbing — Plumbing Repair &amp; Service in St Anthony, Idaho</title>
+<style>
+  :root{
+    --copper-100:#f2d9bf;
+    --copper-300:#d99a5c;
+    --copper-500:#b87333;
+    --copper-600:#9c5e28;
+    --copper-800:#5e3a1a;
+    --verdigris-300:#7fada0;
+    --verdigris-500:#4e8577;
+    --verdigris-700:#33594f;
+    --ground-950:#160f0a;
+    --ground-900:#1d140d;
+    --ground-800:#281c12;
+    --ground-700:#33241a;
+    --paper:#f4ead9;
+    --ink:#12100c;
+    --focus:#e8c491;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  body{
+    margin:0;
+    background:var(--ground-950);
+    color:var(--paper);
+    font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:ui-serif, Georgia, serif;
+    font-weight:700;
+    margin:0 0 0.5em;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:clamp(1.25rem, 4vw, 3rem);
+  }
+
+  ::selection{background:var(--copper-500);color:var(--ground-950);}
+
+  a:focus-visible,
+  button:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:3px;
+  }
+
+  /* ---------- grain / metal texture ---------- */
+  .grain{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:900;
+    opacity:0.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- skip link ---------- */
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    background:var(--copper-500);
+    color:var(--ink);
+    padding:0.85em 1.25em;
+    z-index:9999;
+    font-weight:700;
+    border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{left:0;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:500;
+    background:rgba(22,15,10,0.65);
+    backdrop-filter:blur(10px) saturate(140%);
+    border-bottom:1px solid rgba(184,115,51,0.25);
+    transition:background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  header.site.scrolled{
+    background:rgba(18,12,8,0.92);
+    box-shadow:0 8px 30px rgba(0,0,0,0.35);
+  }
+  @media (prefers-reduced-motion:reduce){
+    header.site{transition:none;}
+  }
+  .site-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding-block:0.9rem;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.65rem;
+    font-family:ui-serif, Georgia, serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+    text-decoration:none;
+    color:var(--paper);
+  }
+  .brand small{
+    display:block;
+    font-family:ui-sans-serif, system-ui, sans-serif;
+    font-weight:500;
+    font-size:0.62rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--verdigris-300);
+  }
+  .nav-links{
+    display:flex;
+    gap:1.75rem;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:0.92rem;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--copper-100);
+    position:relative;
+    padding-bottom:0.2rem;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:2px;
+    background:var(--copper-500);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.25s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after{transform:scaleX(1);}
+  @media (prefers-reduced-motion:reduce){
+    .nav-links a::after{transition:none;}
+  }
+  .nav-call{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:linear-gradient(155deg, var(--copper-300), var(--copper-600) 60%, var(--copper-800));
+    color:var(--ink);
+    font-weight:700;
+    padding:0.55rem 1.1rem;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:0.9rem;
+    box-shadow:0 4px 14px rgba(184,115,51,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    white-space:nowrap;
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding-block:clamp(4.5rem, 12vw, 8rem) clamp(3.5rem, 8vw, 6rem);
+    background:
+      radial-gradient(ellipse 80% 60% at 20% -10%, rgba(184,115,51,0.28), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 100% 10%, rgba(78,133,119,0.18), transparent 65%),
+      linear-gradient(180deg, var(--ground-900), var(--ground-950) 70%);
+  }
+  .hero-pipes{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    opacity:0.5;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:2.5rem;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--verdigris-300);
+    font-weight:600;
+    margin-bottom:1.1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:2rem;height:2px;
+    background:var(--verdigris-500);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    line-height:0.98;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--copper-300), var(--copper-500) 45%, var(--copper-600));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    font-size:1.15rem;
+    color:var(--copper-100);
+    max-width:38ch;
+    margin-top:1.4rem;
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-top:2.2rem;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    background:linear-gradient(155deg, var(--copper-300), var(--copper-600) 55%, var(--copper-800));
+    color:var(--ink);
+    font-weight:700;
+    padding:0.95rem 1.6rem;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:1rem;
+    box-shadow:0 8px 24px rgba(184,115,51,0.4), inset 0 1px 0 rgba(255,255,255,0.45);
+    min-height:44px;
+  }
+  .btn-ghost{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    border:1px solid rgba(127,173,160,0.5);
+    color:var(--verdigris-300);
+    padding:0.95rem 1.6rem;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:1rem;
+    min-height:44px;
+  }
+  .hero-badge-wrap{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+
+  /* ---------- section shell ---------- */
+  section{
+    position:relative;
+    padding-block:clamp(3.5rem, 8vw, 6.5rem);
+  }
+  .section-head{
+    max-width:56ch;
+    margin-bottom:2.75rem;
+  }
+  .section-head .eyebrow{margin-bottom:0.8rem;}
+  .section-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.7rem);
+  }
+  .section-head p{
+    color:var(--copper-100);
+    font-size:1.05rem;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- stepped diagonal services ---------- */
+  .services{
+    background:
+      linear-gradient(180deg, var(--ground-950), var(--ground-900) 15%, var(--ground-900) 85%, var(--ground-950));
+  }
+  .joint-row{
+    display:flex;
+    flex-direction:column;
+  }
+  .joint{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.75rem;
+    align-items:start;
+    padding:2rem clamp(1rem, 3vw, 2.5rem);
+    border-top:1px solid rgba(184,115,51,0.18);
+    position:relative;
+  }
+  .joint:last-child{border-bottom:1px solid rgba(184,115,51,0.18);}
+  .joint:nth-child(odd){
+    margin-left:0;
+    background:linear-gradient(90deg, rgba(184,115,51,0.06), transparent 60%);
+  }
+  .joint:nth-child(even){
+    margin-left:clamp(0px, 6vw, 4.5rem);
+    background:linear-gradient(90deg, rgba(78,133,119,0.07), transparent 60%);
+  }
+  @media (max-width:640px){
+    .joint:nth-child(even){margin-left:0;}
+  }
+  .joint-icon{
+    width:64px;height:64px;
+    flex-shrink:0;
+  }
+  .joint h3{
+    font-size:1.3rem;
+    color:var(--copper-100);
+    margin-bottom:0.4rem;
+  }
+  .joint p{
+    color:#d8c6ac;
+    max-width:56ch;
+    margin:0;
+  }
+  .joint-number{
+    position:absolute;
+    top:1.6rem;
+    right:clamp(1rem,3vw,2.5rem);
+    font-family:ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+    color:rgba(127,173,160,0.55);
+    line-height:1;
+    border:1px solid rgba(127,173,160,0.35);
+    padding:0.25rem 0.5rem;
+    border-radius:3px;
+  }
+
+  /* ---------- why us: patina panel with elbow diagram ---------- */
+  .why{
+    background:linear-gradient(160deg, var(--ground-900), var(--verdigris-700) 130%);
+    position:relative;
+    overflow:hidden;
+  }
+  .why::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 85% 20%, rgba(78,133,119,0.35), transparent 55%);
+    pointer-events:none;
+  }
+  .why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  @media (max-width:860px){
+    .why-grid{grid-template-columns:1fr;}
+  }
+  .why-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+  }
+  .why-list li{
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+  }
+  .why-list .mark{
+    flex-shrink:0;
+    width:2.25rem;height:2.25rem;
+    border-radius:50%;
+    background:linear-gradient(155deg, var(--copper-300), var(--copper-600));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .why-list strong{
+    display:block;
+    color:var(--paper);
+    font-size:1.05rem;
+    margin-bottom:0.2rem;
+  }
+  .why-list span.desc{color:#d3e3dd;font-size:0.95rem;}
+
+  /* ---------- location / service area with diagonal band ---------- */
+  .area{
+    background:var(--ground-950);
+    position:relative;
+  }
+  .area-band{
+    position:relative;
+    background:linear-gradient(115deg, var(--ground-800) 0%, var(--ground-800) 40%, var(--copper-800) 100%);
+    clip-path:polygon(0 6%, 100% 0, 100% 94%, 0 100%);
+    padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem);
+  }
+  @media (max-width:640px){
+    .area-band{clip-path:none;border-radius:16px;}
+  }
+  .area-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2.5rem;
+    align-items:center;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  @media (max-width:860px){
+    .area-inner{grid-template-columns:1fr;}
+  }
+  .area address{
+    font-style:normal;
+    font-size:1.15rem;
+    color:var(--copper-100);
+  }
+  .map-diagram{
+    width:100%;
+    height:auto;
+  }
+
+  /* ---------- contact / CTA ---------- */
+  .contact{
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(184,115,51,0.25), transparent 65%),
+      var(--ground-950);
+    text-align:center;
+  }
+  .contact h2{
+    font-size:clamp(2.1rem, 5vw, 3.3rem);
+  }
+  .contact p{
+    color:var(--copper-100);
+    max-width:48ch;
+    margin:0 auto 2.2rem;
+    font-size:1.1rem;
+  }
+  .phone-link{
+    display:inline-flex;
+    align-items:center;
+    gap:0.85rem;
+    font-family:ui-serif, Georgia, serif;
+    font-size:clamp(1.8rem, 5vw, 2.6rem);
+    font-weight:700;
+    text-decoration:none;
+    color:var(--paper);
+    padding:1rem 2rem;
+    border:2px solid var(--copper-500);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(184,115,51,0.12), transparent);
+  }
+  .phone-link svg{width:1.9rem;height:1.9rem;flex-shrink:0;}
+  .contact-note{
+    margin-top:1.75rem;
+    font-size:0.92rem;
+    color:var(--verdigris-300);
+  }
+
+  /* ---------- footer ---------- */
+  footer.site{
+    border-top:1px solid rgba(184,115,51,0.2);
+    padding-block:2.5rem;
+    background:var(--ground-950);
+  }
+  .footer-inner{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:1.5rem;
+    font-size:0.9rem;
+    color:#a88c6d;
+  }
+  .footer-inner a{text-decoration:none;color:var(--copper-100);}
+
+  .concept-note{
+    text-align:center;
+    font-size:0.78rem;
+    color:#8a7256;
+    background:var(--ground-950);
+    padding:1rem 1.25rem 1.5rem;
+    margin:0;
+    border-top:1px solid rgba(184,115,51,0.15);
+  }
+
+  .sr-only{
+    position:absolute;
+    width:1px;height:1px;
+    padding:0;margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;border:0;
+  }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site" id="siteHeader">
+  <nav class="site-nav container" aria-label="Primary">
+    <a class="brand" href="#main">
+      <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-label="Coppers Plumbing pipe union mark">
+        <title>Coppers Plumbing mark</title>
+        <circle cx="17" cy="17" r="16" fill="none" stroke="#b87333" stroke-width="2"/>
+        <path d="M8 17h6m12 0h-6M17 8v6m0 6v6" stroke="#d99a5c" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="17" cy="17" r="4" fill="#4e8577"/>
+      </svg>
+      <span>Coppers Plumbing<small>St Anthony, Idaho</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#area">Service Area</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+12082709204" aria-label="Call Coppers Plumbing at (208) 270-9204">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z" fill="currentColor"/></svg>
+      (208) 270-9204
+    </a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-pipes" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="pipeGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#d99a5c"/>
+          <stop offset="50%" stop-color="#b87333"/>
+          <stop offset="100%" stop-color="#5e3a1a"/>
+        </linearGradient>
+        <linearGradient id="pipeGrad2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#4e8577"/>
+          <stop offset="100%" stop-color="#33594f"/>
+        </linearGradient>
+      </defs>
+      <path d="M-50 120 H400 a40 40 0 0 1 40 40 V420 a40 40 0 0 0 40 40 H1250" fill="none" stroke="url(#pipeGrad)" stroke-width="14" opacity="0.55"/>
+      <path d="M-50 550 H250 a36 36 0 0 0 36 -36 V300 a36 36 0 0 1 36 -36 H900 a36 36 0 0 1 36 36 V520" fill="none" stroke="url(#pipeGrad2)" stroke-width="10" opacity="0.4"/>
+      <circle cx="440" cy="160" r="16" fill="none" stroke="#d99a5c" stroke-width="6" opacity="0.5"/>
+      <circle cx="922" cy="284" r="12" fill="none" stroke="#7fada0" stroke-width="5" opacity="0.4"/>
+      <circle cx="480" cy="460" r="10" fill="#5e3a1a" opacity="0.5"/>
+    </svg>
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">St Anthony, Idaho · Licensed local plumbing</p>
+        <h1>Copper doesn't <em>corrode</em>.<br>Neither does our word.</h1>
+        <p class="lede">Straightforward plumbing repair and service for St Anthony and the surrounding valley, from a company that solders every joint like it's the one that has to hold.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="tel:+12082709204">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z" fill="currentColor"/></svg>
+            Call (208) 270-9204
+          </a>
+          <a class="btn-ghost" href="#services">See what we fix</a>
+        </div>
+      </div>
+      <div class="hero-badge-wrap">
+        <svg width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="Illustration of a soldered copper pipe union with two elbow joints">
+          <title>Copper pipe union illustration</title>
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d99a5c"/>
+              <stop offset="45%" stop-color="#b87333"/>
+              <stop offset="100%" stop-color="#5e3a1a"/>
+            </linearGradient>
+            <radialGradient id="capGrad" cx="35%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#f2d9bf"/>
+              <stop offset="55%" stop-color="#b87333"/>
+              <stop offset="100%" stop-color="#5e3a1a"/>
+            </radialGradient>
+          </defs>
+          <circle cx="160" cy="160" r="150" fill="none" stroke="#33241a" stroke-width="1"/>
+          <rect x="60" y="140" width="200" height="40" rx="20" fill="url(#ringGrad)"/>
+          <rect x="130" y="90" width="60" height="140" rx="28" fill="url(#capGrad)" opacity="0.95"/>
+          <circle cx="160" cy="160" r="26" fill="none" stroke="#33594f" stroke-width="6"/>
+          <circle cx="160" cy="160" r="26" fill="#4e8577" opacity="0.35"/>
+          <path d="M100 160 h-40 a10 10 0 0 1 -10 -10" fill="none" stroke="#7fada0" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+          <path d="M220 160 h40 a10 10 0 0 0 10 10" fill="none" stroke="#7fada0" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES : stepped diagonal joint list -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">The work</p>
+        <h2>Plumbing service, laid out plainly</h2>
+        <p>No upsell script, no mystery diagnostics fee you find out about later. Call, describe the problem, get a straight answer.</p>
+      </div>
+    </div>
+    <div class="joint-row container">
+
+      <div class="joint reveal">
+        <svg class="joint-icon" viewBox="0 0 64 64" role="img" aria-label="Elbow pipe joint icon">
+          <title>Elbow joint</title>
+          <path d="M12 12 V38 a8 8 0 0 0 8 8 H52" fill="none" stroke="#b87333" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="4" fill="#d99a5c"/>
+          <circle cx="52" cy="46" r="4" fill="#d99a5c"/>
+        </svg>
+        <div>
+          <span class="joint-number" aria-hidden="true">FIG. LK-01</span>
+          <h3>Leak detection &amp; repair</h3>
+          <p>Dripping fixtures, running toilets, and the leaks you can hear but can't find. We trace it to the source and fix that, not just the symptom.</p>
+        </div>
+      </div>
+
+      <div class="joint reveal">
+        <svg class="joint-icon" viewBox="0 0 64 64" role="img" aria-label="Water heater tank icon">
+          <title>Water heater</title>
+          <rect x="18" y="8" width="28" height="48" rx="6" fill="none" stroke="#4e8577" stroke-width="6"/>
+          <path d="M24 20h16M24 30h16M24 40h16" stroke="#7fada0" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <span class="joint-number" aria-hidden="true">FIG. WH-02</span>
+          <h3>Water heater service</h3>
+          <p>No hot water, not enough of it, or a unit that's making noise it shouldn't. We service and replace tank and tankless systems.</p>
+        </div>
+      </div>
+
+      <div class="joint reveal">
+        <svg class="joint-icon" viewBox="0 0 64 64" role="img" aria-label="Drain snake spiral icon">
+          <title>Drain clearing</title>
+          <path d="M12 52 C12 28, 52 36, 52 12" fill="none" stroke="#b87333" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="52" cy="12" r="5" fill="#d99a5c"/>
+        </svg>
+        <div>
+          <span class="joint-number" aria-hidden="true">FIG. DR-03</span>
+          <h3>Drain &amp; clog clearing</h3>
+          <p>Slow drains, backed-up lines, and clogs that keep coming back. Cleared properly the first time, with the right tool for the line.</p>
+        </div>
+      </div>
+
+      <div class="joint reveal">
+        <svg class="joint-icon" viewBox="0 0 64 64" role="img" aria-label="Union fitting icon">
+          <title>Fixture install</title>
+          <rect x="8" y="26" width="20" height="12" rx="4" fill="none" stroke="#4e8577" stroke-width="5"/>
+          <circle cx="32" cy="32" r="7" fill="none" stroke="#d99a5c" stroke-width="5"/>
+          <rect x="36" y="26" width="20" height="12" rx="4" fill="none" stroke="#4e8577" stroke-width="5"/>
+        </svg>
+        <div>
+          <span class="joint-number" aria-hidden="true">FIG. FX-04</span>
+          <h3>Fixture &amp; pipe replacement</h3>
+          <p>Faucets, sinks, toilets, and aging supply lines swapped or repiped cleanly, with materials sized right for the fixture.</p>
+        </div>
+      </div>
+
+      <div class="joint reveal">
+        <svg class="joint-icon" viewBox="0 0 64 64" role="img" aria-label="Emergency wrench icon">
+          <title>Emergency service</title>
+          <path d="M20 44 L40 24 a8 8 0 1 0 -10 -10 L10 34 a8 8 0 1 0 10 10 z" fill="none" stroke="#b87333" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span class="joint-number" aria-hidden="true">FIG. SV-05</span>
+          <h3>Plumbing repair calls</h3>
+          <p>Something's wrong and it needs a plumber, not a guess. Call and we'll talk through what's happening and what it takes to fix it.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="container why-grid">
+      <div class="reveal">
+        <p class="eyebrow">Why Coppers</p>
+        <h2>Built on material that lasts, work that holds</h2>
+        <ul class="why-list">
+          <li>
+            <span class="mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#160f0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>
+              <strong>Local to St Anthony</strong>
+              <span class="desc">Based at 338 W 2nd N, not a dispatch center routing you to a stranger from three counties over.</span>
+            </span>
+          </li>
+          <li>
+            <span class="mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#160f0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>
+              <strong>Direct communication</strong>
+              <span class="desc">Call the number, talk to the plumber. No call center script standing between you and an answer.</span>
+            </span>
+          </li>
+          <li>
+            <span class="mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#160f0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>
+              <strong>Work done to hold</strong>
+              <span class="desc">A soldered copper joint fails if it's rushed. We don't rush it. Same standard on every job, small or large.</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <svg viewBox="0 0 400 320" role="img" aria-label="Technical illustration of a copper pipe manifold with multiple soldered elbow joints">
+          <title>Copper pipe manifold illustration</title>
+          <defs>
+            <linearGradient id="manifoldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d99a5c"/>
+              <stop offset="50%" stop-color="#b87333"/>
+              <stop offset="100%" stop-color="#5e3a1a"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 60 H200 a20 20 0 0 1 20 20 V260" fill="none" stroke="url(#manifoldGrad)" stroke-width="12" stroke-linecap="round"/>
+          <path d="M40 160 H140" fill="none" stroke="#7fada0" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+          <path d="M40 260 H140 a16 16 0 0 0 16 -16 V180" fill="none" stroke="url(#manifoldGrad)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M220 80 H360" fill="none" stroke="#7fada0" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+          <circle cx="40" cy="60" r="7" fill="#d99a5c"/>
+          <circle cx="40" cy="160" r="7" fill="#7fada0"/>
+          <circle cx="40" cy="260" r="7" fill="#d99a5c"/>
+          <circle cx="220" cy="80" r="7" fill="#7fada0"/>
+          <circle cx="220" cy="260" r="7" fill="#d99a5c"/>
+          <circle cx="220" cy="80" r="14" fill="none" stroke="#f2d9bf" stroke-width="2" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="area" id="area">
+    <div class="container">
+      <div class="area-band reveal">
+        <div class="area-inner">
+          <div>
+            <p class="eyebrow">Where we work</p>
+            <h2>Serving St Anthony and the Upper Valley</h2>
+            <address>
+              338 W 2nd N<br>
+              St Anthony, Idaho
+            </address>
+            <p style="max-width:44ch;color:#e6d3b8;">Based right here in St Anthony. If you're in town or nearby in the valley, give us a call to check whether your address is in reach.</p>
+          </div>
+          <svg class="map-diagram" viewBox="0 0 300 220" role="img" aria-label="Stylized line map marking St Anthony, Idaho with copper pipe roads">
+            <title>Service area diagram</title>
+            <path d="M20 180 H120 a14 14 0 0 0 14 -14 V70" fill="none" stroke="#7fada0" stroke-width="4" opacity="0.6"/>
+            <path d="M280 40 H180 a14 14 0 0 0 -14 14 V180 H60" fill="none" stroke="#d99a5c" stroke-width="4" opacity="0.75"/>
+            <circle cx="134" cy="70" r="9" fill="#b87333"/>
+            <circle cx="134" cy="70" r="16" fill="none" stroke="#f2d9bf" stroke-width="1.5" opacity="0.7"/>
+            <text x="150" y="65" fill="#f2d9bf" font-size="13" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="600">St Anthony</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container reveal">
+      <p class="eyebrow" style="justify-content:center;">Get in touch</p>
+      <h2>Call for a free estimate</h2>
+      <p>Describe the problem, get a real answer from a real plumber, not a queue.</p>
+      <a class="phone-link" href="tel:+12082709204">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z" fill="currentColor"/></svg>
+        (208) 270-9204
+      </a>
+      <p class="contact-note">338 W 2nd N, St Anthony, Idaho</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container footer-inner">
+    <span>Coppers Plumbing — St Anthony, Idaho</span>
+    <a href="tel:+12082709204">(208) 270-9204</a>
+    <span>338 W 2nd N, St Anthony, Idaho</span>
+  </div>
+</footer>
+
+<p class="concept-note">Concept design proposal — not affiliated with or endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if(entry.isIntersecting){
+          var el = entry.target;
+          setTimeout(function(){ el.classList.add('is-visible'); }, i * 40);
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

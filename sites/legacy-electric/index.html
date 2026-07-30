@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Legacy Electric — Electrical Contracting in Rexburg, Idaho</title>
+<style>
+  :root{
+    --black: #0c0d10;
+    --black-2: #131519;
+    --black-3: #1a1d22;
+    --yellow: #f5d020;
+    --yellow-dim: #b89e1a;
+    --line: rgba(245,208,32,0.18);
+    --text: #eceef1;
+    --text-dim: #9ba0aa;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+
+  body{
+    margin:0;
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  h1,h2,h3{
+    font-family: var(--sans);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5em;
+  }
+
+  .eyebrow{
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--yellow);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  .eyebrow::before{
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--yellow);
+    display: inline-block;
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--yellow);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 12px 20px;
+    font-family: var(--mono);
+    font-weight: 700;
+    z-index: 200;
+  }
+  .skip-link:focus{ left: 12px; top: 12px; }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: rgba(12,13,16,0.7);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  header.site.scrolled{
+    border-bottom-color: var(--line);
+    background: rgba(12,13,16,0.92);
+  }
+  @media (prefers-reduced-motion: reduce){
+    header.site{ transition: none; }
+  }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .brand .mark{ width: 26px; height: 26px; flex-shrink: 0; }
+  .brand .name-main{ color: var(--text); }
+  .brand .name-sub{ color: var(--yellow); }
+
+  nav.site-nav{ display: flex; align-items: center; gap: 28px; }
+  nav.site-nav a{
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+  nav.site-nav a:hover{ color: var(--yellow); }
+  @media (prefers-reduced-motion: reduce){ nav.site-nav a{ transition: none; } }
+
+  .btn-call{
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 0.82rem;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 10px 18px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-call:hover{ transform: translateY(-1px); box-shadow: 0 6px 22px rgba(245,208,32,0.25); }
+  @media (prefers-reduced-motion: reduce){ .btn-call{ transition: none; } .btn-call:hover{ transform: none; } }
+
+  @media (max-width: 720px){
+    nav.site-nav .nav-links{ display: none; }
+  }
+
+  /* ---------- Circuit trace background layer ---------- */
+  .circuit-layer{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .circuit-layer path{
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 1;
+    opacity: 0.35;
+  }
+  .circuit-layer circle{
+    fill: var(--yellow);
+    opacity: 0.5;
+  }
+  .circuit-layer path.trace{
+    stroke-dasharray: 8 6;
+    stroke-dashoffset: 0;
+    opacity: 0.5;
+  }
+  .circuit-layer path.trace.flow{
+    animation: dash-flow 6s linear infinite;
+  }
+  @keyframes dash-flow{
+    to{ stroke-dashoffset: -280; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .circuit-layer path.trace.flow{ animation: none; }
+  }
+
+  section{ position: relative; overflow: hidden; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 150px 0 120px;
+    position: relative;
+  }
+  .hero .wrap{ position: relative; z-index: 2; }
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    line-height: 1.02;
+    max-width: 16ch;
+    margin: 0.4em 0 0.5em;
+  }
+  .hero h1 .hl{ color: var(--yellow); }
+  .hero p.lede{
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 46ch;
+    margin: 0 0 2em;
+  }
+  .hero .cta-row{ display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-primary{
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 16px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px rgba(245,208,32,0.28); }
+  .btn-ghost{
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    border: 1px solid var(--line);
+    padding: 15px 24px;
+    border-radius: 3px;
+    text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover{ border-color: var(--yellow); color: var(--yellow); }
+  @media (prefers-reduced-motion: reduce){
+    .btn-primary,.btn-ghost{ transition: none; }
+    .btn-primary:hover{ transform: none; }
+  }
+
+  .hero-stats{
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 40px;
+    justify-content: start;
+  }
+  .hero-stats .stat dd{
+    font-family: var(--mono);
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin: 0;
+    line-height: 1;
+  }
+  .hero-stats .stat dt{
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+  @media (max-width: 640px){
+    .hero-stats{ grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .hero-stats .stat dd{ font-size: 1.5rem; }
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(.16,.8,.28,1), transform 0.7s cubic-bezier(.16,.8,.28,1);
+  }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+  .reveal-stagger > *{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal-stagger.in > *{ opacity: 1; transform: translateY(0); }
+  .reveal-stagger.in > *:nth-child(1){ transition-delay: 0.02s; }
+  .reveal-stagger.in > *:nth-child(2){ transition-delay: 0.1s; }
+  .reveal-stagger.in > *:nth-child(3){ transition-delay: 0.18s; }
+  .reveal-stagger.in > *:nth-child(4){ transition-delay: 0.26s; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{ transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ---------- Section headings ---------- */
+  .section-head{ max-width: 60ch; margin-bottom: 56px; }
+  .section-head h2{ font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+  .section-head p{ color: var(--text-dim); font-size: 1.05rem; max-width: 52ch; }
+
+  section.band{ padding: 110px 0; }
+  section.band.tight{ padding: 90px 0; }
+  .band-line-top{ border-top: 1px solid var(--line); }
+  .alt-bg{ background: var(--black-2); }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .service-card{
+    background: var(--black);
+    padding: 36px 30px;
+    position: relative;
+  }
+  .service-card svg.icon{ width: 40px; height: 40px; margin: 4px 0 20px; }
+  .service-card h3{ font-size: 1.15rem; margin-bottom: 0.4em; }
+  .service-card p{ color: var(--text-dim); font-size: 0.95rem; margin: 0; }
+
+  /* ---------- Family / why-them ---------- */
+  .family-section{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 860px){
+    .family-section{ grid-template-columns: 1fr; }
+  }
+  .family-copy p{ color: var(--text-dim); font-size: 1.05rem; }
+  .family-names{
+    font-family: var(--mono);
+    font-size: 1.3rem;
+    color: var(--yellow);
+    margin: 20px 0;
+    letter-spacing: 0.01em;
+  }
+  .trust-list{ list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 16px; }
+  .trust-list li{
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+  .trust-list svg{ width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; color: var(--yellow); }
+
+  .schematic-box{
+    border: 1px solid var(--line);
+    background: var(--black-2);
+    border-radius: 4px;
+    padding: 40px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .schematic-box svg{ width: 100%; height: 100%; }
+
+  /* ---------- Service area ---------- */
+  .area-band{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 860px){ .area-band{ grid-template-columns: 1fr; } }
+  .area-map{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 30px;
+    background: var(--black-2);
+  }
+  .area-map svg{ width: 100%; height: auto; display: block; }
+  .area-copy p{ color: var(--text-dim); font-size: 1.05rem; }
+  .chip-row{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .chip{
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
+  /* ---------- Contact / CTA ---------- */
+  .cta-band{
+    text-align: center;
+    padding: 130px 0 120px;
+    position: relative;
+  }
+  .cta-band .wrap{ position: relative; z-index: 2; }
+  .cta-band h2{ font-size: clamp(2rem, 5vw, 3.4rem); max-width: 20ch; margin: 0 auto 0.4em; }
+  .cta-band p.lede{ color: var(--text-dim); font-size: 1.1rem; max-width: 46ch; margin: 0 auto 2.2em; }
+  .cta-phone{
+    font-family: var(--mono);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--yellow);
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.01em;
+    padding: 6px 4px;
+  }
+  .cta-sub{ margin-top: 36px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    border-top: 1px solid var(--line);
+    padding: 48px 0 30px;
+  }
+  .footer-grid{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-grid .brand{ margin-bottom: 8px; }
+  .footer-grid .foot-meta{ color: var(--text-dim); font-size: 0.9rem; }
+  .footer-grid .foot-meta a{ color: var(--yellow); text-decoration: none; }
+  .footer-links{ font-family: var(--mono); font-size: 0.82rem; display: flex; gap: 24px; }
+  .footer-links a{ color: var(--text-dim); text-decoration: none; }
+  .footer-links a:hover{ color: var(--yellow); }
+
+  .concept-note{
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6b7078;
+    background: var(--black);
+    padding: 14px 20px 26px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* generic visually-hidden util for svg titles etc handled natively */
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site" id="site-header">
+  <a href="#top" class="brand" aria-label="Legacy Electric home">
+    <svg class="mark" viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <title>Legacy Electric bolt mark</title>
+      <path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" fill="none" stroke="#f5d020" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>
+    <span class="name-main">LEGACY</span><span class="name-sub">ELECTRIC</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#family">Family-Run</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn-call" href="tel:+12083590672" aria-label="Call Legacy Electric at (208) 359-0672">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (208) 359-0672
+    </a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <svg class="circuit-layer" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+      <path class="trace flow" d="M0 120 H260 L300 160 H520" />
+      <path class="trace flow" d="M1200 80 H900 L860 120 H600 L560 160" style="animation-delay:-2s" />
+      <path class="trace flow" d="M0 500 H180 L220 460 H460 L500 500 H760" style="animation-delay:-4s" />
+      <path class="trace flow" d="M1200 620 H940 L900 580 H700" style="animation-delay:-1s" />
+      <circle cx="520" cy="160" r="4"/>
+      <circle cx="600" cy="120" r="4"/>
+      <circle cx="760" cy="500" r="4"/>
+      <circle cx="700" cy="580" r="4"/>
+    </svg>
+    <div class="wrap">
+      <span class="eyebrow">Rexburg, Idaho &middot; Licensed Electrical Contractors</span>
+      <h1>Wired right, <span class="hl">the first time</span>.</h1>
+      <p class="lede">Legacy Electric is a family-run electrical contracting business serving Rexburg and the Upper Valley: residential, commercial, and everything with a circuit in it. Ryan and Nick Leishman have run current through this town for over 20 years.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="tel:+12083590672">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0c0d10" stroke-width="2.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (208) 359-0672
+        </a>
+        <a class="btn-ghost" href="#contact">Request an estimate</a>
+      </div>
+      <dl class="hero-stats reveal-stagger">
+        <div class="stat"><dd>20+</dd><dt>Years running current</dt></div>
+        <div class="stat"><dd>2</dd><dt>Brothers, one crew</dt></div>
+        <div class="stat"><dd>Rexburg</dd><dt>Home base</dt></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="band band-line-top" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we run</span>
+        <h2>Electrical work, done properly.</h2>
+        <p>From a flickering breaker to a full panel upgrade, if it carries current, Legacy Electric handles it correctly, safely, and without a callback.</p>
+      </div>
+      <div class="services-grid reveal-stagger">
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z"/></svg>
+          <h3>Panel Upgrades</h3>
+          <p>Outdated or undersized panels replaced and brought up to modern capacity and code.</p>
+        </div>
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+          <h3>Residential Wiring</h3>
+          <p>New circuits, rewires, remodels, and additions wired to last, not just to pass.</p>
+        </div>
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg>
+          <h3>Commercial Service</h3>
+          <p>Buildouts, tenant improvements, and maintenance for local shops and offices.</p>
+        </div>
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Troubleshooting &amp; Repair</h3>
+          <p>Tripped breakers, dead outlets, dimming lights: we find the real problem, not just the symptom.</p>
+        </div>
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          <h3>Lighting &amp; Fixtures</h3>
+          <p>Interior, exterior, and specialty lighting installed clean, level, and up to code.</p>
+        </div>
+        <div class="service-card">          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f5d020" stroke-width="1.5" role="img" aria-hidden="true"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg>
+          <h3>New Construction</h3>
+          <p>Ground-up electrical for new builds, working directly with your builder and timeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAMILY / WHY THEM ============ -->
+  <section class="band alt-bg" id="family">
+    <div class="wrap family-section">
+      <div class="family-copy reveal">
+        <span class="eyebrow">Family-run, not franchised</span>
+        <h2>Ryan &amp; Nick Leishman</h2>
+        <p class="family-names">Brothers. Electricians. Rexburg locals.</p>
+        <p>Legacy Electric is Ryan and Nick. No call center, no rotating crew of subcontractors you've never met. When you call, you're talking to one of the two people who's actually going to show up and do the work. That's been the setup for over 20 years, and it's why the name on the truck means something in this valley.</p>
+        <ul class="trust-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Same two owners on every job, start to finish</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Over two decades running electrical work in the Upper Valley</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A local business, answering to local neighbors</li>
+        </ul>
+      </div>
+      <div class="schematic-box reveal" aria-hidden="true">
+        <svg viewBox="0 0 300 300">
+          <title>Decorative circuit schematic</title>
+          <g fill="none" stroke="#f5d020" stroke-width="1.2" opacity="0.55">
+            <path d="M20 40 H120 L140 60 V140 L160 160 H260"/>
+            <path d="M20 260 H100 L120 240 V160 L140 140 H220 L240 120 V60 H280"/>
+            <circle cx="140" cy="60" r="4" fill="#f5d020" stroke="none"/>
+            <circle cx="160" cy="160" r="4" fill="#f5d020" stroke="none"/>
+            <circle cx="120" cy="240" r="4" fill="#f5d020" stroke="none"/>
+            <circle cx="240" cy="120" r="4" fill="#f5d020" stroke="none"/>
+          </g>
+          <path d="M150 90 L110 160 H140 L135 210 L180 135 H150 Z" fill="#f5d020" opacity="0.9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE AREA ============ -->
+  <section class="band" id="area">
+    <div class="wrap area-band">
+      <div class="area-copy reveal">
+        <span class="eyebrow">Where we work</span>
+        <h2>Serving Rexburg and the Upper Valley.</h2>
+        <p>Legacy Electric is based right here in Rexburg, Idaho. Call for a free estimate on residential, commercial, or new-construction electrical work anywhere in the surrounding area.</p>
+        <div class="chip-row">
+          <span class="chip">Rexburg</span>
+          <span class="chip">Upper Valley</span>
+          <span class="chip">Residential</span>
+          <span class="chip">Commercial</span>
+        </div>
+      </div>
+      <div class="area-map reveal" aria-hidden="true">
+        <svg viewBox="0 0 320 220">
+          <title>Decorative service area circuit map</title>
+          <g fill="none" stroke="#f5d020" stroke-width="1" opacity="0.4">
+            <path d="M10 190 H80 L100 170 H150 L170 190 H240 L260 150 H310"/>
+            <path d="M10 40 H60 L80 60 H140 L160 40 H210 L230 70 H310"/>
+            <path d="M160 40 V90 L140 110 V170"/>
+          </g>
+          <circle cx="160" cy="110" r="7" fill="#f5d020"/>
+          <circle cx="160" cy="110" r="14" fill="none" stroke="#f5d020" stroke-width="1" opacity="0.5"/>
+          <text x="160" y="135" text-anchor="middle" fill="#eceef1" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1">REXBURG, ID</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / CTA ============ -->
+  <section class="cta-band band-line-top" id="contact">
+    <svg class="circuit-layer" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+      <path class="trace flow" d="M0 60 H300 L340 100 H700 L740 60 H1200" />
+      <path class="trace flow" d="M0 440 H260 L300 400 H900 L940 440 H1200" style="animation-delay:-3s" />
+    </svg>
+    <div class="wrap reveal">
+      <span class="eyebrow" style="justify-content:center">Get in touch</span>
+      <h2>Have an electrical problem? Call the brothers who'll actually fix it.</h2>
+      <p class="lede">Call for a free estimate on residential, commercial, or new construction work, anywhere in the Rexburg area.</p>
+      <a class="cta-phone" href="tel:+12083590672">(208) 359-0672</a>
+      <div class="cta-sub">
+        <a class="btn-ghost" href="mailto:ryanleishman@msn.com">ryanleishman@msn.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#top" class="brand" aria-label="Legacy Electric home">
+        <svg class="mark" viewBox="0 0 24 24" role="img" aria-hidden="true"><title>Legacy Electric bolt mark</title><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" fill="none" stroke="#f5d020" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span class="name-main">LEGACY</span><span class="name-sub">ELECTRIC</span>
+      </a>
+      <p class="foot-meta">Rexburg, Idaho &middot; <a href="tel:+12083590672">(208) 359-0672</a> &middot; <a href="mailto:ryanleishman@msn.com">ryanleishman@msn.com</a></p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#family">Family-Run</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<p class="concept-note">Concept design proposal — not affiliated with or endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
+
+<script>
+(function(){
+  "use strict";
+
+  var header = document.getElementById('site-header');
+  function onScroll(){
+    if (window.scrollY > 12) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){
+      el.classList.add('in');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

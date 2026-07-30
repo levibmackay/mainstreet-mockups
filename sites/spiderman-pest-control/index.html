@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Spiderman Pest Control — Pest Control Serving Rigby, Idaho</title>
+<style>
+  :root{
+    --ink-950:#0d120f;
+    --ink-900:#131a16;
+    --ink-800:#19221d;
+    --ink-700:#212d26;
+    --ink-600:#2b3a31;
+    --line: rgba(168,255,77,0.16);
+    --line-soft: rgba(210,220,214,0.10);
+    --acid-500:#a8ff4d;
+    --acid-400:#c2ff7a;
+    --acid-700:#7fce2f;
+    --fog:#e7ece9;
+    --fog-dim:#a9b4ae;
+    --radius:3px;
+    --ff: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+
+  body{
+    margin:0;
+    background:var(--ink-900);
+    color:var(--fog);
+    font-family:var(--ff);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-0.01em;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--ff);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    margin:0;
+    color:var(--fog);
+  }
+
+  p{ margin:0; }
+  a{ color:inherit; }
+  ul{ margin:0; padding:0; }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  a.skip-link{
+    position:absolute; left:1rem; top:-4rem;
+    background:var(--acid-500); color:var(--ink-950);
+    padding:0.75rem 1.25rem; z-index:200; font-weight:800;
+    border-radius:var(--radius);
+    transition:top 0.2s ease;
+  }
+  a.skip-link:focus{ top:1rem; }
+  @media (prefers-reduced-motion: reduce){
+    a.skip-link{ transition:none; }
+  }
+
+  :focus-visible{
+    outline:3px solid var(--acid-500);
+    outline-offset:3px;
+  }
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(13,18,15,0.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line-soft);
+    transition:background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .site-header{ transition:none; }
+  }
+  .site-header.scrolled{
+    background:rgba(13,18,15,0.97);
+    box-shadow:0 12px 28px rgba(0,0,0,0.4);
+    border-bottom-color:var(--line);
+  }
+  .header-inner{
+    max-width:1220px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem;
+    padding:1.1rem 1.25rem;
+  }
+  .logo{
+    display:flex; align-items:center; gap:0.6rem;
+    text-decoration:none;
+    line-height:1;
+    min-height:44px;
+  }
+  .logo-mark{ width:30px; height:30px; flex-shrink:0; }
+  .logo-text{ display:flex; flex-direction:column; }
+  .logo-text .top{
+    font-weight:900; font-size:1.02rem; letter-spacing:-0.02em; color:var(--fog);
+  }
+  .logo-text .bottom{
+    font-weight:700; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--acid-500);
+  }
+
+  nav.primary-nav ul{
+    list-style:none; display:flex; gap:1.6rem;
+  }
+  nav.primary-nav a{
+    text-decoration:none;
+    font-size:0.82rem; font-weight:700;
+    letter-spacing:0.03em;
+    color:var(--fog-dim);
+    padding:0.4rem 0.1rem;
+    border-bottom:2px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  nav.primary-nav a:hover, nav.primary-nav a:focus-visible{
+    color:var(--acid-400); border-color:var(--acid-500);
+  }
+  @media (prefers-reduced-motion: reduce){
+    nav.primary-nav a{ transition:none; }
+  }
+  @media (max-width:800px){
+    nav.primary-nav{ display:none; }
+  }
+  .header-cta{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-height:44px;
+    background:var(--acid-500); color:var(--ink-950);
+    font-weight:800; font-size:0.8rem; letter-spacing:0.02em;
+    text-decoration:none;
+    padding:0.6rem 1.1rem; border-radius:var(--radius);
+    white-space:nowrap;
+    transition:background 0.2s ease;
+  }
+  .header-cta:hover{ background:var(--acid-400); }
+  @media (prefers-reduced-motion: reduce){ .header-cta{ transition:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:4.5rem 1.25rem 5rem;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 78% 8%, rgba(168,255,77,0.09), transparent 55%),
+      linear-gradient(180deg, var(--ink-900), var(--ink-800) 70%);
+  }
+  .hero-inner{
+    max-width:1220px; margin:0 auto;
+    display:grid; grid-template-columns:1.05fr 0.95fr;
+    gap:3rem; align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-inner{ grid-template-columns:1fr; }
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:0.6rem;
+    font-size:0.75rem; font-weight:800; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--acid-500);
+    margin-bottom:1.1rem;
+  }
+  .eyebrow::before{
+    content:""; width:26px; height:2px; background:var(--acid-500);
+    display:inline-block; flex-shrink:0;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5.4vw, 3.8rem);
+    line-height:1.02;
+  }
+  .hero h1 .accent{ color:var(--acid-500); }
+  .hero p.lede{
+    font-weight:400;
+    font-size:1.08rem;
+    color:var(--fog-dim);
+    max-width:44ch;
+    margin:1.3rem 0 2rem;
+  }
+  .hero-ctas{ display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+    text-decoration:none;
+    font-weight:800; font-size:0.85rem; letter-spacing:0.01em;
+    padding:0.95rem 1.5rem;
+    border-radius:var(--radius);
+    min-height:48px;
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ .btn{ transition:none; } }
+  .btn-primary{ background:var(--acid-500); color:var(--ink-950); }
+  .btn-primary:hover{ background:var(--acid-400); }
+  .btn-ghost{
+    background:transparent; color:var(--fog);
+    border:1.5px solid var(--line-soft);
+  }
+  .btn-ghost:hover{ border-color:var(--acid-500); color:var(--acid-400); }
+
+  .trust-strip{
+    display:flex; gap:2rem; flex-wrap:wrap;
+    margin-top:2.75rem; padding-top:1.6rem;
+    border-top:1px solid var(--line-soft);
+  }
+  .trust-item{ display:flex; flex-direction:column; gap:0.2rem; }
+  .trust-item strong{
+    font-size:1.5rem; color:var(--acid-500); font-weight:900;
+    letter-spacing:-0.02em;
+  }
+  .trust-item span{ font-size:0.8rem; color:var(--fog-dim); }
+
+  /* hero lattice graphic */
+  .hero-graphic{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lattice-svg{ width:100%; height:auto; display:block; max-width:460px; }
+  .lattice-line{
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    transition:stroke-dashoffset 1.6s cubic-bezier(0.16,0.84,0.44,1);
+  }
+  .lattice-thread{
+    stroke-dasharray:260;
+    stroke-dashoffset:260;
+    transition:stroke-dashoffset 1.2s ease;
+  }
+  .hero-graphic.in-view .lattice-line{ stroke-dashoffset:0; }
+  .hero-graphic.in-view .lattice-thread{ stroke-dashoffset:0; }
+  .hero-graphic.in-view .lattice-line:nth-of-type(2){ transition-delay:0.12s; }
+  .hero-graphic.in-view .lattice-line:nth-of-type(3){ transition-delay:0.24s; }
+  .hero-graphic.in-view .lattice-line:nth-of-type(4){ transition-delay:0.36s; }
+  .hero-graphic.in-view .lattice-line:nth-of-type(5){ transition-delay:0.48s; }
+  @media (prefers-reduced-motion: reduce){
+    .lattice-line, .lattice-thread{
+      stroke-dashoffset:0 !important; transition:none !important;
+    }
+  }
+
+  /* ---------- generic section ---------- */
+  section{ position:relative; }
+  .section-inner{
+    max-width:1220px; margin:0 auto; padding:5rem 1.25rem;
+  }
+  .section-head{ max-width:58ch; margin-bottom:3rem; }
+  .section-head .eyebrow{ margin-bottom:0.8rem; }
+  .section-head h2{ font-size:clamp(1.8rem, 3.6vw, 2.5rem); }
+  .section-head p{
+    color:var(--fog-dim); font-size:1.02rem; margin-top:1rem;
+    font-weight:400;
+  }
+
+  /* web-line divider */
+  .web-divider{
+    height:56px;
+    display:block;
+    width:100%;
+  }
+
+  /* ---------- services ---------- */
+  .services-section{ background:var(--ink-800); }
+  .services-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:1px; background:var(--line-soft);
+    border:1px solid var(--line-soft);
+  }
+  .service-card{
+    background:var(--ink-900);
+    padding:2.2rem 1.75rem;
+    border-top:2px solid var(--acid-500);
+  }
+  .service-card h3{ font-size:1.1rem; margin-bottom:0.75rem; }
+  .service-card p{
+    font-weight:400; font-size:0.94rem;
+    color:var(--fog-dim);
+  }
+  .service-card svg{ width:32px; height:32px; margin-bottom:1.1rem; }
+
+  /* ---------- why us ---------- */
+  .why-section{
+    background:linear-gradient(180deg, var(--ink-800), var(--ink-900));
+  }
+  .why-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:2rem; margin-top:1rem;
+  }
+  .why-card{
+    padding:2.4rem 1.75rem;
+    background:rgba(168,255,77,0.03);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    position:relative;
+  }
+  .why-card .num{
+    font-size:0.78rem; font-weight:800; letter-spacing:0.12em;
+    color:var(--acid-500); text-transform:uppercase; margin-bottom:0.9rem;
+    display:block;
+  }
+  .why-card h3{ font-size:1.2rem; margin-bottom:0.7rem; }
+  .why-card p{
+    font-weight:400; font-size:0.95rem;
+    color:var(--fog-dim);
+  }
+
+  /* ---------- service area ---------- */
+  .area-section{ background:var(--ink-800); }
+  .area-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem; align-items:center;
+  }
+  @media (max-width:860px){ .area-inner{ grid-template-columns:1fr; } }
+  .area-copy p{
+    font-weight:400; font-size:1.03rem;
+    color:var(--fog-dim); margin-bottom:1.2rem;
+    max-width:48ch;
+  }
+  .area-copy .locus{
+    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--acid-500); font-weight:800; margin-bottom:0.6rem;
+  }
+  .area-map{ aspect-ratio:1/1; position:relative; max-width:380px; margin:0 auto; }
+
+  /* ---------- contact ---------- */
+  .contact-section{
+    background:linear-gradient(180deg, var(--ink-900), var(--ink-950));
+    text-align:center;
+  }
+  .contact-inner{
+    max-width:640px; margin:0 auto;
+  }
+  .contact-section h2{
+    font-size:clamp(2rem, 5vw, 3rem);
+    margin-bottom:1.2rem;
+  }
+  .contact-section p.lede{
+    color:var(--fog-dim); font-size:1.05rem; font-weight:400;
+    max-width:46ch; margin:0 auto 2.4rem;
+  }
+  .phone-cta{
+    display:inline-flex; align-items:center; gap:0.75rem;
+    background:var(--acid-500); color:var(--ink-950);
+    font-weight:900; font-size:1.4rem; letter-spacing:-0.01em;
+    text-decoration:none; padding:1.1rem 2rem; border-radius:var(--radius);
+    min-height:56px;
+    transition:background 0.2s ease, transform 0.15s ease;
+  }
+  .phone-cta:hover{ background:var(--acid-400); }
+  @media (prefers-reduced-motion: reduce){ .phone-cta{ transition:none; } }
+  .phone-cta svg{ width:22px; height:22px; }
+  .contact-meta{
+    margin-top:2.4rem; display:flex; gap:2rem; justify-content:center;
+    flex-wrap:wrap; font-size:0.88rem; color:var(--fog-dim);
+  }
+  .contact-meta strong{ color:var(--fog); font-weight:700; }
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--ink-950);
+    border-top:1px solid var(--line-soft);
+    padding:2.75rem 1.25rem 1.75rem;
+  }
+  .footer-inner{
+    max-width:1220px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
+  }
+  .footer-inner .logo{ margin-bottom:0.6rem; }
+  .footer-inner p{
+    font-weight:400; font-size:0.88rem;
+    color:var(--fog-dim); max-width:38ch;
+  }
+  .footer-phone{
+    font-size:0.9rem; color:var(--acid-400); font-weight:700;
+    text-decoration:none;
+  }
+
+  p.concept-note{
+    margin:0; padding:0.9rem 1.25rem;
+    background:var(--ink-950);
+    color:#8b948e;
+    font-size:0.78rem; text-align:center;
+    border-top:1px solid var(--line-soft);
+  }
+
+  /* ---------- reveal animation ---------- */
+  .reveal{
+    opacity:0; transform:translateY(26px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.in-view > *{ opacity:1; transform:translateY(0); }
+  .reveal-stagger > *{
+    opacity:0; transform:translateY(22px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal-stagger > *:nth-child(1){ transition-delay:0.05s; }
+  .reveal-stagger > *:nth-child(2){ transition-delay:0.14s; }
+  .reveal-stagger > *:nth-child(3){ transition-delay:0.23s; }
+  .reveal-stagger > *:nth-child(4){ transition-delay:0.32s; }
+  .reveal-stagger > *:nth-child(5){ transition-delay:0.41s; }
+  .reveal-stagger > *:nth-child(6){ transition-delay:0.5s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{
+      opacity:1 !important; transform:none !important; transition:none !important;
+    }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="Spiderman Pest Control, home">
+      <svg class="logo-mark" viewBox="0 0 40 40" role="img" aria-labelledby="logo-mark-title">
+        <title id="logo-mark-title">Radial web lattice mark</title>
+        <circle cx="20" cy="20" r="17" fill="none" stroke="#a8ff4d" stroke-width="1.4" opacity="0.5"/>
+        <circle cx="20" cy="20" r="10" fill="none" stroke="#a8ff4d" stroke-width="1.4" opacity="0.7"/>
+        <g stroke="#a8ff4d" stroke-width="1.2">
+          <line x1="20" y1="3" x2="20" y2="37"/>
+          <line x1="3" y1="20" x2="37" y2="20"/>
+          <line x1="8" y1="8" x2="32" y2="32"/>
+          <line x1="32" y1="8" x2="8" y2="32"/>
+        </g>
+      </svg>
+      <span class="logo-text">
+        <span class="top">Spiderman</span>
+        <span class="bottom">Pest Control</span>
+      </span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="header-cta" href="tel:+12087097523">(208) 709-7523</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="reveal">
+        <p class="eyebrow">Rigby, Idaho · Pest Control</p>
+        <h1 id="hero-heading">Fifteen-plus years of <span class="accent">precise</span> pest control in Rigby, Idaho.</h1>
+        <p class="lede">Spiderman Pest Control has served Rigby and the surrounding area for more than fifteen years, providing residential and commercial pest control built on experience, not guesswork.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+12087097523">Call (208) 709-7523</a>
+          <a class="btn btn-ghost" href="#services">View Services</a>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item">
+            <strong>15+</strong>
+            <span>Years serving Rigby, Idaho</span>
+          </div>
+          <div class="trust-item">
+            <strong>Local</strong>
+            <span>Based in Rigby, Idaho</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-graphic reveal" id="heroGraphic">
+        <svg class="lattice-svg" viewBox="0 0 400 400" role="img" aria-labelledby="hero-lattice-title">
+          <title id="hero-lattice-title">Radial web lattice diagram, drawn as concentric polygons and connecting threads</title>
+          <polygon class="lattice-line" points="200,40 322,110 322,290 200,360 78,290 78,110" fill="none" stroke="#a8ff4d" stroke-width="1.6" opacity="0.9"/>
+          <polygon class="lattice-line" points="200,90 280,135 280,265 200,310 120,265 120,135" fill="none" stroke="#a8ff4d" stroke-width="1.4" opacity="0.7"/>
+          <polygon class="lattice-line" points="200,140 238,162 238,238 200,260 162,238 162,162" fill="none" stroke="#a8ff4d" stroke-width="1.2" opacity="0.55"/>
+          <g stroke="#7a8a80" stroke-width="1" opacity="0.6">
+            <line class="lattice-thread" x1="200" y1="200" x2="200" y2="40"/>
+            <line class="lattice-thread" x1="200" y1="200" x2="322" y2="110"/>
+            <line class="lattice-thread" x1="200" y1="200" x2="322" y2="290"/>
+            <line class="lattice-thread" x1="200" y1="200" x2="200" y2="360"/>
+            <line class="lattice-thread" x1="200" y1="200" x2="78" y2="290"/>
+            <line class="lattice-thread" x1="200" y1="200" x2="78" y2="110"/>
+          </g>
+          <circle cx="200" cy="200" r="5" fill="#a8ff4d"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="services-section" id="services" aria-labelledby="services-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="eyebrow">What We Do</p>
+        <h2 id="services-heading">Pest Control Services</h2>
+        <p>Residential and commercial pest control for homes and businesses in Rigby, Idaho and the surrounding area.</p>
+      </div>
+      <div class="services-grid reveal-stagger">
+        <div class="service-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a8ff4d" stroke-width="1.8" role="img" aria-labelledby="svc1-title"><title id="svc1-title">Inspection icon</title><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <h3>Inspection</h3>
+          <p>A thorough look at your property to understand what's going on before any work begins.</p>
+        </div>
+        <div class="service-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a8ff4d" stroke-width="1.8" role="img" aria-labelledby="svc2-title"><title id="svc2-title">Treatment icon</title><path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/></svg>
+          <h3>Treatment</h3>
+          <p>Pest control treatment for residential and commercial properties, based on what your property actually needs.</p>
+        </div>
+        <div class="service-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a8ff4d" stroke-width="1.8" role="img" aria-labelledby="svc3-title"><title id="svc3-title">Ongoing service icon</title><path d="M3 12a9 9 0 1 1 9 9"/><path d="M3 12l4-4M3 12l4 4"/></svg>
+          <h3>Ongoing Service</h3>
+          <p>Continued pest control service for Rigby-area homes and businesses that want it handled on a regular basis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section class="why-section" id="why-us" aria-labelledby="why-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why Spiderman</p>
+        <h2 id="why-heading">Experience, and a local address</h2>
+        <p>There are two things we can say plainly, and we'd rather say them plainly than pad them out.</p>
+      </div>
+      <div class="why-grid reveal-stagger">
+        <div class="why-card">
+          <span class="num">01</span>
+          <h3>15+ Years in Business</h3>
+          <p>Spiderman Pest Control has been operating for more than fifteen years — long enough to know Rigby-area properties well.</p>
+        </div>
+        <div class="why-card">
+          <span class="num">02</span>
+          <h3>Local to Rigby, Idaho</h3>
+          <p>Based in Rigby, Idaho, and serving the surrounding area, rather than a national company dispatching from out of state.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICE AREA ================= -->
+  <section class="area-section" id="area" aria-labelledby="area-heading">
+    <div class="section-inner area-inner">
+      <div class="area-copy reveal">
+        <p class="eyebrow">Where We Work</p>
+        <h2 id="area-heading">Rigby, Idaho and the surrounding area</h2>
+        <p class="locus">Home Base</p>
+        <p>Spiderman Pest Control is based in Rigby, Idaho, and serves Rigby and the surrounding area. Call to check whether your property is within range.</p>
+        <a class="btn btn-primary" href="tel:+12087097523">Call (208) 709-7523</a>
+      </div>
+      <div class="area-map reveal">
+        <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-labelledby="area-svg-title">
+          <title id="area-svg-title">Stylized radial map diagram marking Rigby, Idaho as the service center</title>
+          <g stroke="#2b3a31" stroke-width="1">
+            <line x1="0" y1="50" x2="300" y2="50"/>
+            <line x1="0" y1="110" x2="300" y2="110"/>
+            <line x1="0" y1="170" x2="300" y2="170"/>
+            <line x1="0" y1="230" x2="300" y2="230"/>
+            <line x1="50" y1="0" x2="50" y2="300"/>
+            <line x1="150" y1="0" x2="150" y2="300"/>
+            <line x1="250" y1="0" x2="250" y2="300"/>
+          </g>
+          <circle cx="150" cy="150" r="110" fill="none" stroke="#a8ff4d" stroke-width="1.2" stroke-dasharray="3 6" opacity="0.5"/>
+          <circle cx="150" cy="150" r="70" fill="none" stroke="#a8ff4d" stroke-width="1.2" stroke-dasharray="3 6" opacity="0.7"/>
+          <circle cx="150" cy="150" r="8" fill="#a8ff4d"/>
+          <circle cx="150" cy="150" r="14" fill="none" stroke="#a8ff4d" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="section-inner">
+      <div class="contact-inner reveal">
+        <p class="eyebrow" style="justify-content:center;">Get In Touch</p>
+        <h2 id="contact-heading">Talk to Spiderman Pest Control</h2>
+        <p class="lede">Serving Rigby, Idaho and the surrounding area for more than fifteen years. Call to talk about your property.</p>
+        <a class="phone-cta" href="tel:+12087097523" aria-label="Call Spiderman Pest Control at (208) 709-7523">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#131a16" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (208) 709-7523
+        </a>
+        <div class="contact-meta">
+          <span><strong>Spiderman Pest Control</strong></span>
+          <span>Rigby, Idaho</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="#top" aria-label="Spiderman Pest Control, home">
+        <svg class="logo-mark" viewBox="0 0 40 40" role="img" aria-labelledby="logo-mark-footer-title">
+          <title id="logo-mark-footer-title">Radial web lattice mark</title>
+          <circle cx="20" cy="20" r="17" fill="none" stroke="#a8ff4d" stroke-width="1.4" opacity="0.5"/>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="#a8ff4d" stroke-width="1.4" opacity="0.7"/>
+          <g stroke="#a8ff4d" stroke-width="1.2">
+            <line x1="20" y1="3" x2="20" y2="37"/>
+            <line x1="3" y1="20" x2="37" y2="20"/>
+            <line x1="8" y1="8" x2="32" y2="32"/>
+            <line x1="32" y1="8" x2="8" y2="32"/>
+          </g>
+        </svg>
+        <span class="logo-text">
+          <span class="top">Spiderman</span>
+          <span class="bottom">Pest Control</span>
+        </span>
+      </a>
+      <p>Pest control serving Rigby, Idaho and the surrounding area for more than fifteen years.</p>
+    </div>
+    <div>
+      <a class="footer-phone" href="tel:+12087097523">(208) 709-7523</a>
+    </div>
+  </div>
+</footer>
+
+<p class="concept-note">Concept design proposal — not affiliated with or endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 24){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){
+      el.classList.add('in-view');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
