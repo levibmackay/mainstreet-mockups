@@ -14,7 +14,7 @@
     --off-white-dim:#d9d3c4;
     --red:#c1272d;
     --red-dark:#8f1417;
-    --red-bright:#e13138;
+    --red-bright:#e65359;
     --line:rgba(243,239,230,0.18);
     --mono:ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   }
@@ -421,7 +421,7 @@
     padding:0.55rem 0.9rem;
     border:2px solid var(--line);
   }
-  .area-town.base{border-color:var(--red);color:var(--red-bright);}
+  .area-town.base{border-color:var(--red-bright);color:var(--red-bright);}
   .area-town .dot{
     width:0.5rem;height:0.5rem;border-radius:50%;
     background:currentColor;flex:none;
@@ -490,8 +490,11 @@
     max-width:36ch;
   }
   .footer-phone{
+    display:inline-block;
     font-weight:800;
     text-decoration:underline;
+    padding:0.3rem 0;
+    min-height:24px;
   }
 
   .concept-note{
@@ -515,13 +518,16 @@
     border:0;
   }
 </style>
+<noscript><style>
+  .reveal{opacity:1 !important;transform:none !important;}
+</style></noscript>
 </head>
 <body>
 
 <header id="siteHeader">
   <div class="header-inner">
     <a class="brandmark" href="#top" aria-label="T and T Plumbing home">
-      <svg width="38" height="38" viewBox="0 0 38 38" role="img" aria-hidden="true">
+      <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
         <rect x="1" y="1" width="36" height="36" fill="none" stroke="#c1272d" stroke-width="2"></rect>
         <text x="19" y="25" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="900" font-size="15" fill="#f3efe6">T&amp;T</text>
       </svg>
@@ -569,15 +575,15 @@
     <h2 id="stats-heading" class="visually-hidden">T&amp;T Plumbing by the numbers</h2>
     <div class="stats-grid">
       <div class="stat reveal">
-        <div class="stat-num" data-count-to="237">0</div>
+        <div class="stat-num" data-count-to="237">237</div>
         <div class="stat-label">Permitted Projects On Record</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-num" data-count-to="10">0<span class="unit">YR</span></div>
+        <div class="stat-num" data-count-to="10">10<span class="unit">YR</span></div>
         <div class="stat-label">Years In Business</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-num" data-count-to="6">0<span class="unit">%</span></div>
+        <div class="stat-num" data-count-to="6">6<span class="unit">%</span></div>
         <div class="stat-label">Top Tier Of Idaho Contractors
           <span class="stat-source">Ranking by BuildZoom</span>
         </div>
@@ -585,10 +591,10 @@
     </div>
   </section>
 
-  <section id="services" class="wrap">
+  <section id="services" class="wrap" aria-labelledby="services-heading">
     <div class="section-head reveal">
       <span class="section-label">What We Do</span>
-      <h2 class="section-title display">Scope Of Work</h2>
+      <h2 id="services-heading" class="section-title display">Scope Of Work</h2>
       <p class="section-title-sub">General plumbing service for homes and property owners across the Upper Valley. Call to talk through your specific job, since every property is different.</p>
     </div>
     <div class="services-grid reveal">
@@ -625,9 +631,9 @@
     </div>
   </section>
 
-  <section class="wrap why">
+  <section class="wrap why" aria-labelledby="why-heading">
     <div class="stamp-wrap reveal">
-      <svg width="260" height="260" viewBox="0 0 260 260" role="img" aria-label="Circular seal noting 237 permitted projects and 10 years in business">
+      <svg width="260" height="260" viewBox="0 0 260 260" role="img">
         <title>Circular seal: 237 permitted projects, 10 years in business</title>
         <circle cx="130" cy="130" r="118" fill="none" stroke="#c1272d" stroke-width="3"></circle>
         <circle cx="130" cy="130" r="100" fill="none" stroke="#c1272d" stroke-width="1.5"></circle>
@@ -647,7 +653,7 @@
     <div>
       <div class="section-head reveal" style="margin-bottom:1.75rem;">
         <span class="section-label">Why Contractors With A Track Record</span>
-        <h2 class="section-title display">The Paper Trail Backs It Up</h2>
+        <h2 id="why-heading" class="section-title display">The Paper Trail Backs It Up</h2>
       </div>
       <ul class="why-list reveal">
         <li>
@@ -666,30 +672,29 @@
     </div>
   </section>
 
-  <section class="area">
+  <section class="area" aria-labelledby="area-heading">
     <div class="wrap area-map">
       <div class="section-head reveal">
         <span class="section-label">Where We Work</span>
-        <h2 class="section-title display">Based In Ashton. Working The Valley.</h2>
+        <h2 id="area-heading" class="section-title display">Based In Ashton. Working The Valley.</h2>
         <p class="section-title-sub">T&amp;T Plumbing is based in Ashton, Idaho and serves the surrounding area, including St. Anthony, Rigby, and Rexburg.</p>
       </div>
-      <svg class="reveal" width="100%" height="140" viewBox="0 0 600 140" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Simple line illustration of mountain ridgeline representing the Ashton, Idaho area near the Tetons">
-        <title>Ridgeline motif — Ashton, Idaho area</title>
+      <svg class="reveal" width="100%" height="140" viewBox="0 0 600 140" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
         <polyline points="0,140 60,80 110,120 160,50 220,110 280,40 340,100 400,60 460,120 520,70 600,140" fill="none" stroke="#c1272d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline>
         <polyline points="0,140 60,100 130,130 200,90 260,125 340,95 420,130 500,105 600,140" fill="none" stroke="#f3efe6" stroke-width="1.5" opacity="0.5" stroke-linejoin="round" stroke-linecap="round"></polyline>
       </svg>
       <div class="area-towns reveal">
-        <span class="area-town base"><span class="dot"></span>Ashton (Home Base)</span>
-        <span class="area-town"><span class="dot"></span>St. Anthony</span>
-        <span class="area-town"><span class="dot"></span>Rigby</span>
-        <span class="area-town"><span class="dot"></span>Rexburg</span>
+        <span class="area-town base"><span class="dot" aria-hidden="true"></span>Ashton (Home Base)</span>
+        <span class="area-town"><span class="dot" aria-hidden="true"></span>St. Anthony</span>
+        <span class="area-town"><span class="dot" aria-hidden="true"></span>Rigby</span>
+        <span class="area-town"><span class="dot" aria-hidden="true"></span>Rexburg</span>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section class="cta" aria-labelledby="cta-heading">
     <div class="wrap">
-      <h2 class="reveal display">Got a plumbing problem in the Upper Valley?</h2>
+      <h2 id="cta-heading" class="reveal display">Got a plumbing problem in the Upper Valley?</h2>
       <p class="reveal">Call T&amp;T Plumbing directly. Serving Ashton, St. Anthony, Rigby, and Rexburg.</p>
       <a class="cta-phone reveal" href="tel:+12086527373">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h4l2 6-3 2a13 13 0 0 0 6 6l2-3 6 2v4a2 2 0 0 1-2 2C10 23 1 14 1 6a2 2 0 0 1 2-2z"/></svg>
@@ -770,6 +775,8 @@
         var unit = el.querySelector('.unit');
         var duration = 1400;
         var start = null;
+        el.textContent = '0';
+        if(unit){ el.appendChild(unit); }
         function step(ts){
           if(start === null) start = ts;
           var progress = Math.min((ts - start) / duration, 1);
