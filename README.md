@@ -53,4 +53,4 @@ business, and re-check any figure on the page against the lead list — the
 review counts in those lists came from aggregators, not Google directly,
 and are directionally correct rather than exact.
 
-**Last updated:** 2026-08-03
+**Last updated:** 2026-08-04
