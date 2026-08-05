@@ -345,7 +345,7 @@
     letter-spacing:0.16em;
     text-transform:uppercase;
     font-weight:800;
-    color:var(--coral-600);
+    color:var(--coral-aa); /* coral-600 was 3.55:1 on white, fails AA small text */
     margin-bottom:0.9rem;
   }
   .section-head.centered .kicker{ justify-content:center; }
@@ -478,6 +478,9 @@
     margin-top:auto;
   }
   .loc-card .loc-phone-btn .btn{ width:100%; font-size:1.05rem; }
+  @media (max-width:420px){
+    .loc-card .loc-phone-btn .btn-prefix{ display:none; }
+  }
 
   /* ---------- Contact / CTA ---------- */
   .contact{
@@ -758,9 +761,9 @@
           </div>
           <address>305 E 5th St N<br>Saint Anthony, Idaho</address>
           <div class="loc-phone-btn">
-            <a class="btn btn-primary" href="tel:+12086243757">
+            <a class="btn btn-primary" href="tel:+12086243757" aria-label="Call Saint Anthony: (208) 624-3757">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Call Saint Anthony: (208) 624-3757
+              <span aria-hidden="true"><span class="btn-prefix">Call Saint Anthony: </span>(208) 624-3757</span>
             </a>
           </div>
         </div>
@@ -775,9 +778,9 @@
           </div>
           <address>Serving Ashton, Idaho</address>
           <div class="loc-phone-btn">
-            <a class="btn btn-secondary" href="tel:+12086527868">
+            <a class="btn btn-secondary" href="tel:+12086527868" aria-label="Call Ashton: (208) 652-7868">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 4.5c0 8.5 6.5 15 15 15l1.8-3.6-4.6-1.8-1.8 1.8c-1.8-.9-3.6-2.7-4.5-4.5l1.8-1.8-1.8-4.6-3.6 1.8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Call Ashton: (208) 652-7868
+              <span aria-hidden="true"><span class="btn-prefix">Call Ashton: </span>(208) 652-7868</span>
             </a>
           </div>
         </div>
