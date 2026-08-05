@@ -13,6 +13,7 @@
     --graphite: #2a2e34;
     --red: #e01e26;
     --red-dim: #8f1418;
+    --red-text: #e83f46;
     --chrome: #c7ced6;
     --chrome-dim: #7b838d;
     --line: rgba(199,206,214,0.14);
@@ -53,7 +54,7 @@
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-size: 0.72rem;
-    color: var(--red);
+    color: var(--red-text);
     display: inline-flex;
     align-items: center;
     gap: 0.6em;
@@ -62,7 +63,7 @@
     content: "";
     width: 18px;
     height: 1px;
-    background: var(--red);
+    background: var(--red-text);
     display: inline-block;
   }
 
@@ -126,7 +127,7 @@
   }
   .brand .mark{ width: 28px; height: 28px; flex-shrink: 0; }
   .brand .name-main{ color: var(--text); }
-  .brand .name-sub{ color: var(--red); }
+  .brand .name-sub{ color: var(--red-text); }
 
   nav.site-nav{ display: flex; align-items: center; gap: 28px; }
   nav.site-nav a{
@@ -137,7 +138,7 @@
     letter-spacing: 0.02em;
     transition: color 0.2s ease;
   }
-  nav.site-nav a:hover{ color: var(--red); }
+  nav.site-nav a:hover{ color: var(--red-text); }
   @media (prefers-reduced-motion: reduce){ nav.site-nav a{ transition: none; } }
 
   .btn-call{
@@ -231,7 +232,7 @@
     align-items: center;
     transition: border-color 0.2s ease, color 0.2s ease;
   }
-  .btn-ghost:hover{ border-color: var(--red); color: var(--red); }
+  .btn-ghost:hover{ border-color: var(--red-text); color: var(--red-text); }
   @media (prefers-reduced-motion: reduce){
     .btn-primary,.btn-ghost{ transition: none; }
     .btn-primary:hover{ transform: none; }
@@ -462,10 +463,10 @@
   }
   .footer-grid .brand{ margin-bottom: 8px; }
   .footer-grid .foot-meta{ color: var(--text-dim); font-size: 0.9rem; }
-  .footer-grid .foot-meta a{ color: var(--red); text-decoration: none; }
+  .footer-grid .foot-meta a{ color: var(--red-text); text-decoration: none; }
   .footer-links{ font-family: var(--mono); font-size: 0.82rem; display: flex; gap: 24px; }
   .footer-links a{ color: var(--text-dim); text-decoration: none; }
-  .footer-links a:hover{ color: var(--red); }
+  .footer-links a:hover{ color: var(--red-text); }
   .footer-copy{ font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); margin-top: 10px; }
 
   .concept-note{

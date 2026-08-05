@@ -14,6 +14,7 @@
     --gold-500:#b8924a;
     --gold-400:#cba766;
     --gold-300:#ddc38f;
+    --gold-700:#765a28;
     --ivory:#f6f2e9;
     --ivory-dim:#ede6d6;
     --graphite:#2b2b28;
@@ -60,7 +61,7 @@
     font-size:0.72rem;
     letter-spacing:0.22em;
     text-transform:uppercase;
-    color:var(--gold-500);
+    color:var(--gold-400);
     font-weight:600;
   }
   .eyebrow::before{
@@ -70,10 +71,29 @@
     background:var(--gold-500);
     display:inline-block;
   }
+  /* On ivory/ivory-dim (light) backgrounds, gold-400 fails AA contrast for
+     text this small — use a darker gold that still reads as the same hue. */
+  .services .eyebrow,
+  .why .eyebrow{
+    color:var(--gold-700);
+  }
+  .services .eyebrow::before,
+  .why .eyebrow::before{
+    background:var(--gold-700);
+  }
 
   :focus-visible{
-    outline:2px solid var(--gold-500);
+    outline:2px solid var(--gold-700);
     outline-offset:3px;
+  }
+  /* gold-700 is tuned for 3:1 contrast against the light ivory background
+     that most of the page sits on. The hero, location, and contact panel
+     are dark (pine) backgrounds where gold-700 would be too dark to read
+     against — use the brighter gold-400 there instead. */
+  .hero :focus-visible,
+  .location :focus-visible,
+  .contact-panel :focus-visible{
+    outline-color: var(--gold-400);
   }
 
   /* ---------- Skip link ---------- */
@@ -132,7 +152,7 @@
     font-size:0.62rem;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--gold-500);
+    color:var(--gold-700);
     font-weight:600;
     margin-top:2px;
   }
