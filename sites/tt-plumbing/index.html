@@ -638,32 +638,50 @@
     </div>
     <div class="services-grid reveal">
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><rect x="8" y="4" width="14" height="22" rx="3"/><path d="M12 10h6M12 15h6M12 20h6"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><rect x="8" y="4" width="14" height="22" rx="3"/><path d="M12 10h6M12 15h6M12 20h6"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;01</span>
+        </div>
         <h3>Water Heater Repair &amp; Install</h3>
         <p>Diagnosis, repair, and replacement of residential water heaters.</p>
       </div>
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M15 4c4 6 7 10 7 14a7 7 0 0 1-14 0c0-4 3-8 7-14z"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M15 4c4 6 7 10 7 14a7 7 0 0 1-14 0c0-4 3-8 7-14z"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;02</span>
+        </div>
         <h3>Leak Detection &amp; Repair</h3>
         <p>Locating and fixing leaks in supply lines, fixtures, and fittings.</p>
       </div>
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><circle cx="15" cy="15" r="10"/><path d="M15 8v5l4 3"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><circle cx="15" cy="15" r="10"/><path d="M15 8v5l4 3"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;03</span>
+        </div>
         <h3>Drain &amp; Sewer Clearing</h3>
         <p>Clearing slow and blocked drain and sewer lines.</p>
       </div>
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M5 10h20M5 20h20"/><path d="M9 10v10M21 10v10"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M5 10h20M5 20h20"/><path d="M9 10v10M21 10v10"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;04</span>
+        </div>
         <h3>Repiping &amp; Repair</h3>
         <p>Replacing or repairing aging or damaged plumbing lines.</p>
       </div>
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M6 14a9 9 0 0 1 18 0"/><path d="M15 14v9M11 26h8"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M6 14a9 9 0 0 1 18 0"/><path d="M15 14v9M11 26h8"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;05</span>
+        </div>
         <h3>Fixture Installation</h3>
         <p>Installing sinks, faucets, toilets, and other fixtures.</p>
       </div>
       <div class="service">
-        <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M17 3 6 18h7l-2 9 13-17h-8z"/></svg>
+        <div class="service-top">
+          <svg class="service-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c1272d" stroke-width="1.6" aria-hidden="true"><path d="M17 3 6 18h7l-2 9 13-17h-8z"/></svg>
+          <span class="service-index" aria-hidden="true">N&deg;06</span>
+        </div>
         <h3>Emergency Plumbing</h3>
         <p>Call for a plumbing problem that can't wait on a scheduled visit.</p>
       </div>
@@ -776,11 +794,23 @@
   if(reduceMotion || !('IntersectionObserver' in window)){
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
   } else {
+    // Stagger within each section/group rather than globally, so entrances
+    // read as one deliberate sequence per section instead of a page-wide tick.
+    var staggerGroups = new Map();
+    reveals.forEach(function(el){
+      var group = el.closest('section') || el.parentElement;
+      if(!staggerGroups.has(group)){ staggerGroups.set(group, 0); }
+      var index = staggerGroups.get(group);
+      el.dataset.staggerIndex = index;
+      staggerGroups.set(group, index + 1);
+    });
+
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry, i){
+      entries.forEach(function(entry){
         var el = entry.target;
         if(entry.isIntersecting){
-          var delay = (i % 6) * 90;
+          var index = parseInt(el.dataset.staggerIndex || '0', 10);
+          var delay = Math.min(index, 5) * 100;
           setTimeout(function(){ el.classList.add('is-visible'); }, delay);
         } else {
           el.classList.remove('is-visible');
@@ -788,6 +818,29 @@
       });
     }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
     reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  // Subtle scroll-aware parallax on the hero blueprint background.
+  // Transform-only, and skipped entirely under reduced motion.
+  if(!reduceMotion){
+    var blueprintBg = document.getElementById('blueprintBg');
+    var heroEl = document.querySelector('.hero');
+    if(blueprintBg && heroEl){
+      var ticking = false;
+      function updateParallax(){
+        ticking = false;
+        var rect = heroEl.getBoundingClientRect();
+        var progress = Math.min(Math.max(-rect.top / (rect.height || 1), 0), 1);
+        blueprintBg.style.transform = 'translateY(' + (progress * 22) + 'px)';
+      }
+      window.addEventListener('scroll', function(){
+        if(!ticking){
+          ticking = true;
+          requestAnimationFrame(updateParallax);
+        }
+      }, {passive:true});
+      updateParallax();
+    }
   }
 
   // Stat count-up

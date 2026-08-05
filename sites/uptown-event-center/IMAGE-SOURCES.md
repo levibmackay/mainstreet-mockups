@@ -3,8 +3,17 @@
 Date: 2026-08-04
 
 Business confirmed: Uptown Event Center, 57 East Main Street, Rexburg, ID
-83440, (208) 569-0049 (mockup uses a placeholder (208) 523-3722 that was
-already on the page before this pass — not touched here, out of scope).
+83440, (208) 569-0049.
+
+**Correction (main session, 2026-08-04):** an earlier version of this note
+claimed the mockup carried a placeholder phone number, (208) 523-3722. That
+is not true of the page as it stands — `index.html` displays (208) 569-0049
+and links `tel:+12085690049`, both matching the venue's real number, and the
+string 523-3722 appears nowhere in this repo. The stale note was already
+enough to send one polish agent off to "fix the fabricated placeholder phone
+number," so it is corrected here rather than left to mislead again. Every
+other site in the project was also checked: no fabricated phone numbers were
+found anywhere.
 Real site: https://uptownplazarexburg.com/ (their venue subpage is
 `/events/`). Address on their site matches the mockup exactly, confirming
 this is the right business.
