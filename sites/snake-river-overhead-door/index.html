@@ -126,6 +126,9 @@
     letter-spacing:0.01em;
     white-space:nowrap;
   }
+  @media (max-width:360px){
+    .brand-name{ white-space:normal; line-height:1.15; }
+  }
   .brand-sub{
     font-family:var(--mono);
     font-size:0.66rem;
@@ -414,6 +417,11 @@
     padding:26px 24px 24px;
     position:relative;
     overflow:hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover{
+    transform: translateY(-5px);
+    border-color: rgba(232,99,10,0.4);
   }
   .card::before{
     content:"";
@@ -453,7 +461,9 @@
     padding:28px 24px;
     border-bottom:1px solid var(--line);
     background:var(--slate-3);
+    transition: background-color 0.25s ease;
   }
+  .why-item:hover{ background:#202427; }
   @media (min-width:760px){
     .why-item{ border-bottom:none; border-right:1px solid var(--line); }
     .why-item:last-child{ border-right:none; }
@@ -561,6 +571,9 @@
     .door-panel{ transition:none; transform:none !important; }
     .door-opening .glow{ opacity:0.5 !important; transition:none; }
     .btn:hover{ transform:none; }
+    .card{ transition:none; }
+    .card:hover{ transform:none; }
+    .why-item{ transition:none; }
   }
 </style>
 </head>

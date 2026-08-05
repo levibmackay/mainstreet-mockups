@@ -38,6 +38,12 @@
     -webkit-font-smoothing:antialiased;
     letter-spacing:-0.01em;
     overflow-x:hidden;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, rgba(231,236,233,0.05) 50%, transparent 51%),
+      radial-gradient(1px 1px at 78% 64%, rgba(231,236,233,0.04) 50%, transparent 51%),
+      radial-gradient(1px 1px at 45% 88%, rgba(231,236,233,0.04) 50%, transparent 51%);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
   }
 
   h1,h2,h3,h4{
@@ -104,13 +110,14 @@
     min-height:44px;
   }
   .logo-mark{ width:30px; height:30px; flex-shrink:0; }
-  .logo-text{ display:flex; flex-direction:column; }
+  .logo-text{ display:flex; flex-direction:column; min-width:0; }
   .logo-text .top{
     font-weight:900; font-size:1.02rem; letter-spacing:-0.02em; color:var(--fog);
+    white-space:nowrap;
   }
   .logo-text .bottom{
     font-weight:700; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--acid-500);
+    color:var(--acid-500); white-space:nowrap;
   }
 
   nav.primary-nav ul{
@@ -142,10 +149,16 @@
     text-decoration:none;
     padding:0.6rem 1.1rem; border-radius:var(--radius);
     white-space:nowrap;
-    transition:background 0.2s ease;
+    transition:background 0.2s ease, transform 0.15s ease;
+    flex-shrink:0;
   }
   .header-cta:hover{ background:var(--acid-400); }
   @media (prefers-reduced-motion: reduce){ .header-cta{ transition:none; } }
+  @media (max-width:400px){
+    .header-inner{ gap:0.6rem; }
+    .header-cta{ font-size:0.72rem; padding:0.55rem 0.7rem; }
+    .logo-text .top{ font-size:0.9rem; }
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -156,6 +169,12 @@
       radial-gradient(ellipse at 78% 8%, rgba(168,255,77,0.09), transparent 55%),
       linear-gradient(180deg, var(--ink-900), var(--ink-800) 70%);
   }
+  .hero-corner{
+    position:absolute; width:min(220px, 30vw); height:min(220px, 30vw);
+    pointer-events:none; opacity:0.5;
+  }
+  .hero-corner.tl{ top:-1px; left:-1px; }
+  .hero-corner.br{ bottom:-1px; right:-1px; transform:rotate(180deg); }
   .hero-inner{
     max-width:1220px; margin:0 auto;
     display:grid; grid-template-columns:1.05fr 0.95fr;
@@ -251,6 +270,10 @@
   .section-inner{
     max-width:1220px; margin:0 auto; padding:5rem 1.25rem;
   }
+  .services-section .section-inner{ padding-top:4.5rem; padding-bottom:4.5rem; }
+  .why-section .section-inner{ padding-top:6.5rem; padding-bottom:6.5rem; }
+  .area-section .section-inner{ padding-top:5.5rem; padding-bottom:5.5rem; }
+  .contact-section .section-inner{ padding-top:7rem; padding-bottom:7rem; }
   .section-head{ max-width:58ch; margin-bottom:3rem; }
   .section-head .eyebrow{ margin-bottom:0.8rem; }
   .section-head h2{ font-size:clamp(1.8rem, 3.6vw, 2.5rem); }
@@ -277,13 +300,19 @@
     background:var(--ink-900);
     padding:2.2rem 1.75rem;
     border-top:2px solid var(--acid-500);
+    transition:background-color 0.25s ease, transform 0.25s ease;
   }
+  .service-card:hover{ background:var(--ink-800); transform:translateY(-4px); }
   .service-card h3{ font-size:1.1rem; margin-bottom:0.75rem; }
   .service-card p{
     font-weight:400; font-size:0.94rem;
     color:var(--fog-dim);
   }
   .service-card svg{ width:32px; height:32px; margin-bottom:1.1rem; }
+  @media (prefers-reduced-motion: reduce){
+    .service-card{ transition:none; }
+    .service-card:hover{ transform:none; }
+  }
 
   /* ---------- why us ---------- */
   .why-section{
@@ -299,7 +328,13 @@
     border:1px solid var(--line);
     border-radius:var(--radius);
     position:relative;
+    transition:border-color 0.25s ease, background-color 0.25s ease;
   }
+  .why-card:hover{
+    border-color:rgba(168,255,77,0.4);
+    background:rgba(168,255,77,0.06);
+  }
+  @media (prefers-reduced-motion: reduce){ .why-card{ transition:none; } }
   .why-card .num{
     font-size:0.78rem; font-weight:800; letter-spacing:0.12em;
     color:var(--acid-500); text-transform:uppercase; margin-bottom:0.9rem;
@@ -347,14 +382,15 @@
   .phone-cta{
     display:inline-flex; align-items:center; gap:0.75rem;
     background:var(--acid-500); color:var(--ink-950);
-    font-weight:900; font-size:1.4rem; letter-spacing:-0.01em;
-    text-decoration:none; padding:1.1rem 2rem; border-radius:var(--radius);
+    font-weight:900; font-size:clamp(1.1rem, 5.2vw, 1.4rem); letter-spacing:-0.01em;
+    text-decoration:none; padding:1.1rem 1.5rem; border-radius:var(--radius);
     min-height:56px;
     transition:background 0.2s ease, transform 0.15s ease;
+    max-width:100%;
   }
-  .phone-cta:hover{ background:var(--acid-400); }
-  @media (prefers-reduced-motion: reduce){ .phone-cta{ transition:none; } }
-  .phone-cta svg{ width:22px; height:22px; }
+  .phone-cta:hover{ background:var(--acid-400); transform:translateY(-2px); }
+  @media (prefers-reduced-motion: reduce){ .phone-cta{ transition:none; } .phone-cta:hover{ transform:none; } }
+  .phone-cta svg{ width:22px; height:22px; flex-shrink:0; }
   .contact-meta{
     margin-top:2.4rem; display:flex; gap:2rem; justify-content:center;
     flex-wrap:wrap; font-size:0.88rem; color:var(--fog-dim);
@@ -452,6 +488,18 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="top" aria-labelledby="hero-heading">
+    <svg class="hero-corner tl" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
+      <path d="M0 30 Q30 30 30 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.35"/>
+      <path d="M0 70 Q70 70 70 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.25"/>
+      <path d="M0 120 Q120 120 120 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.15"/>
+      <line x1="0" y1="0" x2="120" y2="120" stroke="#a8ff4d" stroke-width="1" opacity="0.18"/>
+    </svg>
+    <svg class="hero-corner br" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
+      <path d="M0 30 Q30 30 30 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.35"/>
+      <path d="M0 70 Q70 70 70 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.25"/>
+      <path d="M0 120 Q120 120 120 0" fill="none" stroke="#a8ff4d" stroke-width="1" opacity="0.15"/>
+      <line x1="0" y1="0" x2="120" y2="120" stroke="#a8ff4d" stroke-width="1" opacity="0.18"/>
+    </svg>
     <div class="hero-inner">
       <div class="reveal">
         <p class="eyebrow">Rigby, Idaho · Pest Control</p>
