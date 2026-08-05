@@ -34,14 +34,48 @@ the same color as the background):
 endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
 ```
 
-**4. No photographs.** You cannot access real photos of these businesses,
-and stock photos of people who obviously do not work there is an explicit
-buy-signal of a *bad* site in our own playbook. Build the visual impact from
-CSS and inline SVG only: gradients, mesh/grain textures, geometric pattern
-systems, bold typography, line art, iconography you draw yourself, layered
-shapes, blur, masks. A great site with zero photos beats a mediocre site
-with fake ones. Treat this as the creative constraint that makes the design
-distinctive.
+**4. Real photos only, or none at all.** *Revised 2026-08-03. This rule
+previously banned photographs outright.*
+
+You may now use real photographs of the actual business, from exactly two
+sources:
+
+- **The business's own current website.** You are showing them their own
+  content in a better design, which is the normal shape of a redesign pitch.
+- **Their Google Maps / Google Business Profile listing.**
+
+Everything else is still banned. **No stock photography. No AI generated
+images. No photos of a different business.** Stock photos of people who
+obviously do not work there is an explicit buy-signal of a *bad* site in our
+own playbook, and putting one on a page you send the owner is worse than
+having no photo at all.
+
+Two hard constraints on sourcing:
+
+- **Do not copy licensed stock off their site either.** If their photos have
+  filenames like `Depositphotos_*.jpg`, those are images *they* licensed, not
+  their own photography, and republishing them is redistributing someone
+  else's licensed work. Skip those and use their genuine photos instead.
+- **Log every image.** Each site gets `sites/<slug>/IMAGE-SOURCES.md`
+  recording, per file: the local filename, the exact source URL, whether it
+  came from their site or Google Maps, where it appears on the page, and the
+  date pulled. This is how a photo gets removed quickly if anyone questions
+  where it came from. Google Maps photos in particular are often owned by the
+  customers who uploaded them rather than by the business, so the log is not
+  optional.
+
+**If you cannot find real photos, build with CSS and inline SVG as before:**
+gradients, mesh/grain textures, geometric pattern systems, bold typography,
+line art, iconography you draw yourself, layered shapes, blur, masks. Several
+of these businesses have no website at all, so a photo-free page is a normal
+outcome, not a failure. A great site with zero photos still beats a mediocre
+site with the wrong ones.
+
+Images must be downloaded into `sites/<slug>/img/` and referenced with
+relative paths. Never hotlink, since rule 5 forbids external requests.
+Optimize to a 1600px long edge and keep each site's images under about 2MB.
+Every image needs real `alt` text, `loading="lazy"`, and explicit
+`width`/`height` so the layout does not shift.
 
 ## Technical requirements
 
