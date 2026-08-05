@@ -157,7 +157,9 @@
   nav.primary-nav a:hover, nav.primary-nav a:focus-visible{
     color:var(--gold-400); border-color:var(--gold-500);
   }
-  @media (max-width:760px){
+  /* Raised from 760px: the nav gained Services/About/Contact page links, and
+     at 768px the row no longer fits, pushing the CTA off-screen. */
+  @media (max-width:980px){
     nav.primary-nav{ display:none; }
   }
   .header-cta{
@@ -577,11 +579,13 @@
     </a>
     <nav class="primary-nav" aria-label="Primary">
       <ul>
-        <li><a href="#services">Services</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="#work">Our Work</a></li>
         <li><a href="#credentials">Credentials</a></li>
         <li><a href="#area">Service Area</a></li>
         <li><a href="#estimate">Get an Estimate</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
     <a class="header-cta" href="#estimate">Request an Estimate</a>
