@@ -1,22 +1,27 @@
 # Image sources — Urban Trend Salon mockup
 
-Date checked: 2026-08-04
-
-**Status: IN PROGRESS.** This file is being written incrementally as sources
-are checked, per task instructions, so partial work survives even if this
-pass is interrupted.
+Date checked: 2026-08-04. Confirmed during 2026-08-05 polish pass.
 
 Business facts pulled from the mockup page for verification: "Urban Trend
 Salon," 344 W 4th S, Suite A, Rexburg, Idaho, phone `(208) 201-4649`.
 
 ## Source 1 — their own current website
 
-Not yet checked.
+No usable current website was found for Urban Trend Salon at 344 W 4th S,
+Suite A, Rexburg. No photography to source from this channel.
 
 ## Source 2 — Google Maps / Google Business Profile
 
-Not yet checked.
+The listing's photos are staff and client portraits with identifiable faces.
+Per the project privacy rule, photos that identify private individuals
+(customers, staff who haven't consented to marketing use) are not eligible
+for use in a cold-outreach mockup. No photos were pulled from this channel.
 
 ## Conclusion
 
-Pending.
+**Zero photographs used on this page.** The page is built entirely with CSS
+(diagonal hairline texture, radial volt glow) and hand-drawn inline SVG
+(angular scissor/shear mark, block-grid map illustration, iconography). No
+`<img>` tag exists in `index.html`, so there is nothing to log per-file. This
+is a normal outcome per `BRIEF.md`, not a shortfall: a strong photo-free page
+beats a page with photos that can't be ethically sourced.
