@@ -290,7 +290,8 @@
   .reveal{
     opacity:0;
     transform: translateY(28px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal.in{ opacity:1; transform:none; }
   @media (prefers-reduced-motion: reduce){
@@ -745,21 +746,21 @@ endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
 
   if(!prefersReduced && 'IntersectionObserver' in window){
     var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+    /* assign a per-item stagger delay (CSS transition-delay) up front, grouped
+       by enclosing section, so both the "in" and "out" transitions stagger
+       identically without needing setTimeout on every intersection change */
     var counters = new WeakMap();
+    items.forEach(function(el){
+      var parent = el.closest('section') || document.body;
+      var count = counters.get(parent) || 0;
+      counters.set(parent, count + 1);
+      el.style.setProperty('--reveal-delay', Math.min(count * 90, 360) + 'ms');
+    });
 
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          var el = entry.target;
-          var parent = el.closest('section') || document.body;
-          var count = counters.get(parent) || 0;
-          var delay = Math.min(count * 90, 360);
-          counters.set(parent, count + 1);
-          setTimeout(function(){
-            el.classList.add('in');
-          }, delay);
-          observer.unobserve(el);
-        }
+        entry.target.classList.toggle('in', entry.isIntersecting);
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 

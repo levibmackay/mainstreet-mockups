@@ -558,13 +558,12 @@
         <span class="kicker">Ashton, Idaho &middot; Licensed Plumbing Contractor</span>
         <h1 class="hero-title display">Plumbing work that gets <span class="accent">permitted, inspected, done right.</span></h1>
       </div>
-      <p class="hero-sub reveal">T&amp;T Plumbing is based in Ashton and works throughout St. Anthony, Rigby, and Rexburg. Ten years of licensed plumbing work, with 237 permitted projects to show for it.</p>
+      <p class="hero-sub reveal">T&amp;T Plumbing is based in Ashton and works throughout St. Anthony, Rigby, and Rexburg. 237 permitted projects on record, ranked in the top 6% of licensed Idaho contractors.</p>
       <div class="hero-ctas reveal">
         <a class="btn btn-primary" href="tel:+12086527373">Call (208) 652-7373</a>
         <a class="btn btn-ghost" href="#services">View Services</a>
       </div>
       <div class="hero-meta reveal">
-        <span>10 years in business</span>
         <span>237 permitted projects</span>
         <span>Top 6% of Idaho contractors (BuildZoom)</span>
       </div>
@@ -579,8 +578,10 @@
         <div class="stat-label">Permitted Projects On Record</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-num" data-count-to="10">10<span class="unit">YR</span></div>
-        <div class="stat-label">Years In Business</div>
+        <div class="stat-num" data-count-to="53194">53194</div>
+        <div class="stat-label">Idaho Licensed Contractors Ranked
+          <span class="stat-source">Ranking pool via BuildZoom</span>
+        </div>
       </div>
       <div class="stat reveal">
         <div class="stat-num" data-count-to="6">6<span class="unit">%</span></div>
@@ -634,7 +635,7 @@
   <section class="wrap why" aria-labelledby="why-heading">
     <div class="stamp-wrap reveal">
       <svg width="260" height="260" viewBox="0 0 260 260" role="img">
-        <title>Circular seal: 237 permitted projects, 10 years in business</title>
+        <title>Circular seal: 237 permitted projects, top 6% of Idaho contractors</title>
         <circle cx="130" cy="130" r="118" fill="none" stroke="#c1272d" stroke-width="3"></circle>
         <circle cx="130" cy="130" r="100" fill="none" stroke="#c1272d" stroke-width="1.5"></circle>
         <path id="stampCircleTop" d="M 30 130 A 100 100 0 0 1 230 130" fill="none"></path>
@@ -647,7 +648,7 @@
         </text>
         <text x="130" y="118" text-anchor="middle" font-size="46" font-weight="900" fill="#f3efe6">237</text>
         <text x="130" y="142" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#c1272d">PERMITTED PROJECTS</text>
-        <text x="130" y="168" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#f3efe6">10 YEARS IN BUSINESS</text>
+        <text x="130" y="168" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#f3efe6">TOP 6% OF IDAHO CONTRACTORS</text>
       </svg>
     </div>
     <div>
@@ -658,15 +659,15 @@
       <ul class="why-list reveal">
         <li>
           <h3><span class="why-mark" aria-hidden="true"></span>237 permitted projects on record</h3>
-          <p>A decade of plumbing work with a documented permit history — not a claim, a public record.</p>
+          <p>237 permitted plumbing jobs with a documented permit history — not a claim, a public record.</p>
         </li>
         <li>
           <h3><span class="why-mark" aria-hidden="true"></span>Ranked in the top 6% of Idaho contractors</h3>
           <p>According to BuildZoom's contractor ranking, T&amp;T Plumbing places in the top 6% statewide.</p>
         </li>
         <li>
-          <h3><span class="why-mark" aria-hidden="true"></span>10 years in business</h3>
-          <p>A decade of licensed plumbing work in and around the Upper Valley.</p>
+          <h3><span class="why-mark" aria-hidden="true"></span>Ranked against 53,194 Idaho contractors</h3>
+          <p>BuildZoom compares T&amp;T Plumbing against every licensed contractor in the state — and ranks them in the top 6%.</p>
         </li>
       </ul>
     </div>
@@ -737,17 +738,17 @@
   if(reduceMotion || !('IntersectionObserver' in window)){
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
   } else {
-    var seenGroups = {};
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry, i){
+        var el = entry.target;
         if(entry.isIntersecting){
-          var el = entry.target;
           var delay = (i % 6) * 90;
           setTimeout(function(){ el.classList.add('is-visible'); }, delay);
-          io.unobserve(el);
+        } else {
+          el.classList.remove('is-visible');
         }
       });
-    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
     reveals.forEach(function(el){ io.observe(el); });
   }
 
