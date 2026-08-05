@@ -1,0 +1,12 @@
+# qa/check.js needs Playwright, which is deliberately not a dependency of this
+# repo (there is no build step here on purpose). Locally it is resolved from a
+# sibling project; in a clean environment it gets installed on the fly. Either
+# way the install must never end up in a commit.
+node_modules/
+package.json
+package-lock.json
+
+# Impeccable design-hook cache
+.impeccable/
+
+.DS_Store
