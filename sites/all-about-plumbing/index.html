@@ -317,6 +317,31 @@
   .service-card h3{ font-size:1.15rem; color:var(--cream); margin-bottom:0.4rem; }
   .service-card p{ color:var(--slate); font-size:0.94rem; margin-bottom:0; }
 
+  /* ---------- recent work ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:1.25rem;
+  }
+  .work-card{
+    position:relative;
+    border-radius: var(--radius);
+    overflow:hidden;
+    background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+    border:1px solid var(--line);
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .work-card:hover{ transform:translateY(-4px); border-color:var(--copper-600); }
+  .work-card img{
+    display:block;
+    width:100%;
+    height:230px;
+    object-fit:cover;
+  }
+  .work-card .cap{ padding: 0.95rem 1.1rem 1.15rem; }
+  .work-card .cap h3{ font-size:0.98rem; color:var(--cream); margin-bottom:0.25rem; }
+  .work-card .cap p{ color:var(--slate); font-size:0.85rem; margin:0; }
+
   /* ---------- why us ---------- */
   .why-grid{
     display:grid;
@@ -595,6 +620,60 @@
     <circle class="joint" cx="700" cy="15" r="7"/>
     <circle class="joint-dot" cx="300" cy="15" r="2.5"/>
     <circle class="joint-dot" cx="700" cy="15" r="2.5"/>
+  </svg>
+
+  <!-- ============ RECENT WORK ============ -->
+  <section id="work" class="alt-bg">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Real jobs, real houses</span>
+        <h2>A look at work we've actually done.</h2>
+        <p>No stock photos, no stage sets. These are recent repairs and installs across the Upper Valley.</p>
+      </div>
+      <div class="work-grid">
+
+        <div class="work-card reveal">
+          <img src="img/vanity-install.jpg" alt="Finished bathroom vanity install with marble-look counter and polished nickel faucet, supply lines connected underneath" width="1600" height="1230" loading="lazy">
+          <div class="cap">
+            <h3>Vanity plumbing, finished</h3>
+            <p>Supply lines and drain set and tested behind a new bathroom vanity.</p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <img src="img/tankless-water-heater-install.jpg" alt="Two tankless water heaters freshly installed side by side on a wall with copper and PEX supply lines" width="1600" height="1067" loading="lazy">
+          <div class="cap">
+            <h3>Tankless water heater install</h3>
+            <p>A pair of tankless units set up to keep hot water flowing on demand.</p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <img src="img/pipe-repair-in-progress.jpg" alt="Plumber working on black ABS drain and vent pipe runs inside an open wall stud bay during a repair" width="1600" height="1067" loading="lazy">
+          <div class="cap">
+            <h3>Drain and vent run repair</h3>
+            <p>Mid-repair on a drain and vent line, opened up to get it right.</p>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <img src="img/vanity-rough-in.jpg" alt="Bathroom vanity with cabinet doors open showing new supply line and shutoff valve rough-in plumbing" width="1201" height="1600" loading="lazy">
+          <div class="cap">
+            <h3>Vanity rough-in</h3>
+            <p>Supply lines and shutoffs set behind a vanity cabinet, ready to close up.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <svg class="pipe-divider" viewBox="0 0 1200 60" preserveAspectRatio="none" role="img" aria-hidden="true">
+    <path class="run" d="M0 45 H260 V15 H540 V45 H1200"/>
+    <circle class="joint" cx="260" cy="45" r="7"/>
+    <circle class="joint" cx="540" cy="45" r="7"/>
+    <circle class="joint-dot" cx="260" cy="45" r="2.5"/>
+    <circle class="joint-dot" cx="540" cy="45" r="2.5"/>
   </svg>
 
   <!-- ============ WHY US ============ -->

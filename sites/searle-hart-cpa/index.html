@@ -220,10 +220,31 @@
   @media (max-width: 900px){
     .hero-guilloche{ opacity:0.28; right:-30%; }
   }
-  .hero-inner{
+  .hero-grid{
     position:relative;
     z-index:1;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:clamp(2rem, 5vw, 3.5rem);
+    align-items:center;
+  }
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+  .hero-inner{
     max-width:760px;
+  }
+  .hero-photo{
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid rgba(246,242,233,0.22);
+    box-shadow:0 30px 60px -28px rgba(0,0,0,0.6);
+    line-height:0;
+  }
+  .hero-photo img{
+    display:block;
+    width:100%;
+    height:auto;
   }
   .hero h1{
     color:var(--ivory);
@@ -423,7 +444,17 @@
     font-size:1.15rem;
     font-family:ui-serif, Georgia, serif;
   }
-  .map-motif{ width:100%; height:auto; }
+  .location-photo{
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid rgba(246,242,233,0.18);
+    line-height:0;
+  }
+  .location-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
   /* ---------- Contact ---------- */
   .contact{ background:var(--ivory); }
@@ -570,27 +601,32 @@
         <ellipse cx="300" cy="300" rx="200" ry="60" transform="rotate(110 300 300)"/>
       </g>
     </svg>
-    <div class="wrap hero-inner">
-      <p class="eyebrow">Rexburg, Idaho</p>
-      <h1 id="hero-heading">Careful accounting, <em>kept in order</em> since 2002.</h1>
-      <p class="lede">Searle Hart & Associates, PLLC provides accounting and tax services for individuals and businesses across the Upper Valley, precise and personal, built on more than two decades in the same community.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold" href="tel:+12083563716">Call (208) 356-3716</a>
-        <a class="btn btn-outline" href="mailto:secretary@searlehart.com">Email the Office</a>
+    <div class="wrap hero-grid">
+      <div class="hero-inner">
+        <p class="eyebrow">Rexburg, Idaho</p>
+        <h1 id="hero-heading">Careful accounting, <em>kept in order</em> since 2002.</h1>
+        <p class="lede">Searle Hart & Associates, PLLC provides accounting and tax services for individuals and businesses across the Upper Valley, precise and personal, built on more than two decades in the same community.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="tel:+12083563716">Call (208) 356-3716</a>
+          <a class="btn btn-outline" href="mailto:secretary@searlehart.com">Email the Office</a>
+        </div>
+        <div class="since-badge">
+          <svg viewBox="0 0 46 46" role="img" aria-hidden="true">
+            <title>Established 2002 seal</title>
+            <circle cx="23" cy="23" r="21" fill="none" stroke="#cba766" stroke-width="1"/>
+            <circle cx="23" cy="23" r="16.5" fill="none" stroke="#cba766" stroke-width="0.6"/>
+            <text x="23" y="20" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="7" fill="#f6f2e9">EST.</text>
+            <text x="23" y="30" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="9" fill="#cba766">2002</text>
+          </svg>
+          <span>
+            <span class="num">24</span>
+            <span class="cap" style="display:block">years serving the Upper Valley</span>
+          </span>
+        </div>
       </div>
-      <div class="since-badge">
-        <svg viewBox="0 0 46 46" role="img" aria-hidden="true">
-          <title>Established 2002 seal</title>
-          <circle cx="23" cy="23" r="21" fill="none" stroke="#cba766" stroke-width="1"/>
-          <circle cx="23" cy="23" r="16.5" fill="none" stroke="#cba766" stroke-width="0.6"/>
-          <text x="23" y="20" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="7" fill="#f6f2e9">EST.</text>
-          <text x="23" y="30" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="9" fill="#cba766">2002</text>
-        </svg>
-        <span>
-          <span class="num">24</span>
-          <span class="cap" style="display:block">years serving the Upper Valley</span>
-        </span>
-      </div>
+      <figure class="hero-photo">
+        <img src="img/office-sign.jpg" alt="Searle Hart & Associates monument sign outside the firm's office at 412 Grand Loop in Rexburg" width="1600" height="1064" loading="eager">
+      </figure>
     </div>
   </section>
 
@@ -689,26 +725,9 @@
           <address>412 Grand Loop<br>Rexburg, Idaho</address>
         </div>
       </div>
-      <div class="reveal" aria-hidden="true">
-        <svg class="map-motif" viewBox="0 0 400 300" role="img" aria-hidden="true">
-          <title>Decorative ledger-grid location motif</title>
-          <g stroke="#f6f2e9" stroke-opacity="0.35" stroke-width="1">
-            <line x1="0" y1="50" x2="400" y2="50"/>
-            <line x1="0" y1="100" x2="400" y2="100"/>
-            <line x1="0" y1="150" x2="400" y2="150"/>
-            <line x1="0" y1="200" x2="400" y2="200"/>
-            <line x1="0" y1="250" x2="400" y2="250"/>
-            <line x1="80" y1="0" x2="80" y2="300"/>
-            <line x1="160" y1="0" x2="160" y2="300"/>
-            <line x1="240" y1="0" x2="240" y2="300"/>
-            <line x1="320" y1="0" x2="320" y2="300"/>
-          </g>
-          <circle cx="200" cy="150" r="9" fill="#cba766"/>
-          <path d="M200 150 L200 110" stroke="#cba766" stroke-width="1.4"/>
-          <circle cx="200" cy="150" r="26" fill="none" stroke="#cba766" stroke-width="1"/>
-          <circle cx="200" cy="150" r="46" fill="none" stroke="#cba766" stroke-width="0.6"/>
-        </svg>
-      </div>
+      <figure class="location-photo reveal">
+        <img src="img/office-front.jpg" alt="Exterior of the Searle Hart & Associates office building at 412 Grand Loop, Rexburg, Idaho" width="1600" height="1200" loading="lazy">
+      </figure>
     </div>
   </section>
 

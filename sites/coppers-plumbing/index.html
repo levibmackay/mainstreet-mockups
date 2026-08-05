@@ -365,6 +365,29 @@
     border-radius:3px;
   }
 
+  /* ---------- work photo frame ---------- */
+  .work-photo-frame{
+    max-width:760px;
+    margin:0 auto 3rem;
+    border:1px solid rgba(184,115,51,0.3);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  }
+  .work-photo-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+    filter:saturate(0.9) contrast(1.02);
+  }
+  .work-photo-caption{
+    padding:0.9rem 1.25rem;
+    font-size:0.85rem;
+    color:var(--copper-100);
+    background:linear-gradient(180deg, rgba(22,15,10,0.5), var(--ground-900));
+    border-top:1px solid rgba(184,115,51,0.2);
+  }
+
   /* ---------- why us: patina panel with elbow diagram ---------- */
   .why{
     background:linear-gradient(160deg, var(--ground-900), var(--verdigris-700) 130%);
@@ -624,6 +647,10 @@
         <h2>Plumbing service, laid out plainly</h2>
         <p>No upsell script, no mystery diagnostics fee you find out about later. Call, describe the problem, get a straight answer.</p>
       </div>
+      <figure class="work-photo-frame reveal">
+        <img src="img/pipe-installation.jpg" alt="A rough-in pipe installation by Coppers Plumbing, showing supply and waste lines connected beneath a ceiling" loading="lazy" width="1600" height="1145">
+        <figcaption class="work-photo-caption">From Coppers Plumbing's listing — a rough-in pipe installation.</figcaption>
+      </figure>
     </div>
     <div class="joint-row container">
 

@@ -353,6 +353,44 @@
   }
   .schematic-box svg{ width: 100%; height: 100%; }
 
+  /* ---------- Shop photos ---------- */
+  .shop-photos{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  @media (max-width: 760px){
+    .shop-photos{ grid-template-columns: 1fr; }
+  }
+  .shop-photo{
+    margin: 0;
+    border: 1px solid var(--line);
+    background: var(--black-2);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .shop-photo img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 2px;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.03);
+  }
+  .shop-photo.photo-wide img{ aspect-ratio: 16 / 9; }
+  .shop-photo.photo-tall img{ aspect-ratio: 3 / 4; }
+  .shop-photo figcaption{
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    padding: 12px 4px 2px;
+  }
+
   /* ---------- Location ---------- */
   .area-band{
     display: grid;
@@ -588,6 +626,27 @@
           <path d="M60 250 A90 90 0 0 1 150 160" fill="none" stroke="#e01e26" stroke-width="2"/>
           <path d="M150 160 L142 168 L150 176 L158 168 Z" fill="#e01e26"/>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE SHOP ============ -->
+  <section class="band band-line-top" id="shop">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The shop</span>
+        <h2>Same building, same bay doors, since 1990.</h2>
+        <p>390 S 5th W isn't a rebrand or a rented storefront. It's the shop 0500 Mechanics has run out of for over three decades.</p>
+      </div>
+      <div class="shop-photos reveal-stagger">
+        <figure class="shop-photo photo-wide">
+          <img src="img/storefront.jpg" alt="0500 Mechanics auto repair shop exterior, a blue metal building at 390 S 5th W in Rexburg, Idaho, with the shop's illuminated sign, an open service bay, and customer vehicles parked out front" width="1512" height="850" loading="lazy">
+          <figcaption>390 S 5th W, Rexburg</figcaption>
+        </figure>
+        <figure class="shop-photo photo-tall">
+          <img src="img/shop-interior.jpg" alt="Inside the 0500 Mechanics service bay, a vehicle raised on a lift with technicians working underneath" width="508" height="584" loading="lazy">
+          <figcaption>In the bay</figcaption>
+        </figure>
       </div>
     </div>
   </section>
