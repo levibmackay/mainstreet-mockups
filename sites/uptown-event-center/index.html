@@ -215,6 +215,12 @@
   }
 
   .btn-solid:hover { background-position: 100% 0; box-shadow: 0 0 30px rgba(216,181,103,0.28); }
+  /* `nav.site-nav a` (0,1,2) out-specifies `.btn-solid` (0,1,0), so the header
+     call button was inheriting the pale nav ivory and rendering near-invisible
+     against its own gold gradient — while the identical hero button, outside
+     the nav, correctly used the dark ink. */
+  nav.site-nav a.btn-solid,
+  nav.site-nav a.btn-solid:hover { color: #1a1305; }
 
   .btn-ghost {
     background: transparent;
