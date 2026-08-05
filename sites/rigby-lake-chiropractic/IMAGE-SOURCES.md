@@ -9,7 +9,7 @@ From `sites/rigby-lake-chiropractic/index.html`:
 - Address: 711 Rigby Lake Dr, Suite 1102, Rigby, Idaho
 - Phone: (208) 745-5165 / tel:+12087455165
 
-## Own website search — in progress
+## Own website search
 
 WebSearch for "Rigby Lake Chiropractic Rigby Idaho website" found no dedicated
 business website. Only found:
@@ -51,5 +51,7 @@ listing), so it was not crawled for images.
 No usable real photos exist across either allowed source (own website: none
 found at all; Google Maps: confirmed correct listing, zero photos uploaded).
 Per BRIEF.md rule 4, this is a normal outcome — the page remains built with
-CSS/SVG only, unchanged from its current state. No files were added to
-`sites/rigby-lake-chiropractic/img/`, and `index.html` was not modified.
+CSS/SVG only. No `img/` folder was created and no `<img>` tag was added to
+`index.html`. (The page has since had an unrelated design polish pass — custom
+service iconography, hero texture, hover states — but nothing image-related
+changed.)
