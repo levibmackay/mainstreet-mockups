@@ -19,7 +19,10 @@
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+  /* overflow-x must sit on html as well as body: the mobile nav panel is
+     position:fixed, so its containing block is the viewport and body's own
+     overflow-x cannot clip it while it sits off-canvas at translateX(100%). */
+  html{ scroll-behavior:smooth; overflow-x:hidden; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
   }
@@ -175,9 +178,14 @@
       gap:2rem;
       padding:2rem 2.2rem;
       transform:translateX(100%);
-      transition:transform 0.4s ease;
+      transition:transform 0.4s ease, visibility 0.4s;
+      /* The panel is position:fixed, so body{overflow-x:hidden} cannot clip
+         it and it extends the document's scrollable width past 320px.
+         visibility:hidden takes it out of the scroll area, and also stops the
+         closed menu's links from being keyboard-focusable. */
+      visibility:hidden;
     }
-    nav.primary.open{ transform:translateX(0); }
+    nav.primary.open{ transform:translateX(0); visibility:visible; }
     nav.primary a{ color:var(--blush-soft); font-size:1.1rem; }
     nav.primary a::after{ background:var(--gold-light); }
     .nav-call{ border-color:var(--gold-light); color:var(--blush-soft) !important; }

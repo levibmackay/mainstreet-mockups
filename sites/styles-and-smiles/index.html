@@ -217,6 +217,7 @@
   .btn{
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap:0.55rem;
     padding:0.95rem 1.7rem;
     border-radius:999px;
@@ -224,6 +225,9 @@
     font-size:1rem;
     text-decoration:none;
     min-height:44px;
+    max-width:100%;
+    text-align:center;
+    overflow-wrap:anywhere;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   }
   .btn-primary{
@@ -393,7 +397,7 @@
     gap: clamp(2rem, 5vw, 3.5rem);
     align-items:center;
   }
-  @media (max-width: 860px){ .loc-grid{ grid-template-columns:1fr; } }
+  @media (max-width: 860px){ .loc-grid{ grid-template-columns:minmax(0,1fr); } }
 
   .loc-card{
     background:#fff;
@@ -403,8 +407,13 @@
     border:1px solid rgba(217,164,65,0.18);
   }
   .loc-card h3{ font-size:1.4rem; margin-bottom:1.3rem; }
+  /* jana@stylesandsmilesfamilysalon.com is one unbreakable token; without
+     these it sets the card's min-content width and blows past 320px. */
+  .loc-card{ min-width:0; }
+  .loc-row span, .loc-row a{ min-width:0; overflow-wrap:anywhere; }
   .loc-row{
     display:flex;
+    min-width:0;
     gap:0.9rem;
     align-items:flex-start;
     margin-bottom:1.1rem;

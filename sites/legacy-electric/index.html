@@ -299,6 +299,14 @@
     .hero-stats{ grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .hero-stats .stat dd{ font-size: 1.5rem; }
   }
+  /* At 320px three `1fr` tracks still can't shrink below their label's
+     min-content width, so the row runs past the viewport. minmax(0,1fr)
+     lets the labels wrap instead. */
+  @media (max-width: 420px){
+    .hero-stats{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .hero-stats .stat dt{ font-size: 0.68rem; letter-spacing: 0.04em; overflow-wrap: break-word; }
+    .hero-stats .stat dd{ font-size: 1.3rem; }
+  }
 
   /* ---------- Reveal on scroll ---------- */
   .reveal{
@@ -454,7 +462,7 @@
   .footer-grid .brand{ margin-bottom: 8px; }
   .footer-grid .foot-meta{ color: var(--text-dim); font-size: 0.9rem; }
   .footer-grid .foot-meta a{ color: var(--yellow); text-decoration: none; }
-  .footer-links{ font-family: var(--mono); font-size: 0.82rem; display: flex; gap: 24px; }
+  .footer-links{ font-family: var(--mono); font-size: 0.82rem; display: flex; flex-wrap: wrap; gap: 12px 24px; }
   .footer-links a{ color: var(--text-dim); text-decoration: none; }
   .footer-links a:hover{ color: var(--yellow); }
 

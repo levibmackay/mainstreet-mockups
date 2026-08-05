@@ -164,6 +164,24 @@
     nav.site-nav .nav-links{ display: none; }
   }
 
+  /* Below ~400px the brand plus a full-text call button no longer fit.
+     Collapse the button to its icon; aria-label carries the accessible name. */
+  /* Below ~400px the brand (177px) plus a full-text call button no longer fit
+     inside the header's content box. Collapse the button to its icon; the
+     aria-label carries the accessible name. The selector has to out-specify
+     `nav.site-nav a` above, which otherwise wins on font-size. */
+  @media (max-width: 400px){
+    header.site{ padding-inline: 14px; }
+    nav.site-nav a.btn-call{
+      font-size: 0;
+      gap: 0;
+      padding: 10px;
+      min-width: 44px;
+      justify-content: center;
+    }
+    nav.site-nav a.btn-call svg{ width: 18px; height: 18px; }
+  }
+
   /* ---------- Schematic background layer (dimension lines / hex bolts) ---------- */
   .schem-layer{
     position: absolute;
