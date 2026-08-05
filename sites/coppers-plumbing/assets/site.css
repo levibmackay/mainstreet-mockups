@@ -544,3 +544,13 @@ footer.site nav a:hover{ text-decoration: underline; }
   .nav-links a::after{ transform: scaleX(0) !important; }
   .nav-links a[aria-current="page"]::after{ transform: scaleX(1) !important; }
 }
+
+/* Real Coppers Plumbing logo. The horizontal lockup sets "PLUMBING" in navy,
+   which dies on the near-black header, so it sits on a deliberate paper plate. */
+.logo-plate{ display:inline-flex; align-items:center; background:var(--paper);
+  border-radius:4px; padding:7px 11px; flex:none; }
+.logo-plate img{ display:block; width:auto; height:38px; }
+.brand-locale{ display:block; font-family:ui-sans-serif, system-ui, sans-serif;
+  font-weight:500; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--verdigris-300); }
+@media (max-width:520px){ .logo-plate img{ height:30px; } .brand-locale{ display:none; } }

@@ -91,3 +91,52 @@ partway through vetting, leaving this log in a "Status: in progress" state
 with zero images integrated. The download it had already completed survived
 in the scratchpad, so the vetting, selection, optimization and this log were
 finished in the main session rather than repeating the crawl.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-golds-north-fork-roofing.png` | https://goldsnorthforkroofing.com/wp-content/themes/northfork/images/logo.png | Their site (theme header logo) | Header brand lockup (above the fold, not lazy-loaded). Replaces the typed "GOLDS / North Fork Roofing" text lockup. | 2026-08-05 |
+| `img/logo-golds-north-fork-roofing-full.png` | same URL as above | Their site (theme header logo) | Footer brand lockup, at 140px tall (`loading="lazy"`). Same replacement. | 2026-08-05 |
+
+**Verification.** The artwork reads "GOLDS" above a triangle containing an eagle
+and a US flag, with "NORTH FORK" and "ROOFING, LLC." set along the triangle's
+two edges. Exact name match to the business. It is served from
+`goldsnorthforkroofing.com`, their own domain, from their own WordPress theme
+directory. The identity caveat recorded further up this file still stands: the
+mockup's phone and address are placeholders, so the usual phone/address cross-
+check was not available for this site and identity rests on the exact name plus
+the specific GAF Master Elite / CertainTeed Select Shingle Master pairing.
+**The placeholder phone and address still need real values before this page is
+sent to anyone.**
+
+**Why two files.** The original lockup carries three lines of service-list
+tagline baked into the image ("Specialized in all types of Roofing", etc.). At
+the 48px header size that text is unreadable mush, so the header uses the crest
+alone, cropped at 77.5% height — above the tagline block, so **no part of the
+wordmark or the "ROOFING, LLC." lettering is cut**. The footer carries the
+complete unmodified lockup at 140px, where the tagline is legible. Neither file
+was recoloured or stretched; both are alpha-trimmed only.
+
+**Contrast.** The artwork is gold and white on transparent with dark internals,
+so it reads on this page's `--charcoal-700 #23272b` header and
+`--charcoal-900 #16181a` footer with no plate needed.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Gold | `#F5A81A` | "GOLDS", the triangle border, "NORTH FORK ROOFING, LLC." |
+| Flag red | `#C82030` (shadow `#B02028`) | The flag stripes, the tagline bullets |
+| White | `#FFFFFF` | Flag field, eagle head, tagline line 1 |
+| Flag blue | `#2A3F6E` | The flag canton |
+
+**Do their colours agree with this page?** **Yes, closest match of the nine on
+the primary.** The page's `--gold-500 #d9a441` / `--gold-400 #e4b862` sit right
+next to their `#F5A81A`, just a shade cooler and less saturated. The page has no
+equivalent of their flag red `#C82030`, which is a real accent in their
+identity; if Levi wants an exact brand fit, that red is the one thing to add.

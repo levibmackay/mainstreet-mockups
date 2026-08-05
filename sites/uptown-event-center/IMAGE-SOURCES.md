@@ -146,3 +146,48 @@ Six genuine, privacy-safe, non-stock photos of the actual event space
 (ballroom, ceremony setup, table styling, bride's room, kitchen) were added
 to a new Gallery section. No image with an identifiable face was used. The
 rest of the page is unchanged from the existing CSS/SVG visual system.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-uptown-event-center.png` | https://uptownplazarexburg.com/assets/event-logo.png | Their site (the Event Center page header at `/events/` — `<img src="/assets/event-logo.png" alt="Uptown Event Center">`, also that page's `og:image`) | Header brand lockup (above the fold, not lazy-loaded) and footer, replacing the "Uptown Event Center" text line (`loading="lazy"`). Replaces the drawn fanlight SVG and the typed wordmark in both places. | 2026-08-05 |
+
+**Verification — this one needed care.** The parent site
+`uptownplazarexburg.com` is titled "Uptown Plaza & Apartments" and its homepage
+logo is `/assets/plaza-logo.png`, which is the **apartments** brand, not this
+business. The venue lives on the `/events/` subpage, titled "Uptown Event Center
+| Weddings & Events in Rexburg, Idaho", and that page has its own separate
+logo file, `/assets/event-logo.png`, which their own markup labels
+`alt="Uptown Event Center"`. The artwork itself reads "UPTOWN" over "Event
+Center" beneath a downtown skyline. **`plaza-logo.png` was rejected on the name
+rule even though it comes from the same domain and the same owner.** Address
+already verified above: 57 East Main Street, Rexburg, matching the venue's own
+site.
+
+**Processing.** Resized from 2048x811 to 900x356 (1.08MB → 46KB) and quantised
+to 128 colours. Alpha-trimmed only. Not recoloured, not stretched, nothing
+cropped.
+
+**Contrast.** The artwork is gold gradient type inside a heavy black keyline, so
+it holds on the transparent-over-hero header, on the scrolled dark header, and
+on the `--black #0c0a08` footer without any plate.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Gold highlight | `#E4C48C` | Top of the gradient on each letter |
+| Gold mid | `#D0B070` | Body of the letterforms |
+| Gold deep | `#B09850` | Lower gradient |
+| Bronze shadow | `#907048` | Deepest gradient and the skyline |
+| Black | `#000000` | The keyline around every letter |
+
+**Do their colours agree with this page?** **Yes — near-exact, the second-best
+fit of the nine.** The page's `--gold-1 #f6e3ad`, `--gold-2 #d8b567` and
+`--gold-3 #b8863b` on `--black #0c0a08` track their logo's gradient stops almost
+step for step. Nothing to change.

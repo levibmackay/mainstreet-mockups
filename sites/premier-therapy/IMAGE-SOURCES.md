@@ -59,3 +59,53 @@ The agent originally assigned this site was killed by a stall watchdog
 immediately after identifying the real domain, leaving this file as a
 "Status: IN PROGRESS" stub with nothing checked. The crawl, vetting,
 optimization, integration and this log were completed in the main session.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-premier-therapy-associates.png` | https://premiertherapyidaho.com/wp-content/uploads/2024/11/logo-1.jpg | Their site (homepage logo) | Header brand lockup, above the "Rexburg, Idaho" locale line (above the fold, not lazy-loaded), and footer on a bone plate (`loading="lazy"`). Replaces the drawn leaf SVG and the typed wordmark. | 2026-08-05 |
+
+**Verification.** `premiertherapyidaho.com` was already verified above by exact
+phone match `(208) 356-4633` on their own homepage. The logo reads "PREMIER
+THERAPY ASSOCIATES" in engraved serif capitals with a running-figure mark.
+Exact name match.
+
+**Processing and the crop.** Their file is a JPEG of a business-card-style
+block: the wordmark on top, then three lines of small print
+("SPEECH-LANGUAGE PATHOLOGY, OCCUPATIONAL AND PHYSICAL THERAPY", "A SERVICE
+PROVIDER FOR MOUNTAIN VIEW HOSPITAL", "www.idahotherapy.com"), all inside a thin
+card border with a drop shadow. The local copy keeps the **wordmark block only**
+— cropped at 58.5% height, above the small print, then inset 1.8% to drop the
+card border and shadow. Nothing in "PREMIER THERAPY ASSOCIATES" is cut. The
+small print was dropped for two reasons: at header size it is illegible, and one
+of those lines advertises `idahotherapy.com`, a domain that now redirects to
+their current site, which would look stale on a pitch page. If Levi wants the
+full card, re-pull the source URL above.
+
+White background was unpremultiplied to an alpha channel the same way as the
+Back to Health file, so it composites cleanly on the cream header. Quantised to
+128 colours; 13.5KB. Not recoloured, not stretched.
+
+**The plate.** The logo is black engraved type drawn for white stock. It is bare
+on the `--cream #f4f1ea` header, but the footer is `--sage-deep #3f5942`, where
+black type would disappear — so the footer logo sits on a deliberate
+`--bone #fbfaf6` plate (6px radius, 8px/12px padding).
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Black | `#0C0C0C` | The entire wordmark and the running figure |
+| Dark green | `#305848` | The two accent squares flanking the wordmark |
+
+**Do their colours agree with this page?** **Yes, this is the best fit of the
+nine.** Their only hue is the dark green `#305848`, and this page's
+`--sage-deep #3f5942` is almost the same colour — near enough that the accent
+squares in the logo read as part of the page's own system. The page's clay
+accent `--clay #c17a5a` is an addition with no counterpart in their identity,
+but it does not fight anything. No change recommended.

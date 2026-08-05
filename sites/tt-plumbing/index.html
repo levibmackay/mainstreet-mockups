@@ -109,6 +109,19 @@
     letter-spacing:0.14em;
     color:var(--off-white-dim);
   }
+  .header-nav{ display:flex; align-items:center; gap:1.4rem; margin-left:auto; margin-right:1.25rem; }
+  .header-nav a{
+    font-family:var(--ff-mono, ui-monospace, "SF Mono", Menlo, monospace);
+    font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:#f3efe6; text-decoration:none;
+    padding:0.5rem 0.1rem; border-bottom:1px solid transparent;
+    min-height:44px; display:inline-flex; align-items:center;
+  }
+  .header-nav a:hover{ border-bottom-color:var(--red-bright, #c1272d); }
+  .header-nav a:focus-visible{ outline:2px solid #f3efe6; outline-offset:3px; }
+  /* Below the fold of a phone header there is no room for both the links and
+     the call button. The number is the conversion path, so the links go. */
+  @media (max-width:720px){ .header-nav{ display:none; } }
   .header-call{
     display:inline-flex;
     align-items:center;
@@ -582,6 +595,11 @@
       </svg>
       <span class="brandmark-text">T&amp;T Plumbing<small>Ashton, Idaho</small></span>
     </a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <a class="header-call" href="tel:+12086527373">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h4l2 6-3 2a13 13 0 0 0 6 6l2-3 6 2v4a2 2 0 0 1-2 2C10 23 1 14 1 6a2 2 0 0 1 2-2z"/></svg>
       (208) 652-7373

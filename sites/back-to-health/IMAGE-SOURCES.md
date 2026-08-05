@@ -27,3 +27,53 @@ Optimized with macOS `sips` (JPEG quality 80). Original 958×960, kept at 958×9
 ## Net result
 
 Only one real, privacy-safe, non-stock photo exists across both allowed sources: the exterior storefront sign photo from the business's own homepage. It was optimized and integrated into the hero section. No other real estate/interior/team photos exist on either the business's own site or its Google Business Profile that meet the privacy and authenticity constraints — the rest of the page remains CSS/SVG as before.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.** The earlier note above recorded the plain
+`bthchiro-logo.png` wordmark as "found but not integrated". That decision is
+reversed here: the practice's actual B2H mark is now on the page, and the drawn
+placeholder SVG is gone.
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-back-to-health-chiropractic.png` | https://backtohealthchiroid.com/wp-content/uploads/2023/02/Back-to-Health-Chiro-1.jpg | Their site (header logo — the `<img id="logo">` in their nav, `alt="Back to Health Chiropractic"`) | Header brand lockup beside the "Back to Health / Chiropractic · Rexburg" wordmark (above the fold, not lazy-loaded), and footer brand lockup on a bone plate (`loading="lazy"`). Replaces the drawn circle-and-arc SVG in both places. | 2026-08-05 |
+
+**Verification.** `backtohealthchiroid.com` is the practice's own domain,
+already verified above against the fact sheet (60 S 2nd W, (208) 359-2264).
+The logo itself reads "B2H Chiropractic" — B2H being their own contraction of
+Back to Health — and their own markup labels this exact file
+`alt="Back to Health Chiropractic"`. Name match confirmed.
+
+**Processing.** Their file is a JPEG with a hard white background, which would
+show as a white box on this page's bone header. The white was unpremultiplied
+back to an alpha channel (`alpha = 255 − min(R,G,B)`, colour reconstructed), so
+the artwork now composites cleanly on light ground with no halo. Resized to
+579x640 and quantised to 128 colours; 33KB. Nothing was recoloured, cropped, or
+stretched. Because that technique reconstructs the art *as it looks on white*,
+the logo is only ever placed on white or near-white here — hence the bone plate
+in the footer.
+
+**Also checked and rejected:** `bthchiro-logo.png` (400x34) — a plain
+single-line text wordmark, too low-resolution and too weak next to the real
+mark; skipped in favour of the B2H lockup.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Royal blue | `#0030A8` | The dominant B and H strokes |
+| Mid blue | `#4C7FE8` | Gradient midtone |
+| Pale blue | `#A8C0FC` | Gradient highlight at the top of each letter |
+| Black | `#000000` | The spine illustration |
+
+**Do their colours agree with this page?** **No — this is the sharpest clash of
+the nine.** Their real brand is unambiguously royal blue and black. This page is
+built on forest green `--forest #2c4a3b` and terracotta `--terracotta #c1704f`,
+which shares no hue with their identity at all. The logo still *reads* fine
+because it sits on light bone ground in the header and on a bone plate in the
+footer, but a business owner who knows their own colours will notice. Flagged
+for Levi, not acted on: repainting this page blue is a whole-design decision,
+not a logo-pass decision.

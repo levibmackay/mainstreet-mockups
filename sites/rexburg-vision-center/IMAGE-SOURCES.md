@@ -65,3 +65,44 @@ Vision Center, Rexburg, ID" is the right query.
 One genuine, privacy-safe, non-stock photograph of the practice's own
 storefront signage. Everything else on their site is either a staff headshot,
 licensed-looking stock, a logo, or a thumbnail too small to use.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-rexburg-vision-center-light.png` | https://rexburgvision.com/images/rexlogo.png | Their site (header logo — their light-ground variant, used over dark) | Header brand lockup, above the "Est. 1963 · Rexburg, ID" locale line (above the fold, not lazy-loaded), and footer brand lockup (`loading="lazy"`). Replaces the drawn concentric-rings SVG and the typed wordmark in both places. | 2026-08-05 |
+
+**Verification.** `rexburgvision.com` was already verified above by exact phone
+match `208-356-4444`, and the storefront photo already on this page shows the
+same iris mark on their monument sign. The logo reads "REXBURG / Vision Center"
+beside a concentric-iris mark. Exact name match, and self-confirming against the
+sign in the photo.
+
+**Two official variants exist and both were checked.** Their site ships
+`rexlogo.png` (light artwork, for dark grounds) and `rexlogo_white.png`
+(dark navy artwork, *for* white grounds — the filename is about the intended
+background, not the ink). This page's header and footer are both midnight navy,
+so only the light variant was pulled and shipped. If a light-ground placement is
+ever needed, `rexburgvision.com/images/rexlogo_white.png` is the file. Their
+`favicon.svg` (33x33, the iris mark alone) was also checked — skipped, no
+wordmark. Alpha-trimmed and quantised only; 406x120, 7.6KB. Not recoloured,
+not stretched, nothing cropped.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Deep navy | `#0F3E56` | The dark variant's wordmark; the shading in the iris rings |
+| Light cyan | `#68C8F0` | The iris highlight |
+| Pale cyan | `#80D0F0` | The outer iris ring |
+| White | `#FFFFFF` | The wordmark on the light variant |
+
+**Do their colours agree with this page?** **Yes — near-exact.** The page's
+`--midnight #0b1428` sits in the same deep-navy family as their `#0F3E56`, and
+the page's `--cyan-2 #7fe0f2` is within a few points of their iris cyan
+`#68C8F0`. Whoever built this page landed on their real palette without having
+the logo. Nothing to change.

@@ -87,3 +87,50 @@ partner photos were used anywhere, per the non-negotiable privacy rule —
 seven headshots were identified and rejected. No stock photography from the
 site's homepage carousel (eight iStock-licensed images) was used. Google's
 Business Profile for this listing currently has no uploaded photos at all.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-searle-hart.png` | https://searlehart.com/wp-content/uploads/2015/09/logo2.png | Their site (header logo) | Header brand lockup (above the fold, not lazy-loaded), and footer on an ivory plate (`loading="lazy"`). Replaces the drawn "SH" roundel SVG and the typed wordmark in both places. | 2026-08-05 |
+
+**Verification.** `searlehart.com` was already verified above via
+`/rexburg-location/`, which carries the exact address "412 Grand Loop" and phone
+"(208) 356-3716" from the fact sheet. The logo reads "Searle Hart & Associates,
+PLLC" over "CERTIFIED PUBLIC ACCOUNTANTS", with an interlocking SH monogram
+above. Exact name match. Note the firm styles itself "Searle, Hart & Associates"
+with a comma on their own site; the logo image as shipped has no comma, and the
+`alt` text follows the logo.
+
+Also checked: `sh-icon.png` (85x85, their favicon — the monogram alone) —
+skipped, no wordmark.
+
+**Processing.** Their file is an opaque RGB PNG on white. White was
+unpremultiplied to an alpha channel so it composites without a white box on the
+ivory header. Alpha-trimmed to 390x147, quantised; 7KB. Not recoloured, not
+stretched, nothing cropped.
+
+**The plate.** The artwork is navy and teal engraving drawn for white stock. It
+is bare on the `--ivory #f6f2e9` header; the footer is `--pine-950 #132821`,
+where the navy would vanish, so the footer logo sits on a deliberate ivory plate
+(2px radius, matching the page's `--radius`, 9px/13px padding).
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Navy | `#004880`–`#005088` | "Searle Hart & Associates", the H of the monogram |
+| Teal green | `#007860` | The S of the monogram, "CERTIFIED PUBLIC ACCOUNTANTS" rule |
+| Mid teal | `#3C9084` | Monogram gradient midtone |
+
+**Do their colours agree with this page?** Partly. The page's
+`--pine-900 #1f3d33` is a deeper, greyer relative of their teal `#007860` —
+same family, much less saturated. But **their navy `#004880` is a primary brand
+colour and appears nowhere on this page**, and the page's `--gold-500 #b8924a`,
+which carries a lot of the design's character, appears nowhere in their
+identity. So the page reads as "professional green and gold" where the firm
+reads as "navy and teal". Reported for Levi.

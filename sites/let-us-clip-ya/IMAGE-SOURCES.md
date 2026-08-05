@@ -84,3 +84,45 @@ This pass redid the work properly: found and verified the real website by
 phone match, pulled the images from URLs that are recorded above, and opened
 each one before accepting it. The earlier files are gone; the three here are
 new downloads with known sources.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-let-us-clip-ya.png` | https://letusclipya.com/img/logo.png | Their site (header logo) | Header brand lockup (above the fold, not lazy-loaded) and footer brand lockup (`loading="lazy"`). Replaces the drawn stacked-stone SVG and the typed "Let Us Clip Ya" wordmark in both places. | 2026-08-05 |
+
+**Verification.** `letusclipya.com` was already verified above by exact phone
+match `(208) 346-3846` on their own homepage. The logo reads "LET US CLIP YA"
+with "LANDSCAPING" beneath it, beside a green shield containing an ornamental
+grass illustration. Exact name match.
+
+Also checked: `img/apple-touch-icon.png` (180x180, the shield alone) and
+`img/favicon.ico` — skipped, the full horizontal lockup carries the wordmark and
+is the better header asset.
+
+**Processing.** Alpha-trimmed and quantised only — 415x93, 3.2KB. Not
+recoloured, not stretched, nothing cropped.
+
+**Contrast.** Checked against both grounds it sits on. Their green `#33B14A`
+clears AA against the `--sand #f2e9d8` header and against the `--umber-950
+#241a12` footer, and the grey "LANDSCAPING" (`#B0B0B0`) clears comfortably on
+the dark footer. No plate needed anywhere.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Green | `#33B14A` (range `#30B048`–`#38B848`) | The shield and the "LET US CLIP YA" wordmark |
+| Grey | `#B0B0B0` | "LANDSCAPING" |
+| Pale green | `#D8E8D0` | The grass illustration inside the shield |
+
+**Do their colours agree with this page?** **No.** Their identity is a single
+bright landscaping green. This page is built on sand, umber and clay-orange
+(`--clay-500 #c1622a`), a deliberately earthy hardscape palette with no green in
+it at all. The logo reads fine on both grounds, but its green is the only green
+on the page and currently sits as an outlier rather than as the accent colour.
+Flagged for Levi.

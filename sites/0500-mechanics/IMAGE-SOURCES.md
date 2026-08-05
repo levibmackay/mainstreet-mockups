@@ -112,3 +112,49 @@ rejected solely for showing identifiable faces (staff and, in one case,
 what appears to be a family gathering), and one marketing banner was
 rejected as third-party stock content. Google Maps had only a duplicate of
 a photo already secured from the business's own site.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-0500-mechanics.svg` | https://www.0500mechanics.com/Files/Images/logo.svg | Their site (header logo, `<img>` in the site nav) | Header brand lockup (above the fold, not lazy-loaded) and footer brand lockup (`loading="lazy"`). Replaces the drawn hex-bolt SVG placeholder and the typed "0500 MECHANICS" wordmark in both places. | 2026-08-05 |
+
+**Verification.** Pulled from `0500mechanics.com`, the domain already verified
+above by exact phone `(208) 356-0500` and address `390 S 5th W, Rexburg, ID`
+against both the fact sheet and the Google Business Profile. The mark itself
+reads "0500 / MECHANICS", matching the business name.
+
+**Modification made — read this.** The file as served is a *co-branded* lockup:
+a NAPA AutoCare badge on the left half and the 0500 Mechanics mark on the right.
+NAPA is a third party's registered trademark, so the local copy sets the SVG
+`viewBox` to `151.22 0 202.12 149.46`, which crops the viewport to the 0500
+Mechanics panel only. No path data was edited, nothing was recoloured, and no
+part of the 0500 wordmark was cut. Their `<title>` (`tancheto`, a leftover from
+the designer's template) was changed to `0500 Mechanics` for the accessible
+name. If Levi would rather ship the full NAPA lockup, restore the original
+`viewBox="0 0 353.34 149.46"` and the whole thing reappears.
+
+Also checked: `Files/Images/footer-logo.png` (161x124, a lower-fidelity raster of
+the same mark) — skipped, the vector is strictly better. Favicon
+`favicon.ico?v=2` — skipped, too small to use as a lockup.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Panel black | `#212223` (also `#231F20`) | The block the mark sits on |
+| White | `#FFFFFF` | The wrench/hood mark and "MECHANICS" |
+| NAPA blue | `#1C559A` | *Partner badge only — not a 0500 Mechanics colour* |
+| NAPA yellow | `#F5B729` | *Partner badge only — not a 0500 Mechanics colour* |
+
+**Do their colours agree with this page?** Mostly. Their own mark is strictly
+white-on-near-black, and this page is built on `--black #0a0b0d` with
+`--chrome #c7ced6`, so the logo drops in without a plate and reads correctly.
+The one divergence is the page's signature red `--red #e01e26`, which is *not*
+a colour they use anywhere in their own branding — the only strong hue in the
+real lockup is the NAPA partner blue and yellow. Levi's call whether the red
+stays as an editorial choice or gets swapped.

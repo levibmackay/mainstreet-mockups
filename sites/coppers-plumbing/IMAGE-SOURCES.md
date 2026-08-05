@@ -95,3 +95,49 @@ considered from both permitted sources was either a brand/icon asset, a
 generic line-icon illustration, or stock/editorial photography with an
 identifiable face, and was excluded. The rest of the page remains the
 original copper-pipe illustration and CSS/SVG visual system.
+
+---
+
+## Logo pass — 2026-08-05
+
+**Result: real logo found and used — both official variants.**
+
+| Local file | Source URL | Source | Used on page | Date |
+|---|---|---|---|---|
+| `img/logo-coppers-plumbing.png` | https://coppersplumbing.com/wp-content/uploads/2026/04/Asset-12-1-1.png | Their site (header logo — the `<img>` inside the `<a href="https://coppersplumbing.com">` in their nav; also their `og:image` and `twitter:image`) | Header brand lockup, on a deliberate paper plate (above the fold, not lazy-loaded). Replaces the drawn pipe-union SVG and the typed "Coppers Plumbing" wordmark. | 2026-08-05 |
+| `img/logo-coppers-plumbing-stacked.png` | https://coppersplumbing.com/wp-content/uploads/2026/04/Group-9-1.png | Their site (stacked variant used further down their homepage) | Footer, replacing the "Coppers Plumbing — St Anthony, Idaho" text line (`loading="lazy"`) | 2026-08-05 |
+
+**Verification.** `coppersplumbing.com` was already verified above by exact
+match on phone `(208) 270-9204` and address `338 W 2nd N, St Anthony`. Both
+files render the wordmark "COPPERS PLUMBING" over their Australian-shepherd-
+with-a-pipe-wrench mark. Name match confirmed.
+
+Note on the `og:image`: their meta tags point at
+`tannerw27.sg-host.com/wp-content/uploads/2026/04/Asset-12-1-1.png`, a leftover
+SiteGround staging host. The identical file is served from their live domain,
+and that is the URL used and logged above.
+
+**Why two files, and the plate.** The horizontal lockup sets "PLUMBING" in near-
+black navy `#0B0B34`, which is effectively invisible on this page's
+`--ground-950 #160f0a` header. Rather than recolour their logo, the header puts
+it on a deliberate `--paper #f4ead9` plate (4px radius, 7px/11px padding) —
+the ground it was drawn for. The footer instead uses their *own* dark-background
+variant, which already sets "PLUMBING" in white and therefore needs no plate at
+all. Both were alpha-trimmed only; the WebP the server sends under a `.png`
+extension was transcoded to real PNG. No recolouring, no stretching, no cropping
+of the wordmark.
+
+**Brand colours sampled from the logo.**
+
+| Swatch | Hex | Where it appears |
+|---|---|---|
+| Orange | `#D05818` | "COPPERS", the dog's markings |
+| Navy | `#0B0B34` | "PLUMBING", the dog's outline and shading |
+| White | `#FFFFFF` | The wrench, the dog's blaze |
+
+**Do their colours agree with this page?** Half. The page's `--copper-500
+#b87333` is a plausible cousin of their orange `#D05818`, though theirs is far
+more saturated and reads as safety-orange rather than metal-copper. The bigger
+gap is that **navy is a primary brand colour they use and this page uses none
+of it**, while the page's `--verdigris-500 #4e8577` teal appears nowhere in
+their identity. Reported, not acted on.

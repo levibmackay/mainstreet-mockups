@@ -443,3 +443,9 @@ footer.site a:hover{ text-decoration:underline; }
   .skip-link,
   .nav-row{ transform:none !important; }
 }
+
+/* Real logo lockup, added with the logo pass. */
+.logo-img{ display:block; width:auto; height:48px; }
+.logo-img-full{ height:140px; }
+@media (max-width:520px){ .logo-img{ height:40px; } }
+.logo .mark-gold{
