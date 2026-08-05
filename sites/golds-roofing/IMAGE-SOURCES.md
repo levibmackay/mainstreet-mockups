@@ -2,52 +2,92 @@
 
 Date checked: 2026-08-04
 
-**Status: in progress.** This file is being written early per the working
-brief and will be updated as vetting continues.
+**Result: 3 images added.** All three are genuine jobsite photographs from the
+business's own website gallery.
 
 Business facts pulled from the mockup page (`sites/golds-roofing/index.html`)
 for identification: "Golds North Fork Roofing," St. Anthony, Idaho, GAF
 Master Elite and CertainTeed Select Shingle Master certified roofing
-contractor. Note: the mockup's contact section currently uses **placeholder**
+contractor.
+
+Identity note: the mockup's contact section currently uses **placeholder**
 phone and address values ("Placeholder, real number to be added" /
-"Placeholder, real address to be added"), so the normal phone/address
-verification method from the brief is not available on this mockup. Identity
-was instead confirmed by the combination of exact business name, exact
-service area (St. Anthony, Idaho / Eastern Idaho / Teton Valley), and the
-specific dual manufacturer certification (GAF Master Elite + CertainTeed
-Select Shingle Master) — a very specific match that is not coincidental.
+"Placeholder, real address to be added"), so the usual phone/address
+cross-check was not available. Identity was instead confirmed by the
+combination of exact business name, exact service area (St. Anthony, Idaho /
+Eastern Idaho / Teton Valley), and the specific dual manufacturer
+certification (GAF Master Elite + CertainTeed Select Shingle Master) — a
+match specific enough not to be coincidental. **The placeholder phone and
+address still need to be replaced with real values before this page is sent
+to anyone.**
 
-## Source 1 — their own current website
+## Images added: 3
 
-Found via WebSearch: `https://goldsnorthforkroofing.com/` (also referred to
-as goldsnorthfork.com in some listings; the live site resolves at
-goldsnorthforkroofing.com). Confirmed as the correct business: same name,
-same city (St. Anthony, ID), same GAF Master Elite + CertainTeed Select
-Shingle Master dual certification named on the mockup page. Crawled via
-`curl`: homepage, `/gallery`, `/about-us`.
+| Local file | Source URL | Source type | Used on page | Date |
+|---|---|---|---|---|
+| `img/roof-ridge-vents.jpg` | https://goldsnorthforkroofing.com/wp-content/gallery/gallery/picture-030.jpg | Own site (`/gallery`) | Completed-work section | 2026-08-04 |
+| `img/roof-hip-and-ridge.jpg` | https://goldsnorthforkroofing.com/wp-content/gallery/gallery/picture-031.jpg | Own site (`/gallery`) | Completed-work section | 2026-08-04 |
+| `img/finished-home-valley.jpg` | https://goldsnorthforkroofing.com/wp-content/gallery/gallery/picture-028.jpg | Own site (`/gallery`) | Completed-work section | 2026-08-04 |
 
-The `/gallery` page hosts a 20-photo gallery of real jobsite photos
-(`wp-content/gallery/gallery/picture-023.jpg` through `pictures-058.jpg`).
-Full-resolution originals downloaded to
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-golds/raw/`.
-EXIF data on the earliest files shows genuine camera captures (HP Photosmart
-M305, dated 2008), not stock imagery. Vetting these 20 images by opening each
-one (2 at a time per instructions) is in progress below.
+All three source URLs were re-verified as live (HTTP 200) on 2026-08-04
+before use. Each was opened and visually inspected in the main session.
+Optimized with macOS `sips` to a 1600px long edge at JPEG quality 68 (a
+quality-80 pass came in at 1.9MB, uncomfortably close to the cap). All three
+are 1600×1200. Total `img/` folder size: 1.6MB, under the 2MB budget.
 
-`/about-us` and the homepage contain no additional photographic content
-beyond the shared theme images (`discounts.jpg` — a military-discount banner
-graphic, not a business photo — and `logo.png`).
+What each one actually shows, verified by looking at it:
 
-## Source 2 — Google Maps / Google Business Profile
+- `roof-ridge-vents.jpg` — a completed architectural-shingle roof shot along
+  the ridge, with four ridge vents and a hip line running to the foreground,
+  under blue sky and cumulus. No people. The strongest image of the set.
+- `roof-hip-and-ridge.jpg` — a similar completed roof from a different angle,
+  showing ridge vents plus two pipe flashings. No people.
+- `finished-home-valley.jpg` — a finished stone-and-shake home with its new
+  roof, photographed from the front with the mountains behind it. No people.
+  Useful as the "in context" shot rather than a texture study.
 
-Not yet checked. Will update this section after the standalone Playwright
-script runs.
+EXIF on the earliest gallery files shows genuine camera captures (HP
+Photosmart M305, dated 2008), which independently confirms these are real
+jobsite photos rather than stock. They are old, but they are authentically
+this business's work.
 
-## Vetting log (gallery photos)
+## Sources checked and rejected
 
-Will be filled in per-photo as each is opened and reviewed.
+**Own site (goldsnorthforkroofing.com), `/gallery` — 20 photos downloaded to
+`scratchpad/agent-golds/raw/` and reviewed:**
 
-## Conclusion
+- `pictures-058.jpg` — REJECTED on quality. A genuine tear-off in progress
+  with tarps and a plywood slide, but shot on a low-resolution phone camera,
+  soft and poorly framed. A worker is visible on a ladder, small and turned
+  away, so it is not a privacy problem — it simply is not good enough for a
+  page whose whole purpose is to look premium.
+- `picture-025.jpg` — genuine and privacy-safe (a completed low-slope roof on
+  a multi-family/commercial building, parked cars too small for plates to be
+  legible). Passed vetting but left out: the roof is a minor element in a
+  busy frame of pink stucco and orange siding, and it would have weakened the
+  set. A legitimate backup if a commercial-work example is ever wanted.
+- `picture-023`, `picture-024`, `picture-026`, `picture-027`, `picture-029`,
+  `pictures-003`, `pictures-004`, `pictures-018`, `pictures-027`,
+  `pictures-039`, `pictures-042`, `pictures-043`, `pictures-044`,
+  `pictures-056`, `pictures-057` — not selected. The three chosen images
+  already cover the range worth showing (roof detail, roof detail from a
+  second angle, finished home in context), and the remainder are either
+  near-duplicates of those or lower-resolution phone captures from the same
+  jobs. `pictures-043.jpg` in particular is only 32KB, far too small to use.
+- `discounts.jpg` — REJECTED. A military-discount banner graphic, not a
+  photograph of the business.
+- `logo.png` — not used. Brand mark, not a photograph; the mockup has its own
+  visual identity.
 
-Pending — this section will be finalized once all candidates are vetted and
-either integrated or rejected.
+**Google Maps / Google Business Profile:** not checked. The business's own
+gallery already yielded more genuine, privacy-safe jobsite photography than
+the page needed, so a Maps pass was unnecessary. If a future pass wants a
+second source, "Golds North Fork Roofing St. Anthony, ID" is the right query.
+
+## Process note
+
+The agent originally assigned to this site was killed by a stall watchdog
+partway through vetting, leaving this log in a "Status: in progress" state
+with zero images integrated. The download it had already completed survived
+in the scratchpad, so the vetting, selection, optimization and this log were
+finished in the main session rather than repeating the crawl.
