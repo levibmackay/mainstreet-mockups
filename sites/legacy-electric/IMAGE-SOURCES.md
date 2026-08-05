@@ -78,3 +78,52 @@ uploaded. `sites/legacy-electric/img/` was not created. `index.html` was
 not changed for imagery — it continues to use the CSS/inline-SVG visual
 system (circuit-trace backgrounds, bolt-mark icon set, schematic diagrams)
 that was already in place.
+
+---
+
+# 2026-08-05 — Source 3 pass (Facebook / Instagram)
+
+BRIEF.md rule 4 was revised on 2026-08-05 to permit a third source: the
+business's own Facebook or Instagram page. This section records that pass.
+
+**Result: still zero images.** No Facebook or Instagram page belonging to
+this business could be confirmed to exist. `sites/legacy-electric/img/` was
+not created and `index.html` was not changed.
+
+## What was checked
+
+**Their own site.** `legacyelectricidaho.com` home, `/about/` and
+`/contact/` were re-fetched and grepped for any `facebook.com` or
+`instagram.com` link. There are none. The site publishes a phone and an
+email and nothing else — no social icons, no footer social row.
+
+**Search.** Multiple searches for a Legacy Electric page tied to Rexburg /
+Madison County / the Leishmans. Every profile the searches surfaced is a
+different company with the same common name — Legacy Electric in Dallas TX,
+San Angelo TX, NYC, WA, plus a "Legacy Electric and Construction
+Management" and a "Legacy Electrical LLC". None is in Idaho.
+
+**Direct slug probes**, all returning Facebook's "this content isn't
+available right now" or an empty Instagram page:
+`facebook.com/legacyelectricidaho`, `facebook.com/LegacyElectricIdaho`,
+`facebook.com/legacyelectricid`, and the same three on `instagram.com`.
+
+**The one near-miss.** `https://www.facebook.com/LegacyElectricInc6/`
+resolves and is categorised "Electricians", so it was checked properly
+rather than assumed. Its name is "Legacy Electric **Inc.**", not "Legacy
+Electric"; it has 2 followers; and it publishes **no address, no city, no
+state, no phone and no website**. There is nothing tying it to Rexburg,
+to Idaho, to `legacyelectricidaho.com`, to (208) 359-0672 or to Ryan or
+Nick Leishman. Per rule 4, if you cannot confirm the business posted it,
+the answer is no — so this page was **not** used as a source, and this is
+exactly the failure mode the near-miss warning describes: a plausible page
+whose branding does not actually match the business.
+
+## Conclusion
+
+Legacy Electric appears to have no social presence at all, which is
+consistent with the three-page brochure site and the empty Google listing
+recorded above. All three permitted sources have now been checked and none
+of them holds a genuine, non-stock, privacy-safe photograph of this
+business. The page stays on its CSS/inline-SVG visual system (circuit-trace
+backgrounds, bolt-mark icon set, schematic diagrams).

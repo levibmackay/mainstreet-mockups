@@ -126,6 +126,10 @@
     letter-spacing: -0.01em;
   }
   .brand .mark{ width: 28px; height: 28px; flex-shrink: 0; }
+  /* Real 0500 Mechanics logo. The mark ships as white artwork on its own
+     near-black panel, which sits naturally on this header without a plate. */
+  .brand-logo{ height: 40px; width: auto; display: block; flex-shrink: 0; }
+  .footer-grid .brand-logo{ height: 45px; }
   .brand .name-main{ color: var(--text); }
   .brand .name-sub{ color: var(--red-text); }
 
@@ -508,12 +512,7 @@
 
 <header class="site" id="site-header">
   <a href="#top" class="brand" aria-label="0500 Mechanics home">
-    <svg class="mark" viewBox="0 0 24 24" role="img" aria-hidden="true">
-      <title>0500 Mechanics hex-bolt mark</title>
-      <path d="M12 2 L21 7 V17 L12 22 L3 17 V7 Z" fill="none" stroke="#e01e26" stroke-width="1.6" stroke-linejoin="round"/>
-      <circle cx="12" cy="12" r="3.2" fill="none" stroke="#c7ced6" stroke-width="1.4"/>
-    </svg>
-    <span class="name-main">0500</span><span class="name-sub">MECHANICS</span>
+    <img class="brand-logo" src="img/logo-0500-mechanics.svg" alt="0500 Mechanics" width="54" height="40">
   </a>
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-links">
@@ -732,8 +731,7 @@
   <div class="wrap footer-grid">
     <div>
       <a href="#top" class="brand" aria-label="0500 Mechanics home">
-        <svg class="mark" viewBox="0 0 24 24" role="img" aria-hidden="true"><title>0500 Mechanics hex-bolt mark</title><path d="M12 2 L21 7 V17 L12 22 L3 17 V7 Z" fill="none" stroke="#e01e26" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#c7ced6" stroke-width="1.4"/></svg>
-        <span class="name-main">0500</span><span class="name-sub">MECHANICS</span>
+        <img class="brand-logo" src="img/logo-0500-mechanics.svg" alt="0500 Mechanics" width="61" height="45" loading="lazy">
       </a>
       <p class="foot-meta">390 S 5th W, Rexburg, Idaho &middot; <a href="tel:+12083560500">(208) 356-0500</a></p>
       <p class="footer-copy">&copy; <span id="year">2026</span> 0500 Mechanics</p>

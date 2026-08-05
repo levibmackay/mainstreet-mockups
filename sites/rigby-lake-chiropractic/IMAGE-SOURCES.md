@@ -1,57 +1,77 @@
-# Image Sources — Rigby Lake Chiropractic mockup
+# Image sources — Rigby Lake Chiropractic mockup
 
-Date: 2026-08-04
+Date checked: **2026-08-05** (supersedes the 2026-08-04 pass)
 
-## Business identification
+**Result: still zero images added.** This re-check was triggered by the
+2026-08-05 revision to BRIEF.md rule 4, which added a business's own Facebook
+or Instagram page as a permitted third source. The 2026-08-04 pass had declined
+to crawl `facebook.com/rigbylakechiropractic` **on the source rule alone**. That
+page has now been opened and every image on it inspected. Nothing on it
+qualifies.
 
-From `sites/rigby-lake-chiropractic/index.html`:
-- Name: Rigby Lake Chiropractic
-- Address: 711 Rigby Lake Dr, Suite 1102, Rigby, Idaho
-- Phone: (208) 745-5165 / tel:+12087455165
+No `img/` folder was created and `index.html` was not changed. The page remains
+CSS/inline-SVG only, per rule 4's fallback.
 
-## Own website search
+## Source 3 — facebook.com/rigbylakechiropractic
 
-WebSearch for "Rigby Lake Chiropractic Rigby Idaho website" found no dedicated
-business website. Only found:
-- Facebook page: https://www.facebook.com/rigbylakechiropractic/ (not a
-  "current website" per BRIEF.md rule 4's two allowed sources — own website
-  or Google Maps listing — so not used as a source even if photos exist there)
-- Directory listings (npidb.org, orthopedic.io, healthgrades, providerwire,
-  npino, WebMD) — not the business's own site, not used.
+**Reachable.** `curl` is hard-blocked by Facebook (HTTP 400), but a standalone
+headless Chromium (Playwright, run from the scratchpad — not the shared MCP
+tool) rendered the public page and its individual `/photo/?fbid=` permalinks
+without logging in. No login was attempted and no login wall was circumvented.
+Eleven distinct images were recovered at full resolution — effectively the
+page's entire public image history back to November 2023.
 
-Conclusion: no dedicated business website found. Checking Google Business
-Profile / Google Maps listing next.
+**Business identity confirmed:** page name "Rigby Lake Chiropractic", Rigby ID,
+479 followers. `leads/professional-services.md` independently names
+`facebook.com/rigbylakechiropractic` as this business's page, and lists the same
+phone `(208) 745-5165` and address `711 Rigby Lake Dr Suite 1102` carried on the
+mockup.
 
-## Google Maps check
+### The problem: this page posts announcements, not photographs
 
-Scraped with a dedicated headless Chromium instance launched via a local
-Node/Playwright script (not the shared MCP Playwright tool), at
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-med2/maps-rigby.js`.
-(Used the Chromium build bundled with `rexburg-housing`'s node_modules —
-`noble-jewelers`'s Playwright package expected a different cached browser
-revision than what was installed locally.)
+Every single post on this page is a **holiday or closure announcement**, and the
+attached image is always a generic greeting graphic. There is not one photograph
+of the office, the building, the treatment rooms, the equipment, or the practice
+in the entire visible history.
 
-Searched Google Maps for "Rigby Lake Chiropractic Rigby Idaho", opened the
-listing. **Confirmed correct business**: address `711 Rigby Lake Dr Ste 1102,
-Rigby, ID 83442` and phone `(208) 745-5165` both match the mockup exactly
-(screenshot + DOM text extract, both saved in the scratchpad folder above).
+| Asset | What it is | Verdict |
+|---|---|---|
+| Cover photo, fbid `570727394842429` | 3D-rendered blue human spine on a clinical gradient background | **Rejected — stock medical render.** Not a photograph and not of this business. |
+| Profile photo, fbid `570727398175762` | "RIGBY LAKE CHIROPRACTIC" logo wordmark | **Rejected** — logo, not a photograph. |
+| fbid `1563934325521726` (Jul 11 2026, "We will be closed 7/13–7/23") | A **still frame from the film *The Hobbit*** captioned "I'M GOING ON AN ADVENTURE!" | **Rejected — copyrighted film still used as a meme.** Identifiable actor's face. Explicitly banned by rule 4. |
+| fbid `1375462594368901` (Nov 24 2025) | "HAPPY THANKSGIVING" cartoon clip-art of a family at a turkey dinner | **Rejected** — stock clip-art / promo graphic. |
+| fbid `1219850983263397` (May 21 2025) | "Memorial Day — Remember and Honor" flag graphic | **Rejected** — stock graphic. |
+| fbid `1107846971130466` (Dec 24 2024) | "MERRY CHRISTMAS" lettering with antlers and a Santa hat | **Rejected** — stock graphic. |
+| fbid `1089270859654744` (Nov 27 2024) | "Happy Thanksgiving" hand-lettering with a pumpkin | **Rejected** — stock graphic. |
+| fbid `986245956623902` (Jul 1 2024) | Sparkler and a small US flag held in a hand, dark background | **Rejected — stock photograph.** Studio-lit stock holiday imagery, nothing to do with this practice; a hand is in frame. |
+| fbid `962595185655646` (May 24 2024) | Military cemetery headstones lined with US flags | **Rejected — stock photograph**, not of this business. |
+| fbid `869757384939427` (Dec 22 2023) | "Happy Holidays" snowflake graphic | **Rejected** — stock graphic. |
+| fbid `852239813357851` (Nov 21 2023) | "HAPPY THANKSGIVING" autumn-leaf graphic | **Rejected** — stock graphic. |
 
-Result: no photo carousel, no "See photos" thumbnail — the panel instead
-shows an "Add a photo" prompt under "Add missing information," which Google
-only shows when a listing has zero photos. Confirmed via
-`img[src*="googleusercontent"]` DOM query across the page: **0 matches**.
-This business's Google Business Profile currently has no uploaded photos.
+Two of these (the sparkler and the cemetery) are photographs rather than
+clip-art, but both are plainly licensed stock used as holiday greetings, and
+neither depicts the business. Rule 4's hard constraint against republishing
+stock the business merely licensed applies to social posts exactly as it does
+to their website.
 
-The listing's only web link is `facebook.com` (their Facebook page). Facebook
-is not one of the two sources this brief allows (own website or Google Maps
-listing), so it was not crawled for images.
+**Instagram: none found.** No Instagram account surfaced for this business.
 
-## Images added: 0
+## Sources 1 and 2 — unchanged from 2026-08-04
 
-No usable real photos exist across either allowed source (own website: none
-found at all; Google Maps: confirmed correct listing, zero photos uploaded).
-Per BRIEF.md rule 4, this is a normal outcome — the page remains built with
-CSS/SVG only. No `img/` folder was created and no `<img>` tag was added to
-`index.html`. (The page has since had an unrelated design polish pass — custom
-service iconography, hero texture, hover states — but nothing image-related
-changed.)
+Not re-run, because neither the business nor the rule changed:
+
+- **Own website:** none exists. Only directory listings (NPI, Healthgrades,
+  BBB, WebMD) and the Facebook page. The Facebook page is this practice's only
+  real web presence.
+- **Google Business Profile:** listing confirmed correct by exact address and
+  phone match, but has **zero uploaded photos** — verified by an
+  `img[src*="googleusercontent"]` DOM query returning 0 matches, with Google's
+  own "Add a photo" prompt shown on the panel.
+
+## Conclusion
+
+All three permitted sources have now been exhausted. This practice has never
+published a photograph of itself anywhere on the open web: no website, an empty
+Google listing, and a Facebook page whose entire image history is holiday
+clip-art and one *Hobbit* meme. Zero images added; the mockup stays
+CSS/SVG-only.

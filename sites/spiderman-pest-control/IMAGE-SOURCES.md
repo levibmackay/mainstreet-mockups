@@ -1,97 +1,73 @@
 # Image sources — A Spiderman Pest Control LLC mockup
 
-Date checked: 2026-08-04
+Date checked: **2026-08-05** (supersedes the 2026-08-04 pass)
 
-**Result: zero images added.** Both permitted sources were checked and
-neither yielded a usable, genuine photo of this business. No images were
-downloaded into `sites/spiderman-pest-control/img/` and none are referenced
-in `index.html`. The page remains CSS/inline-SVG only, per BRIEF.md rule 4's
-fallback ("if you cannot find real photos, build with CSS and inline SVG as
-before").
+**Result: still zero images added.** This re-check was triggered by the
+2026-08-05 revision to BRIEF.md rule 4, which added a business's own Facebook or
+Instagram page as a permitted third source. Their social channel has now been
+opened and every image on it inspected. Nothing on it qualifies.
 
-## Business verification
+No `img/` folder was created and `index.html` was not changed. The page remains
+CSS/inline-SVG only, per rule 4's fallback.
 
-The mockup page (`index.html`) names the business "Spiderman Pest Control,"
-phone `(208) 709-7523`, serving Rigby, Idaho and the surrounding area.
-Web search located a real business, legal name "A Spiderman Pest Control
-LLC," website `spidermanpest.com`, phone `(208) 709-7523` — confirmed by
-exact phone-number match on both the business's own website (`tel://
-12087097523`) and its Google Business Profile listing. This is a real,
-independent East Idaho pest-control company, unrelated to the Marvel
-"Spider-Man" character — no Marvel/superhero-branded imagery was searched
-for or considered, consistent with BRIEF.md's IP-avoidance instruction.
+## Source 3 — facebook.com/p/Spiderman-Pest-Control-100057026727280
 
-## Source 1 — https://www.spidermanpest.com (their own site)
+**Reachable.** `curl` is hard-blocked by Facebook (HTTP 400), but a standalone
+headless Chromium (Playwright, run from the scratchpad — not the shared MCP
+tool) rendered the public page and its `/photo/?fbid=` permalinks without
+logging in. No login was attempted and no login wall was circumvented.
 
-Checked via `curl` fetch of the homepage plus the two linked interior pages
-(`/services/`, `/lawn-care-rigby-weed-feed-rigby/` — the only content pages
-linked from the site; no about/gallery/contact subpages exist beyond an
-in-page contact anchor).
+**Business identity confirmed:** page name "Spiderman Pest Control", Rigby ID,
+phone **208-709-7523** printed on the page's own door-hanger graphic — an exact
+match to `leads/home-services.md`, to `spidermanpest.com`, and to the mockup.
+`verify/batch-e.md` independently cites this exact Facebook URL for this
+business.
 
-| Filename on their site | Verdict |
-|---|---|
-| `Depositphotos_10999999_m-2015-300x216.jpg` (home) | Rejected: licensed stock, Depositphotos filename |
-| `Depositphotos_19401491_m-2015-300x226.jpg` (home) | Rejected: licensed stock |
-| `Depositphotos_2325483_m-2015-300x225.jpg` (home) | Rejected: licensed stock |
-| `Depositphotos_31725589_m-2015-300x209.jpg` (home) | Rejected: licensed stock |
-| `Depositphotos_55825181_m-2015-300x200.jpg` (home) | Rejected: licensed stock |
-| `Depositphotos_9456571_m-2015-300x199.jpg` (home) | Rejected: licensed stock |
-| `Depositphotos_6812519_m-2015.jpg` (services) | Rejected: licensed stock |
-| `Depositphotos_10343158_original-1024x683.jpg` (lawn care) | Rejected: licensed stock |
-| `Depositphotos_10818060_m-2015.jpg` (lawn care) | Rejected: licensed stock |
-| `Depositphotos_133458452_m-2015.jpg` (lawn care) | Rejected: licensed stock |
-| `SpidermanPest-logo.png` / `SpidermanPest-logo-600px.png` | Not used — brand logo, not a photograph, and this mockup's existing SVG lattice logo mark already fills that role and matches the acid-green/dark palette |
-| `marketable-media-footer-black.png` | Not used — third-party web-developer credit logo, not this business's content |
+### The problem: this page has no photographs at all
 
-Every content image across all three pages on the entire site follows the
-`Depositphotos_<id>_m-2015...` naming convention — a known stock-photo-agency
-filename pattern (confirmed by opening several: generic staged spider/ant/
-insect close-ups and generic lawn/yard shots with no identifiable location,
-branding, vehicle, or storefront). Per BRIEF.md rule 4 ("Do not copy licensed
-stock off their site either... those are images they licensed, not their own
-photography"), none of these were downloaded.
+Every recoverable image is either brand artwork or a promotional flyer. There is
+not one photograph of a truck, a technician at work, a treatment, an office, or
+a job site.
 
-## Source 2 — Google Maps / Google Business Profile
+| Asset | What it is | Verdict |
+|---|---|---|
+| Cover photo, fbid `575952320982320` (Sep 8 2022) | The "SPIDERMAN PEST" spider-and-wordmark logo on white | **Rejected** — logo artwork, not a photograph. (Also a stylised Spider-Man derivative; the mockup deliberately avoids that IP.) |
+| fbid `560234030853443` (Jan 16 2017) | Door-hanger / flyer front: "$20 Off Any One-Time General Pest Treatment", "$50 Off One Of Our Seasonal Pest Control Plans", with a grid of clip-art pest silhouettes (spiders, mice/voles, silverfish, beetles, earwigs, ants, flies, wasps) | **Rejected — promo graphic** built on clip-art. Explicitly banned by rule 4. |
+| fbid `560234007520112` (Jan 16 2017) | Door-hanger / flyer back: logo, "Call Today For A Free Estimate", 208-709-7523, "Pest, Lawn, Shrub Service" | **Rejected — promo graphic**, not a photograph. |
+| fbid `929176258993256` (Apr 1 2024) and fbid `1190045422906337` (Apr 21 2025) — the "#ELDERMACKMONDAY" posts | A promotional giveaway graphic ("Giving away 9 FREE SPRAYS in honor of #9 Mack Chappell") built around **inset photographs of Elder Mack Chappell**, a young man who died while serving a mission | **Rejected on three independent grounds:** it is a promo graphic; it contains **identifiable faces**; and the person depicted is a deceased third party, not the business. Using a memorial image to sell a redesign would be indefensible even if the rules allowed it, which they do not. |
 
-Checked via a standalone Playwright/Chromium script
-(`maps-scrape.js`, run from the scratchpad with `channel: 'chrome'` against
-the locally installed Google Chrome — the shared MCP Playwright tool and
-Chrome extension tools were deliberately not used) that searched "Spiderman
-Pest Control Rigby, ID," opened the matching listing, and inspected its
-photo panel.
+Four further photo permalinks were enumerated from the page
+(fbid `1363782370498601`, `560227117520801`, `560223990854447`, and a duplicate
+of `575952324315653`) but returned no image asset above the thumbnail
+threshold — no additional candidates were recoverable, and none showed evidence
+of being photographs.
 
-The listing that came up is "A Spiderman Pest Control LLC" — confirmed as
-the correct business by exact phone-number match (`(208) 709-7523`) and
-matching website (`spidermanpest.com`).
+**Instagram: none found.** No Instagram account surfaced for this business; a
+targeted search returned only Alignable, ZoomInfo, Yelp, Nextdoor, BOTW and
+their own Facebook page.
 
-The listing's "Photos & videos" panel showed exactly **one** photo (present
-under both the "All" and "By owner" filters, meaning the business itself
-uploaded it — Google's own "Add a photo" prompt appears directly beneath it,
-confirming there is nothing else). That single photo was downloaded in full
-resolution and opened for inspection: it is a promotional advertisement
-graphic — a macro stock photograph of a spider on wood, overlaid with ad
-copy reading "...you? Call today and save $50 on an... [pest control]
-service" (the visible fragment of what is evidently "Something buggin' you?
-Call today and save $50 on an ... service"). It shows no storefront, vehicle,
-signage, staff, or any identifiable feature of this specific business —
-it is a generic marketing creative built on stock wildlife macro photography,
-not a genuine photo of the business itself. Rejected as functionally
-equivalent to stock imagery/an ad banner, not a real photo of Spiderman Pest
-Control's operations or location.
+## Sources 1 and 2 — unchanged from 2026-08-04
 
-Screenshots taken as evidence of this check (not used on the page, scratch
-only):
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-outdoor/spiderman-pest-control/raw/maps-listing.png`,
-`maps-gallery.png`, and the downloaded full-resolution candidate
-`gmaps-photo1-full.jpg`.
+Not re-run, because neither the business nor the rule changed:
+
+- **Own website (`spidermanpest.com`):** every content image across all three
+  pages of the site is named `Depositphotos_<id>_m-2015...` — licensed stock
+  they bought, which rule 4's hard constraint forbids republishing even though
+  it sits on their own domain. The only non-stock assets are their logo and a
+  third-party web developer's credit logo.
+- **Google Business Profile:** exactly one owner-uploaded photo, and it is a
+  stock spider macro overlaid with "save $50" ad copy — a marketing creative,
+  not a photograph of the business.
 
 ## Conclusion
 
-No genuine, usable photo of A Spiderman Pest Control LLC (storefront, truck,
-signage, or interior) exists on either permitted source as of 2026-08-04 —
-the business's own site uses entirely licensed stock photography, and its
-sole Google Business Profile photo is a stock-based ad graphic rather than a
-real photo of the business. `sites/spiderman-pest-control/img/` was not
-created. `index.html` was not changed for imagery — it continues to use the
-CSS/inline-SVG visual system (radial web lattice hero graphic, service
-icons, service-area diagram) that was already in place.
+All three permitted sources are now exhausted, and they fail in the same way for
+the same reason: this business has never published an original photograph of
+itself. Its website is wall-to-wall Depositphotos, its Google listing holds one
+stock-based ad graphic, and its Facebook page holds a logo, two 2017 flyers, and
+a memorial promo. Zero images added; the mockup stays CSS/SVG-only.
+
+Worth noting for the pitch: "every photo on your site is stock" is a live,
+verified observation about this prospect, and `verify/batch-e.md` already
+records the safe wording for it. The absence of real photos is the story here,
+not an obstacle to it.

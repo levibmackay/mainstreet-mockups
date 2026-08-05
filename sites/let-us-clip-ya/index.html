@@ -127,6 +127,13 @@
     font-size:clamp(1.05rem, 2.2vw, 1.35rem);
     color:var(--umber-950);
   }
+  /* Real Let Us Clip Ya logo from their own site: green mark and wordmark on
+     transparent, with grey "LANDSCAPING". Both the sand header and the umber
+     footer clear AA against it, so no plate is needed in either place. */
+  .brand-logo{ display:block; width:auto; height:34px; flex:none; }
+  footer.site-footer .brand-logo{ height:42px; }
+  @media (max-width:420px){ .brand-logo{ height:28px; } }
+
   .brand .brand-mark{ width:2.1rem; height:2.1rem; flex:none; }
   .brand .accent{
     color:var(--clay-600);
@@ -698,17 +705,9 @@
 
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
-    <a href="#main" class="brand" aria-label="Let Us Clip Ya LLC, home">
-      <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-hidden="true">
-        <title>Stacked stone coursing mark</title>
-        <rect x="4" y="30" width="15" height="11" rx="2" fill="#a24e21"/>
-        <rect x="21" y="30" width="15" height="11" rx="2" fill="#c1622a"/>
-        <rect x="12" y="17" width="15" height="11" rx="2" fill="#726a55"/>
-        <rect x="29" y="17" width="10" height="11" rx="2" fill="#8f8468"/>
-        <rect x="4" y="17" width="6" height="11" rx="2" fill="#8f8468"/>
-        <rect x="17" y="5" width="15" height="10" rx="2" fill="#a24e21"/>
-      </svg>
-      <span>Let Us <span class="accent">Clip</span> Ya</span>
+    <a href="#main" class="brand">
+      <img class="brand-logo" src="img/logo-let-us-clip-ya.png"
+           alt="Let Us Clip Ya Landscaping" width="152" height="34">
     </a>
     <a class="header-phone" href="tel:2083463846">
       <svg viewBox="0 0 24 24" fill="none" role="img" aria-hidden="true">
@@ -983,14 +982,8 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="brand">
-      <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-hidden="true" style="width:1.6rem;height:1.6rem;">
-        <title>Stacked stone coursing mark</title>
-        <rect x="4" y="30" width="15" height="11" rx="2" fill="#dd8140"/>
-        <rect x="21" y="30" width="15" height="11" rx="2" fill="#aa9d7b"/>
-        <rect x="12" y="17" width="15" height="11" rx="2" fill="#aa9d7b"/>
-        <rect x="17" y="5" width="15" height="10" rx="2" fill="#dd8140"/>
-      </svg>
-      <span>Let Us <span class="accent">Clip</span> Ya</span>
+      <img class="brand-logo" src="img/logo-let-us-clip-ya.png"
+           alt="Let Us Clip Ya Landscaping" width="188" height="42" loading="lazy">
     </div>
     <p style="font-size:0.95rem;">Rexburg, Idaho &middot; <a href="tel:2083463846">208-346-3846</a> &middot; <a href="mailto:LetUsClipYa@gmail.com">LetUsClipYa@gmail.com</a></p>
   </div>

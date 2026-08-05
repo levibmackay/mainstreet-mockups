@@ -538,6 +538,53 @@
   }
   .map-art svg{ width:100%; height:100%; display:block; }
 
+  /* Photo variant of the framed art block: the real storefront shot is a
+     tall phone frame, so it gets a portrait ratio and a width cap rather
+     than being stretched to the 4:3 illustration box. */
+  .map-art--photo{
+    aspect-ratio:9/16;
+    max-width:380px;
+    margin-inline:auto;
+    background: var(--plum-deep);
+  }
+  .map-art--photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ---------- work photos ---------- */
+  /* .work sits between the dark services band and the cream "why" band, so
+     it shares the cream ground and is separated from what follows by a
+     hairline rather than a second slab of colour. */
+  .work{ background: var(--cream); border-bottom:1px solid var(--line); }
+  .work-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem,3vw,2.5rem);
+    max-width:860px;
+    margin:0 auto;
+  }
+  .work-figure{
+    margin:0;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    background: var(--plum-deep);
+    box-shadow: 0 20px 50px rgba(42,20,32,0.10);
+  }
+  .work-figure img{
+    width:100%;
+    height:auto;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    display:block;
+  }
+  .work-figure figcaption{
+    padding:0.9rem 1.1rem;
+    font-size:0.85rem;
+    line-height:1.45;
+    color: var(--ink);
+    background: rgba(255,255,255,0.6);
+    border-top:1px solid var(--line);
+  }
+
   /* ---------- contact / CTA ---------- */
   .cta{
     background: var(--plum-deep);
@@ -815,6 +862,30 @@
     </div>
   </section>
 
+  <!-- WORK PHOTOS -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From the chair</p>
+        <h2>Work out of the Rexburg shop.</h2>
+      </div>
+      <div class="work-grid">
+        <figure class="work-figure reveal">
+          <img src="img/copper-balayage-back.jpg"
+               width="360" height="640" loading="lazy" decoding="async"
+               alt="A client photographed from behind after a colour service, showing long copper-blonde hair styled in loose waves, standing in front of the salon's product shelves.">
+          <figcaption>Colour and waves, finished in the salon.</figcaption>
+        </figure>
+        <figure class="work-figure reveal" style="transition-delay:100ms">
+          <img src="img/nail-art-floral.jpg"
+               width="360" height="640" loading="lazy" decoding="async"
+               alt="Close-up of a hand with a fresh manicure: bright orange nails alongside hand-painted daisy and rainbow swirl nail art.">
+          <figcaption>Hand-painted nail art from the nail side of the shop.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- WHY US -->
   <section class="why" id="why">
     <div class="wrap why-grid">
@@ -885,25 +956,10 @@
         </div>
       </div>
 
-      <div class="map-art reveal" style="transition-delay:120ms">
-        <svg viewBox="0 0 400 300" role="img" aria-hidden="true">
-          <title>Stylized illustration of a Main Street storefront block</title>
-          <defs>
-            <linearGradient id="mapSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#3d1f2b"/><stop offset="1" stop-color="#c9a0a6"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="300" fill="url(#mapSky)"/>
-          <rect x="0" y="190" width="400" height="110" fill="#2a1420"/>
-          <rect x="20" y="140" width="70" height="80" fill="#4a2c38" stroke="#b8964f" stroke-width="1"/>
-          <rect x="105" y="120" width="80" height="100" fill="#3d1f2b" stroke="#b8964f" stroke-width="1"/>
-          <rect x="200" y="150" width="60" height="70" fill="#4a2c38" stroke="#b8964f" stroke-width="1"/>
-          <rect x="275" y="110" width="90" height="110" fill="#3d1f2b" stroke="#b8964f" stroke-width="1.4"/>
-          <rect x="300" y="150" width="16" height="26" fill="#d8c08a" opacity="0.75"/>
-          <rect x="326" y="150" width="16" height="26" fill="#d8c08a" opacity="0.75"/>
-          <line x1="0" y1="190" x2="400" y2="190" stroke="#b8964f" stroke-width="1" opacity="0.5"/>
-          <circle cx="200" cy="70" r="26" fill="#d8c08a" opacity="0.25"/>
-        </svg>
+      <div class="map-art map-art--photo reveal" style="transition-delay:120ms">
+        <img src="img/storefront-main-street.jpg"
+             width="360" height="640" loading="lazy" decoding="async"
+             alt="The Reflections Salon storefront on Main Street in Rexburg: a brick building with the salon's script sign above tall windows, a neon OPEN sign, planters on the sidewalk, and a person walking in through the front door.">
       </div>
     </div>
   </section>

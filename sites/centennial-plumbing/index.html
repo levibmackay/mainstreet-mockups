@@ -345,6 +345,29 @@
     font-size: 0.92rem;
   }
 
+  /* ---------- Work photo ---------- */
+  .work-photo {
+    margin: 0 0 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--mist);
+  }
+  .work-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .work-photo figcaption {
+    padding: 0.85rem 1.1rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+  }
+
   /* ---------- Why us / timeline ---------- */
   .why-grid {
     display: grid;
@@ -844,7 +867,15 @@
           </li>
         </ul>
 
-        <div class="timeline-box reveal" style="transition-delay:100ms;">
+        <div class="reveal" style="transition-delay:100ms;">
+        <figure class="work-photo">
+          <img src="img/technician-under-sink.jpg"
+               width="1400" height="1400" loading="lazy" decoding="async"
+               alt="A Centennial Plumbing technician in a branded orange work shirt kneeling on the floor and reaching up into an open sink cabinet to work on the supply lines.">
+          <figcaption>On a service call in Rexburg. Photo from Centennial Plumbing's own Facebook page.</figcaption>
+        </figure>
+
+        <div class="timeline-box">
           <span class="kicker">Centennial Timeline</span>
           <h3>Since 2007, still working in Rexburg.</h3>
           <div class="timeline-svg-wrap">
@@ -865,6 +896,7 @@
             <span>Rexburg, Idaho</span>
             <span>Centennial Plumbing LLC</span>
           </div>
+        </div>
         </div>
       </div>
     </div>

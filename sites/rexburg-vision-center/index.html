@@ -112,6 +112,24 @@
     text-decoration:none;
     color:var(--white);
   }
+  /* Real Rexburg Vision Center logo. Their site ships two official variants;
+     this is the light one they use over dark ground, which is exactly what
+     the midnight header and footer here are, so no plate is needed. */
+  .brand-logo{display:block;width:auto;height:38px;flex:none;}
+  .foot-brand .brand-logo{height:42px;}
+  .brand-locale{
+    display:block;
+    font-family:var(--mono);
+    font-size:.6rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--cyan-2);
+  }
+  @media (max-width:520px){
+    .brand-logo{height:30px;}
+    .brand-locale{display:none;}
+  }
+
   .brand-mark{width:34px;height:34px;flex:none;}
   .brand-word{
     font-family:var(--serif);
@@ -607,13 +625,9 @@
 <header class="site" id="siteHeader">
   <div class="wrap site-nav">
     <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 44 44" role="img" aria-label="Rexburg Vision Center mark">
-        <title>Rexburg Vision Center mark: concentric lens rings</title>
-        <circle cx="22" cy="22" r="20" fill="none" stroke="#7fe0f2" stroke-width="1.4"/>
-        <circle cx="22" cy="22" r="13.5" fill="none" stroke="#7fe0f2" stroke-width="1.4"/>
-        <circle cx="22" cy="22" r="6.5" fill="#7fe0f2"/>
-      </svg>
-      <span class="brand-word">Rexburg Vision Center<small>Est. 1963 &middot; Rexburg, ID</small></span>
+      <img class="brand-logo" src="img/logo-rexburg-vision-center-light.png"
+           alt="Rexburg Vision Center" width="129" height="38">
+      <small class="brand-locale">Est. 1963 &middot; Rexburg, ID</small>
     </a>
     <div class="menu-links-desktop">
       <nav class="links" aria-label="Primary">
@@ -853,12 +867,8 @@
 <footer class="site">
   <div class="wrap foot-inner">
     <div class="foot-brand">
-      <svg viewBox="0 0 44 44" role="img" aria-label="Rexburg Vision Center mark">
-        <title>Rexburg Vision Center mark</title>
-        <circle cx="22" cy="22" r="20" fill="none" stroke="#7fe0f2" stroke-width="1.4"/>
-        <circle cx="22" cy="22" r="6.5" fill="#7fe0f2"/>
-      </svg>
-      <span>Rexburg Vision Center</span>
+      <img class="brand-logo" src="img/logo-rexburg-vision-center-light.png"
+           alt="Rexburg Vision Center" width="142" height="42" loading="lazy">
     </div>
     <nav class="foot-links" aria-label="Footer">
       <a href="tel:2083564444">208-356-4444</a>

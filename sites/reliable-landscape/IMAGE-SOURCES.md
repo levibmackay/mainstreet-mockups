@@ -1,80 +1,81 @@
 # Image sources — Reliable Landscape and Irrigation mockup
 
-Date checked: 2026-08-04
+Date pulled: **2026-08-05**
+Supersedes the 2026-08-04 pass (zero images), which was run before BRIEF.md
+rule 4 was revised on 2026-08-05 to permit a business's own Facebook or
+Instagram page as a third source.
 
-**Result: zero images added.** Both permitted sources were checked and
-neither yielded a usable, genuine photo of this business. No images were
-downloaded into `sites/reliable-landscape/img/` (folder was not created) and
-none are referenced in `index.html`. The page remains CSS/inline-SVG only,
-per BRIEF.md rule 4's fallback ("if you cannot find real photos, build with
-CSS and inline SVG as before").
+**Result: 7 images added.** All 7 come from the business's own Facebook page.
 
-Business facts pulled from the mockup page for verification: "Reliable
-Landscape and Irrigation," Rigby, Idaho, phone `(208) 709-4893`, email
-`reliablelandscapepro@gmail.com`.
+## Business identity verification
 
-## Source 1 — their own current website
+The previous pass flagged a near-miss: a GoHighLevel funnel page whose address
+and phone matched this business but which carried **"Earthscapes Contracting"**
+branding. That page is still rejected and was not revisited.
 
-WebSearch found no dedicated business website for Reliable Landscape and
-Irrigation — only third-party directory/review listings (Yelp, Yellow Pages,
-Yahoo Local, Angi, sprinklesplash.com) and a Facebook page, none of which
-qualify as "their own current website" under BRIEF.md rule 4 (Facebook and
-directory listings are explicitly outside the two permitted sources).
+The Facebook page used here is verified by **name first**, then by three
+independent contact matches:
 
-One candidate looked promising: a `app.gohighlevel.com/v2/preview/...`
-funnel-builder page whose address (169 N 4055 E, Rigby, ID 83442) and phone
-((208) 709-4893) matched the search-snippet data for this business. It was
-fetched with `curl` and inspected directly
-(`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-outdoor/reliable-landscape/ghl.html`).
-**Rejected as unverified / likely wrong business**: the page's actual brand
-logo image and embedded Google Maps place link both read **"Earthscapes
-Contracting"** — a different company name entirely — not Reliable Landscape
-and Irrigation. Since the page cannot be confirmed as belonging to this
-business (name mismatch overrides the coincidental address/phone match in
-search snippets, which may simply reflect stale/scraped directory data),
-per the task instruction ("if you cannot confirm the match, treat it as no
-website found") this source was treated as not found. The one photographic
-asset on that page (`68538ec554ee40d06bbd71da.jpeg`) was opened and
-confirmed to be the "Earthscapes Contracting" brand logo/wordmark, not a
-photo of any business — it would have been rejected as a logo/wrong-business
-image even if the page had been verified.
+| Check | Facebook page (`facebook.com/reliablelandscaperigby`) | Verified record |
+|---|---|---|
+| Business name | "Reliable Landscape and Irrigation" | Same — `leads/home-services.md`, `verify/batch-b.md` |
+| Phone | (208) 709-4893 | Same — `verify/batch-b.md` (CONFIRMED) |
+| Email | reliablelandscapepro@gmail.com | Same — `leads/home-services.md` |
+| Services listed | "sprinkler installations and repair, seamless sod installation, landscape design and maintenance, tree pruning, and water features" | Matches the CONFIRMED service list in `verify/batch-b.md` |
 
-No other candidate own-website URLs were found. Source 1 yields nothing
-usable.
+`verify/batch-b.md` independently names `facebook.com/reliablelandscaperigby`
+as this business's Facebook page. The name matches exactly, so the
+Earthscapes-style coincidental-contact-match failure mode does not apply here.
 
-## Source 2 — Google Maps / Google Business Profile
+## Images added
 
-Checked via a standalone Playwright/Chromium script
-(`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-outdoor/reliable-landscape/maps-scrape.js`,
-run from the scratchpad with its own dedicated browser instance — no
-shared/MCP Playwright tool used) that searched "Reliable Landscape and
-Irrigation Rigby, ID," opened the business listing panel, and inspected it
-for a header photo and a photo-gallery entry point.
+All files live in `sites/reliable-landscape/img/`. Source column is `facebook`
+for every row, per rule 4. All were posted by the page itself (each photo
+permalink shows "Reliable Landscape and Irrigation" as the poster, dated
+March 7 2026). None contain an identifiable face.
 
-**Business confirmed correct**: listing shows "Reliable Landscape and
-Irrigation," 169 N 4055 E, Rigby, ID 83442, phone (208) 709-4893 — exact
-match to the address and phone on the mockup page. (Listing also shows a
-4.8★ rating — not used anywhere on the page, per BRIEF's no-fabricated-
-ratings rule.)
+| Local filename | Source URL | Source | Where it appears | Date pulled |
+|---|---|---|---|---|
+| `creek-canal-2.jpg` | https://www.facebook.com/photo/?fbid=1455966269649999&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` — full-width feature image; also `gallery.html` | 2026-08-05 |
+| `bench-tree-bed.jpg` | https://www.facebook.com/photo/?fbid=1455929259653700&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 1; also `gallery.html` | 2026-08-05 |
+| `rock-garden-feature.jpg` | https://www.facebook.com/photo/?fbid=1455929192987040&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 2; also `gallery.html` | 2026-08-05 |
+| `new-sod-lawn.jpg` | https://www.facebook.com/photo/?fbid=1455928992987060&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 3; also `gallery.html` | 2026-08-05 |
+| `flagstone-boulder-bed.jpg` | https://www.facebook.com/photo/?fbid=1455928872987072&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 4; also `gallery.html` | 2026-08-05 |
+| `creek-canal-1.jpg` | https://www.facebook.com/photo/?fbid=1455966122983347&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 5; also `gallery.html` | 2026-08-05 |
+| `patio-pond-view.jpg` | https://www.facebook.com/photo/?fbid=1455928779653748&set=pb.100057099204433.-2207520000 | facebook | `index.html` `#work` grid tile 6; also `gallery.html` | 2026-08-05 |
 
-Result: the listing panel shows **"Add missing information → Add website"**
-and **"Add a photo"** directly under the contact details — Google Maps' own
-indicator that this listing has neither a linked website nor any
-owner/customer-uploaded photos. Clicking the photo entry point opened only a
-generic Street View pegman placeholder tile dated "Photo - Mar 2020" (Google's
-automated street-level capture, not a business photo) — no real photo
-carousel or thumbnail strip of the business itself exists.
+Two of these carry the business's own captions on Facebook: fbid
+`1455966269649999` is captioned "Natural Creek Canal #2" and fbid
+`1455966122983347` is captioned "Natural Creek Canal #1". Both sit in the
+page's "Water Features" album.
 
-Screenshots taken as evidence of this check (not used on the page, scratch
-only):
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-outdoor/reliable-landscape/raw/maps-search-result.png`,
-`maps-listing.png`, `maps-photos-gallery.png`.
+**Note:** a concurrently-running agent expanded this mockup into a multi-page
+site (`about.html`, `services.html`, `gallery.html`, `contact.html`) during this
+pass and reused all seven of these files on `gallery.html`. Same seven files,
+same sources — no additional images were downloaded for those pages.
 
-## Conclusion
+Processing: downloaded at full resolution (1764–2048px long edge), resized to
+1600px long edge for the feature image and 1100px for the six grid tiles
+(they never render wider than ~600 CSS px), saved as progressive JPEG q70.
+**Total: 1.55 MB**, under the ~2 MB per-site budget. All referenced with
+relative `img/` paths; the page still makes zero external requests.
 
-No genuine, usable, verified photos of Reliable Landscape and Irrigation
-exist on either permitted source as of 2026-08-04. `sites/reliable-landscape/img/`
-was not created. `index.html` was not changed for imagery — it continues to
-use the CSS/inline-SVG visual system (blueprint planting-plan diagram,
-service icons, sprinkler-arc animation, service-area rings) that was already
-in place.
+## Rejected candidates
+
+| Candidate | Reason for rejection |
+|---|---|
+| Page cover photo — fbid `571701908076444` (posted Sept 8 2022) | Twilight architectural photograph of a Craftsman home, professionally lit and HDR-processed, in a completely different register from every other photo on the page (which are plainly phone-camera job-site shots). This is the house style of licensed landscape-industry stock. It cannot be confirmed as their own work or their own photography, and rule 4's second hard constraint forbids republishing stock they merely licensed. **Ambiguous is a no.** |
+| Page profile photo — fbid `571701904743111` | Their logo wordmark ("RELIABLE LANDSCAPE & IRRIGATION"), not a photograph. |
+| fbid `1455929439653682` | Genuine job-site photo (rock-lined swale under construction), but a **worker in a blue shirt is present** in the mid-ground. His head is down and no face is resolvable, but the no-identifiable-faces rule is strict and six clean alternatives existed, so it was dropped rather than argued. |
+
+## Channel reachability
+
+Facebook page **was reachable** without logging in. `curl` is hard-blocked
+(HTTP 400 on `www.`, `m.` and `mbasic.`), but a standalone headless Chromium
+(Playwright, launched from the scratchpad — not the shared MCP tool) rendered
+the public page and the individual `/photo/?fbid=` permalinks fine, including
+full-resolution image assets. No login was attempted and no login wall was
+circumvented; the album grid behind "See all photos" *is* login-walled and was
+not pursued.
+
+**Instagram: none found.** No Instagram account surfaced for this business.

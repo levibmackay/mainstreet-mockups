@@ -133,10 +133,21 @@ function contrastProbe() {
 
 (async () => {
   const requested = process.argv.slice(2);
+  // Every .html page in a site, not just index.html. Production sites add
+  // services/about/contact pages, and an unchecked page is an unshipped-bug
+  // factory: this script exists because six sites passed human review and
+  // still broke at 320px.
   const sites = fs
     .readdirSync(SITES_DIR)
     .filter((s) => fs.existsSync(path.join(SITES_DIR, s, 'index.html')))
-    .filter((s) => requested.length === 0 || requested.includes(s));
+    .filter((s) => requested.length === 0 || requested.includes(s))
+    .flatMap((s) =>
+      fs
+        .readdirSync(path.join(SITES_DIR, s))
+        .filter((f) => f.endsWith('.html'))
+        .sort((a, b) => (a === 'index.html' ? -1 : b === 'index.html' ? 1 : a.localeCompare(b)))
+        .map((f) => ({ slug: s, file: f, label: f === 'index.html' ? s : `${s}/${f}` }))
+    );
 
   if (!sites.length) {
     console.error('No matching sites.');
@@ -147,7 +158,7 @@ function contrastProbe() {
   let failed = 0;
 
   for (const site of sites) {
-    const url = 'file://' + path.join(SITES_DIR, site, 'index.html');
+    const url = 'file://' + path.join(SITES_DIR, site.slug, site.file);
     const problems = [];
 
     for (const width of WIDTHS) {
@@ -191,10 +202,10 @@ function contrastProbe() {
 
     if (problems.length) {
       failed++;
-      console.log(`FAIL  ${site}`);
+      console.log(`FAIL  ${site.label}`);
       problems.forEach((p) => console.log(`      ${p}`));
     } else {
-      console.log(`ok    ${site}`);
+      console.log(`ok    ${site.label}`);
     }
   }
 

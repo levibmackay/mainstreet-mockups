@@ -78,3 +78,48 @@ exists on either permitted source as of 2026-08-04.
 changed for imagery — it continues to use the CSS/inline-SVG visual system
 (oxblood/gold engraved-line motif, map-pin illustration, geometric seal)
 that was already in place.
+
+---
+
+# 2026-08-05 — Source 3 pass (Facebook / Instagram)
+
+BRIEF.md rule 4 was revised on 2026-08-05 to permit a third source: the
+business's own Facebook or Instagram page. This section records that pass.
+
+**Result: still zero images.** No Facebook or Instagram page belonging to
+this firm could be confirmed to exist. `sites/forsberg-evans-law/img/` was
+not created and `index.html` was not changed.
+
+## What was checked
+
+**Their own site.** `forsbergandevans.com` homepage and `/contact-us/` were
+re-fetched and grepped for any `facebook.com` or `instagram.com` link.
+There are none anywhere on either page — no social icons, no footer social
+row. For a firm that publishes a Square payment link in its top nav, the
+absence of a social link is a reasonable signal they simply do not run one.
+
+**Search.** Multiple searches for a Forsberg & Evans page tied to Rexburg.
+The firm surfaces on directory aggregators (ZoomInfo, Lawyer.com, Yelp,
+Lexinter, BBB) but no Facebook or Instagram profile for it appears. The
+Rexburg law-firm pages that do exist on Facebook belong to **other** firms
+— Shinault Law Firm and Dalling Law — and an "Evans Law Offices PLLC" that
+turns out to be in Tucson, Arizona. None of these are this business.
+
+**Direct slug probes**, all returning Facebook's "this content isn't
+available right now" or an empty Instagram page:
+`facebook.com/forsbergandevans`, `facebook.com/forsbergevans`,
+`facebook.com/ForsbergEvansLaw`, and the same three on `instagram.com`.
+
+## Conclusion
+
+All three permitted sources have now been checked. Their own site has only
+attorney and staff headshots plus corporate stock; their Google listing has
+no photos at all; and there is no social channel. Nothing changed. The page
+stays on its CSS/inline-SVG visual system (oxblood/gold engraved-line motif,
+map-pin illustration, geometric seal).
+
+Worth noting for anyone revisiting this: a law firm is close to the worst
+possible category for this rule set. Almost all of a firm's genuine imagery
+is people — attorneys, staff, clients — and the no-identifiable-faces rule
+removes essentially all of it. A photo-free page is the expected outcome
+here, not a gap to keep hunting for.

@@ -34,21 +34,42 @@ the same color as the background):
 endorsed by this business. Prepared by Levi Mackay, Main Street Sites.</p>
 ```
 
-**4. Real photos only, or none at all.** *Revised 2026-08-03. This rule
-previously banned photographs outright.*
+**4. Real photos only, or none at all.** *Revised 2026-08-03, which lifted an
+outright ban on photographs. Revised again 2026-08-05 to add source 3.*
 
-You may now use real photographs of the actual business, from exactly two
+You may use real photographs of the actual business, from exactly three
 sources:
 
 - **The business's own current website.** You are showing them their own
   content in a better design, which is the normal shape of a redesign pitch.
 - **Their Google Maps / Google Business Profile listing.**
+- **Their own Facebook or Instagram business page.** Same principle as their
+  website: content the business posted about itself. In this market a
+  Facebook page is often the *only* real web presence a business has, which
+  is why this source was added.
 
 Everything else is still banned. **No stock photography. No AI generated
 images. No photos of a different business.** Stock photos of people who
 obviously do not work there is an explicit buy-signal of a *bad* site in our
 own playbook, and putting one on a page you send the owner is worse than
 having no photo at all.
+
+**Extra constraints that apply to source 3 specifically.** A social page
+mixes the business's own content with other people's, so it needs more care
+than a website does:
+
+- **Only content the business itself posted.** Not customer photos, not
+  tagged photos, not shares or reposts of someone else's image, not anything
+  from the visitors' or community tab.
+- **No identifiable faces**, same as everywhere else. Social pages are dense
+  with staff and customer photos, and this is where that rule will bite most
+  often. A recognisable customer in the background disqualifies the photo.
+- **No memes, promo graphics, or reposted marketing images.** These are
+  frequently licensed stock the business does not own.
+- **If you cannot confirm the business posted it, do not use it.** The
+  ambiguous case is a no, not a maybe.
+- Log it as `facebook` or `instagram` in the source column, never as "their
+  site", so it can be found and pulled fast if they object.
 
 Two hard constraints on sourcing:
 
@@ -57,8 +78,8 @@ Two hard constraints on sourcing:
   their own photography, and republishing them is redistributing someone
   else's licensed work. Skip those and use their genuine photos instead.
 - **Log every image.** Each site gets `sites/<slug>/IMAGE-SOURCES.md`
-  recording, per file: the local filename, the exact source URL, whether it
-  came from their site or Google Maps, where it appears on the page, and the
+  recording, per file: the local filename, the exact source URL, which of the
+  three sources it came from, where it appears on the page, and the
   date pulled. This is how a photo gets removed quickly if anyone questions
   where it came from. Google Maps photos in particular are often owned by the
   customers who uploaded them rather than by the business, so the log is not

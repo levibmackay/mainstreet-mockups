@@ -139,6 +139,17 @@
     text-decoration:none;
     color:var(--pine-900);
   }
+  /* Real Searle, Hart & Associates logo from their own site: navy and teal
+     engraving drawn for white stock. Bare on the ivory header; in the
+     pine-950 footer it gets an ivory plate rather than disappearing. */
+  .brand-logo{ display:block; width:auto; height:48px; flex-shrink:0; }
+  .logo-plate{
+    display:inline-flex; align-items:center; justify-content:center;
+    background:var(--ivory); border-radius:2px; padding:9px 13px;
+  }
+  .logo-plate img{ display:block; width:auto; height:54px; }
+  @media (max-width:520px){ .brand-logo{ height:38px; } }
+
   .brand svg{ flex-shrink:0; width:38px; height:38px; }
   .brand-name{
     font-family:ui-serif, Georgia, serif;
@@ -662,14 +673,9 @@
 <header class="site" id="site-header">
   <div class="wrap nav-row">
     <a class="brand" href="#top">
-      <svg viewBox="0 0 44 44" role="img" aria-hidden="true">
-        <title>Searle Hart & Associates mark</title>
-        <circle cx="22" cy="22" r="20" fill="none" stroke="#b8924a" stroke-width="1.1"/>
-        <circle cx="22" cy="22" r="15.5" fill="none" stroke="#b8924a" stroke-width="0.6"/>
-        <path d="M22 8 L22 36 M8 22 L36 22" stroke="#b8924a" stroke-width="0.5"/>
-        <text x="22" y="26" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="13" fill="#1f3d33">SH</text>
-      </svg>
-      <span class="brand-name">Searle Hart & Associates<small>Certified Public Accountants</small></span>
+      <img class="brand-logo" src="img/logo-searle-hart.png"
+           alt="Searle Hart &amp; Associates, PLLC — Certified Public Accountants"
+           width="127" height="48">
     </a>
     <nav class="primary" aria-label="Primary">
       <ul>
@@ -883,11 +889,9 @@
 <footer class="site">
   <div class="wrap footer-row">
     <div class="footer-brand">
-      <svg viewBox="0 0 44 44" role="img" aria-hidden="true"><title>Searle Hart & Associates mark</title>
-        <circle cx="22" cy="22" r="20" fill="none" stroke="#b8924a" stroke-width="1"/>
-        <text x="22" y="26" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="13" fill="#f6f2e9">SH</text>
-      </svg>
-      Searle Hart & Associates, PLLC
+      <span class="logo-plate"><img src="img/logo-searle-hart.png"
+            alt="Searle Hart &amp; Associates, PLLC — Certified Public Accountants"
+            width="143" height="54" loading="lazy"></span>
     </div>
     <div>412 Grand Loop, Rexburg, Idaho &nbsp;·&nbsp; <a href="tel:+12083563716" style="color:#cba766; text-decoration:none;">(208) 356-3716</a></div>
   </div>

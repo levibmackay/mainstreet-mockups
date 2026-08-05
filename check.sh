@@ -5,15 +5,31 @@ cd "$(dirname "$0")" || exit 1
 
 fail=0
 
-for f in sites/*/index.html; do
-  slug=$(basename "$(dirname "$f")")
+# Every page, not just index.html. Sibling pages added by the production
+# build would otherwise ship with none of these checks applied.
+for f in sites/*/*.html; do
+  slug="$(basename "$(dirname "$f")")/$(basename "$f")"
   problems=()
+
+  # Multi-page sites share a per-site stylesheet, so style-level rules can
+  # legitimately live there rather than inline. Search the page plus any
+  # stylesheet it links locally. Without this, every page needs a duplicate
+  # inline reduced-motion block purely to satisfy the grep.
+  sheets=()
+  while IFS= read -r href; do
+    [ -n "$href" ] || continue
+    case "$href" in http*|//*) continue ;; esac
+    cand="$(dirname "$f")/$href"
+    [ -f "$cand" ] && sheets+=("$cand")
+  done < <(sed -n 's/.*<link[^>]*rel="stylesheet"[^>]*href="\([^"]*\)".*/\1/p' "$f")
 
   grep -q 'name="robots" content="noindex, nofollow"' "$f" || problems+=("MISSING noindex")
   grep -q 'Concept design proposal' "$f"                   || problems+=("MISSING concept-note footer")
   grep -q 'width=device-width'      "$f"                   || problems+=("MISSING viewport meta")
-  grep -q 'prefers-reduced-motion'  "$f"                   || problems+=("MISSING reduced-motion")
   grep -q '<h1'                     "$f"                   || problems+=("MISSING h1")
+
+  grep -q 'prefers-reduced-motion' "$f" "${sheets[@]}" 2>/dev/null \
+    || problems+=("MISSING reduced-motion")
 
   # No external requests: Pages must serve this file standalone.
   if grep -Eq '(src|href)="https?://' "$f"; then
@@ -38,10 +54,10 @@ for f in sites/*/index.html; do
   size=$(wc -c < "$f" | tr -d ' ')
 
   if [ ${#problems[@]} -eq 0 ]; then
-    printf 'PASS  %-34s %6s bytes\n' "$slug" "$size"
+    printf 'PASS  %-44s %6s bytes\n' "$slug" "$size"
   else
     fail=1
-    printf 'FAIL  %-34s %6s bytes  -> %s\n' "$slug" "$size" "${problems[*]}"
+    printf 'FAIL  %-44s %6s bytes  -> %s\n' "$slug" "$size" "${problems[*]}"
   fi
 done
 

@@ -105,6 +105,29 @@
     color:var(--sage-deep);
     min-height:44px;
   }
+  /* Real Premier Therapy Associates logo from their own site. It is black
+     engraved type drawn for white stock, so it sits bare on the cream header
+     but needs a bone plate in the sage-deep footer or it disappears. */
+  .brand-logo{display:block;width:auto;height:42px;flex:none;}
+  .brand-locale{
+    display:block;
+    font-family:ui-sans-serif, system-ui, sans-serif;
+    font-weight:600;
+    font-size:0.62rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sage-dark);
+  }
+  .logo-plate{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--bone);border-radius:6px;padding:8px 12px;
+  }
+  .logo-plate img{display:block;width:auto;height:50px;}
+  @media (max-width:520px){
+    .brand-logo{height:34px;}
+    .brand-locale{display:none;}
+  }
+
   .brand-mark{width:36px;height:36px;flex:none;}
   .brand-text{
     font-family:ui-serif, Georgia, serif;
@@ -582,13 +605,10 @@
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Premier Therapy Associates, home">
-      <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-hidden="true">
-        <title>Premier Therapy Associates leaf mark</title>
-        <path d="M24 5C15 10 8 18 8 27c0 8 7 14 16 14s16-6 16-14c0-9-7-17-16-22Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="color:#7c9a80"/>
-        <path d="M24 12v26M24 20c-3-2-7-2-9 0M24 27c4-2 8-1 10 2" fill="none" stroke="#a35f42" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span class="brand-text">Premier Therapy Associates<small>Rexburg, Idaho</small></span>
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="img/logo-premier-therapy-associates.png"
+           alt="Premier Therapy Associates" width="109" height="42">
+      <small class="brand-locale">Rexburg, Idaho</small>
     </a>
     <div class="header-cta">
       <a class="phone-pill" href="tel:2083564633">
@@ -786,7 +806,10 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span class="footer-brand">Premier Therapy Associates</span>
+    <span class="footer-brand">
+      <span class="logo-plate"><img src="img/logo-premier-therapy-associates.png"
+            alt="Premier Therapy Associates" width="130" height="50" loading="lazy"></span>
+    </span>
     <ul class="footer-links">
       <li><a href="tel:2083564633">(208) 356-4633</a></li>
       <li><a href="#services">Services</a></li>

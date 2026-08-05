@@ -15,10 +15,14 @@ totals 848KB, well under the 2MB budget.
 
 | Local file | Source URL | Source type | Used on page | Date |
 |---|---|---|---|---|
-| `img/vanity-install.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/plumbers-idaho-falls-rexburg-rigby.jpg | Own site (homepage) | "Recent Work" section, card 1 | 2026-08-04 |
-| `img/tankless-water-heater-install.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/tankless-water-heather-installation.jpg | Own site (homepage) | "Recent Work" section, card 2 | 2026-08-04 |
-| `img/pipe-repair-in-progress.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/water-line-repair.jpg | Own site (homepage) | "Recent Work" section, card 3 | 2026-08-04 |
-| `img/vanity-rough-in.jpg` | https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnGVyYmQvazXqw-b0YZddNGz0JKQGl_P9GQhHcHpRA187pq4bn4gjvH3NjJqgu9DD47NpkmtXxyGHGGWCBk2hdJXlhVjAqymrSJ-fJMf0W3suJexYMx222eua2A4qJMgEoH22J5BMfIWERv (Google-hosted photo ID, served at `=s1600`) | Google Maps / Google Business Profile listing (header photo, captioned "Photo - Oct 2025") | "Recent Work" section, card 4 | 2026-08-04 |
+| `img/vanity-install.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/plumbers-idaho-falls-rexburg-rigby.jpg | Own site (homepage) | "Recent Work" section, card 1; also gallery.html | 2026-08-04 |
+| `img/tankless-water-heater-install.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/tankless-water-heather-installation.jpg | Own site (homepage) | "Recent Work" section, card 2; also gallery.html | 2026-08-04 |
+| `img/pipe-repair-in-progress.jpg` | https://allaboutplumbingrepair.com/wp-content/uploads/2025/11/water-line-repair.jpg | Own site (homepage) | "Recent Work" section, card 3; also gallery.html | 2026-08-04 |
+| `img/vanity-rough-in.jpg` | https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnGVyYmQvazXqw-b0YZddNGz0JKQGl_P9GQhHcHpRA187pq4bn4gjvH3NjJqgu9DD47NpkmtXxyGHGGWCBk2hdJXlhVjAqymrSJ-fJMf0W3suJexYMx222eua2A4qJMgEoH22J5BMfIWERv (Google-hosted photo ID, served at `=s1600`) | Google Maps / Google Business Profile listing (header photo, captioned "Photo - Oct 2025") | "Recent Work" section, card 4; also gallery.html | 2026-08-04 |
+
+**2026-08-05 update:** all four images noted above are also reused on the new
+`gallery.html` page (larger single/two-column treatment, fuller captions).
+No new images were added; same 4 files, no swaps.
 
 All four optimized with macOS `sips` (JPEG quality 80, 1600px long-edge cap).
 Integrated into a new "Recent Work" section inserted between Services and

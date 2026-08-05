@@ -123,6 +123,15 @@
     font-family:var(--ff-cond);
     line-height:1;
   }
+  /* Real Golds North Fork Roofing logo from their own site. The artwork is
+     gold and white on transparent, so it reads on this charcoal header with
+     no plate. The header uses the crest only — at 48px the three-line service
+     tagline baked into the full lockup would be illegible mush — and the
+     footer carries the complete lockup where there is room to read it. */
+  .logo-img{ display:block; width:auto; height:48px; }
+  .logo-img-full{ height:140px; }
+  @media (max-width:520px){ .logo-img{ height:40px; } }
+
   .logo .mark-gold{
     font-weight:900; font-size:1.4rem; letter-spacing:-0.03em;
     color:var(--gold-400);
@@ -562,9 +571,9 @@
 
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a class="logo" href="#top" aria-label="Golds North Fork Roofing, home">
-      <span class="mark-gold">GOLDS</span>
-      <span class="mark-rest">North Fork<br>Roofing</span>
+    <a class="logo" href="#top">
+      <img class="logo-img" src="img/logo-golds-north-fork-roofing.png"
+           alt="Golds North Fork Roofing, LLC" width="59" height="48">
     </a>
     <nav class="primary-nav" aria-label="Primary">
       <ul>
@@ -840,9 +849,9 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
-      <a class="logo" href="#top" aria-label="Golds North Fork Roofing, home">
-        <span class="mark-gold">GOLDS</span>
-        <span class="mark-rest">North Fork<br>Roofing</span>
+      <a class="logo" href="#top">
+        <img class="logo-img logo-img-full" src="img/logo-golds-north-fork-roofing-full.png"
+             alt="Golds North Fork Roofing, LLC" width="192" height="140" loading="lazy">
       </a>
       <p>GAF Master Elite &amp; CertainTeed Select Shingle Master certified roofing, based in St. Anthony, Idaho.</p>
       <div class="footer-credentials">

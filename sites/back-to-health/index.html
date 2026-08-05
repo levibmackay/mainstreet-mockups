@@ -101,6 +101,15 @@
     color: var(--forest-dark);
     min-width: 0;
   }
+  /* Real B2H Chiropractic logo, pulled from the practice's own site. It is
+     drawn for a white ground, so on the light header it sits bare; in the
+     forest-dark footer it gets a deliberate bone plate rather than vanishing. */
+  img.brand-mark{ width: auto; height: 42px; flex: none; }
+  .logo-plate{
+    display:inline-flex; align-items:center; justify-content:center;
+    background: var(--bone); border-radius: 8px; padding: 5px 6px; flex: none;
+  }
+  .logo-plate img{ display:block; width:auto; height:38px; }
   .brand-mark{ width: 38px; height: 38px; flex: none; }
   .brand-text{
     font-family: var(--serif);
@@ -546,12 +555,8 @@
 <header class="site" id="siteHeader">
   <div class="site-nav">
     <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-hidden="true">
-        <title>Back to Health Chiropractic mark</title>
-        <circle cx="24" cy="24" r="22" fill="#2c4a3b"/>
-        <path d="M14 30c3-8 6-14 10-14s7 6 10 14" stroke="#c1704f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <circle cx="24" cy="14" r="2.6" fill="#f3ece1"/>
-      </svg>
+      <img class="brand-mark" src="img/logo-back-to-health-chiropractic.png"
+           alt="Back to Health Chiropractic" width="38" height="42">
       <span class="brand-text">Back to Health<span>Chiropractic · Rexburg</span></span>
     </a>
     <nav class="links" aria-label="Primary">
@@ -760,7 +765,8 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><title>Back to Health Chiropractic mark</title><circle cx="24" cy="24" r="22" fill="#3d6350"/><path d="M14 30c3-8 6-14 10-14s7 6 10 14" stroke="#c1704f" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+        <span class="logo-plate"><img src="img/logo-back-to-health-chiropractic.png"
+              alt="Back to Health Chiropractic" width="34" height="38" loading="lazy"></span>
         <span>Back to Health Chiropractic</span>
       </div>
       <div class="footer-contact">

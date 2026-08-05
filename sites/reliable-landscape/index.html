@@ -159,6 +159,20 @@
      spring-green button at 1.24:1. */
   nav.primary-nav a.header-call,
   nav.primary-nav a.header-call:hover{ color:var(--ink); }
+
+  .work-section{ padding:clamp(3.5rem,8vw,6rem) 0; }
+  .work-feature{ margin:0 0 1rem; position:relative; }
+  .work-feature img{ width:100%; height:auto; display:block; border-radius:var(--radius); }
+  .work-feature figcaption{ display:flex; flex-wrap:wrap; gap:0.15rem 0.75rem; align-items:baseline; padding:0.75rem 0.1rem 0; }
+  .work-feature figcaption strong{ font-size:1rem; }
+  .work-feature figcaption span{ font-size:0.85rem; color:var(--paper-dim); }
+  .work-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:1rem; margin-top:1.5rem; }
+  .work-tile{ margin:0; min-width:0; }
+  .work-tile img{ width:100%; height:auto; display:block; border-radius:var(--radius); }
+  .work-tile figcaption{ padding-top:0.5rem; font-size:0.85rem; color:var(--paper-dim); }
+  .work-more{ margin-top:1.75rem; }
+  .work-more a{ color:var(--spring-400); border-bottom:1px solid currentColor; padding-bottom:2px; }
+
   @media (max-width:760px){
     .nav-links{ display:none; }
   }
@@ -395,10 +409,12 @@
     </a>
     <nav class="primary-nav" aria-label="Primary">
       <div class="nav-links">
-        <a href="#services">Services</a>
+        <a href="services.html">Services</a>
         <a href="#why">Why Us</a>
         <a href="#area">Service Area</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
       </div>
       <a class="header-call" href="tel:+12087094893" aria-label="Call Reliable Landscape and Irrigation at (208) 709-4893">
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.7 3.7 5 6.4 6.4l2.1-2.1a1 1 0 0 1 1.1-.2 8.9 8.9 0 0 0 3.1.5 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.1 21 3 13.9 3 5a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 8.9 8.9 0 0 0 .5 3.1 1 1 0 0 1-.2 1.1z" fill="currentColor"/></svg>
@@ -536,6 +552,58 @@
   </section>
 
   <!-- WHY US -->
+
+  <section id="work" class="work-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Work</span>
+        <h2>Built here, in the Upper Valley.</h2>
+        <p>Water features, sod, boulder work and stone, photographed on the jobs themselves.</p>
+      </div>
+
+      <figure class="work-feature reveal">
+        <img src="img/creek-canal-2.jpg" width="1600" height="1016" loading="lazy" decoding="async"
+             alt="A constructed creek and pond edged with large river boulders and gravel, water running clear beside a fenced pasture at dusk.">
+        <figcaption><strong>Natural Creek Canal #2</strong><span>Constructed watercourse, boulder edging</span></figcaption>
+      </figure>
+
+      <div class="work-grid stagger reveal">
+        <figure class="work-tile" style="--i:0">
+          <img src="img/bench-tree-bed.jpg" width="1100" height="825" loading="lazy" decoding="async"
+               alt="A circular planting bed set into a lawn, edged in gravel with young trees, flowering plants, and a stone slab bench beside a white rail fence.">
+          <figcaption>Circular bed with stone bench</figcaption>
+        </figure>
+        <figure class="work-tile" style="--i:1">
+          <img src="img/rock-garden-feature.jpg" width="1100" height="619" loading="lazy" decoding="async"
+               alt="A gravel rock garden along the side of a house, planted with ornamental grasses and shrubs around a small stacked-stone water feature.">
+          <figcaption>Side-yard rock garden</figcaption>
+        </figure>
+        <figure class="work-tile" style="--i:2">
+          <img src="img/new-sod-lawn.jpg" width="1100" height="619" loading="lazy" decoding="async"
+               alt="A freshly laid sod lawn with mower stripes running to a curved gravel border planted with flowers, backed by open field and houses.">
+          <figcaption>Fresh sod, curved gravel border</figcaption>
+        </figure>
+        <figure class="work-tile" style="--i:3">
+          <img src="img/flagstone-boulder-bed.jpg" width="1100" height="619" loading="lazy" decoding="async"
+               alt="Flagstone stepping stones set through a gravel bed beside a blue house, with a boulder water feature and a young red-leafed shrub.">
+          <figcaption>Flagstone path and boulder feature</figcaption>
+        </figure>
+        <figure class="work-tile" style="--i:4">
+          <img src="img/creek-canal-1.jpg" width="1100" height="620" loading="lazy" decoding="async"
+               alt="A shallow constructed pond edged with boulders and cobble, reflecting cottonwood trees on a sunny lawn.">
+          <figcaption>Natural Creek Canal #1</figcaption>
+        </figure>
+        <figure class="work-tile" style="--i:5">
+          <img src="img/patio-pond-view.jpg" width="1100" height="825" loading="lazy" decoding="async"
+               alt="A concrete and flagstone patio with outdoor chairs beside a house, bordered by a boulder retaining edge and lawn running down to open water.">
+          <figcaption>Patio to water frontage</figcaption>
+        </figure>
+      </div>
+
+      <p class="work-more reveal"><a href="gallery.html">See the full gallery</a></p>
+    </div>
+  </section>
+
   <section id="why">
     <div class="wrap why-grid">
       <div class="reveal">

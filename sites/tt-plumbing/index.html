@@ -386,6 +386,30 @@
   @media (prefers-reduced-motion: reduce){
     .stamp-wrap.reveal{transform:none;}
   }
+  .work{padding-top:clamp(3rem,8vw,5.5rem);padding-bottom:clamp(3rem,8vw,5.5rem);}
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));
+    gap:clamp(1.25rem,3vw,2rem);
+  }
+  .work-item{margin:0;}
+  .work-item img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    background:var(--graphite-2);
+    border:1px solid var(--line);
+  }
+  .work-item figcaption{
+    margin-top:0.85rem;
+    color:var(--off-white-dim);
+    font-family:var(--mono);
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    line-height:1.6;
+  }
   .why-list{
     list-style:none;
     margin:0;
@@ -685,6 +709,26 @@
         <h3>Emergency Plumbing</h3>
         <p>Call for a plumbing problem that can't wait on a scheduled visit.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="wrap work" aria-labelledby="work-heading">
+    <div class="section-head reveal">
+      <span class="section-label">On The Job</span>
+      <h2 id="work-heading" class="section-title display">Work We've Put In The Ground</h2>
+      <p class="section-title-sub">Photographs of real T&amp;T Plumbing jobs, taken on site by the company.</p>
+    </div>
+    <div class="work-grid reveal">
+      <figure class="work-item">
+        <img src="img/septic-tank-install.jpg" width="1200" height="1600" loading="lazy" decoding="async"
+             alt="A 1500 gallon precast concrete septic tank set into an open excavated trench in a grass field, sunlight across its lid.">
+        <figcaption>A 1,500 gallon concrete tank, set and ready for backfill.</figcaption>
+      </figure>
+      <figure class="work-item">
+        <img src="img/copper-vessel-sink-install.jpg" width="1200" height="1600" loading="lazy" decoding="async"
+             alt="A hammered copper vessel basin installed on a granite bathroom countertop with a wall-mounted faucet and slate tile backsplash.">
+        <figcaption>A copper vessel basin and wall-mount faucet, plumbed and set.</figcaption>
+      </figure>
     </div>
   </section>
 

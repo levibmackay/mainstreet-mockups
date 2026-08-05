@@ -1,82 +1,84 @@
 # Image sources — T&T Plumbing mockup
 
-Date checked: 2026-08-04
+Last pass: 2026-08-05 (Facebook added as a permitted source by BRIEF.md rule 4).
+Earlier pass: 2026-08-04 (website + Google Maps only, zero images).
 
-**Result: zero images added.** Both permitted sources were checked and
-neither yielded a usable, genuine photo of this business. No images were
-downloaded into `sites/tt-plumbing/img/` (the folder was not created) and
-none are referenced in `index.html`. The page remains CSS/inline-SVG only,
-per BRIEF.md rule 4's fallback ("if you cannot find real photos, build with
-CSS and inline SVG as before").
+**Result: 2 images added, both from the business's own Facebook page.**
 
-## Source 1 — https://tntplumbingofashton.wixsite.com/tntplumbing (their own site, Wix)
+## Identity verification
 
-Verified as the correct business first: the homepage rich-text contains
-"Call: TnT Plumbing at 208-534-8983 or 208-652-7373 and mention this web
-site" and "Call us now at 208-534-8983 or 208-652-7373 and mention this web
-site" — the second number matches the phone already used throughout
-`index.html` (tel:+12086527373). Page `<title>` is "T and T Plumbing".
+The Facebook page used is `https://www.facebook.com/100063656887630/`
+("T&T Plumbing, Inc."). Its own About tab, read live on 2026-08-05, gives:
 
-Checked via `curl` fetch of the homepage plus the `/about`, `/contact`, and
-`/services` subpages, then downloaded and visually inspected (with the Read
-tool) every unique `static.wixstatic.com/media/...` image referenced across
-all four pages:
+- Name: **T&T Plumbing, Inc.**
+- Address: **416 Main Street, Ashton, ID, United States, 83420**
+- Mobile: **(208) 652-7373**
+- Email: ttplumb@yahoo.com
+- Category: Plumbing Service
 
-| Filename on Wix CDN | Where referenced | Verdict |
-|---|---|---|
-| `41d000_177d8f66ee3bfc09bea7f331e4a98295.png` | all pages | Rejected: yellow speech-bubble UI graphic, no business content |
-| `bdd213c264106d58468c92b64d9ef2fe.wix_mp` | all pages | Rejected: Google+ brand icon (third-party logo) |
-| `c9d3494be883cc2bd520386fed30f296.png` | all pages | Rejected: Twitter bird brand icon (third-party logo) |
-| `ed86bdfa6aecf88649d305e11d76ac33.wix_mp` | all pages | Rejected: Facebook brand icon (third-party logo) |
-| `ca6611_381cf37345d7d484ebc7862b4b872894.jpg` | home | Rejected: stock 3D-rendered gold "plumber mascot" clipart figure holding a pipe wrench, studio background — not a real photo |
-| `ca6611_88b3edb304fe8641b6dadc4721c04bad.jpg` | all pages | Rejected: black-and-white line-art clipart of a wrench, faucet, and water drop — illustration, not a photo |
-| `ca6611_708bb85df03aa95acfdf1885a6b30351.jpg` | about | Rejected: studio stock photo — adjustable wrench and braided supply hose fitting posed on rolled architectural blueprints, professional studio lighting, no identifiable location, no company branding, no truck/signage |
-| `41d000_a385e772e206999fbd3e2540db1023c5.png` | contact | Rejected: generic crossed-wrenches clipart icon |
-| `41d000_7a28e3dfa085aff94dce8c12aa250d5c.png` | services | Rejected: generic single-wrench clipart icon |
+Name, town, and phone all match `index.html` (`tel:+12086527373`) and match
+`mainstreet-sites-sales/verify/batch-d.md`. Name match is the deciding factor,
+not just the phone.
 
-All nine unique images across the site are either third-party social-media
-brand logos, generic clipart/icon graphics, or staged studio stock
-photography (blueprint + tools flat-lay) with no connection to this specific
-business — no exterior shots, no trucks, no signage, no real completed work.
-None were downloaded into the final `img/` folder.
+**Not to be confused with** `facebook.com/ttplumbingandheating`
+("T & T Plumbing Heating Air Conditioning & Geothermal") or
+`facebook.com/ttplumbing` — different companies with similar names. Neither was
+used.
 
-## Source 2 — Google Maps / Google Business Profile
+## Images used
 
-Checked via a standalone Playwright/Chromium script run from the scratchpad
-(`gmaps_check.js`, `scroll_photos.js`, `click_photos.js` in
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-trades/tt-plumbing/`,
-own headless Chromium instance — no shared MCP Playwright tool used) that
-searched "T&T Plumbing Ashton, ID" and opened the listing.
+| Local file | Source URL | Source | Where it appears | Date pulled |
+|---|---|---|---|---|
+| `img/septic-tank-install.jpg` | `https://www.facebook.com/photo.php?fbid=1619190771441192` | facebook | "On The Job" section, first tile | 2026-08-05 |
+| `img/copper-vessel-sink-install.jpg` | `https://www.facebook.com/photo.php?fbid=1619190254774577` | facebook | "On The Job" section, second tile | 2026-08-05 |
 
-The only matching result is "T & T Plumbing, Inc." at Ashton, ID 83420, pin
-located directly on Main St in Ashton — consistent with the address found
-in earlier research (416 Main St) even though the listing itself does not
-show a street number. The listing is **unclaimed** and has no phone number
-attached to it (a direct Google Maps search for "(208) 652-7373" returned no
-result), so the phone match used to verify Source 1 could not be
-cross-verified the same way here. Given this is the only plumbing business
-of this name in a town of roughly 1,200 people, sitting on Main St as
-expected, it is treated as the same business with reasonable confidence —
-but this identity is not phone-verified the way Source 1 was.
+Both are from the page's **own Photos tab** (`.../100063656887630/photos`,
+labelled "T&T Plumbing, Inc.'s Photos" — not the Tagged photos tab), uploaded by
+the page on **21 December 2016** as part of one album the page posted about its
+own work.
 
-Regardless, the identity question is moot for imagery: the listing has
-**zero uploaded photos**. The panel shows "Photos" followed directly by an
-"Add photos & videos" prompt, which is Google Maps' own indicator of an
-empty gallery, and a DOM check for `<img>` elements pointing at
-`googleusercontent.com` (where Maps serves uploaded photos) returned zero
-matches. There was no photo carousel or thumbnail strip to open or
-download. A 5.0-star rating is shown on the listing panel — not used
-anywhere on the page, per BRIEF's no-fabricated-ratings/reviews rule.
+- `septic-tank-install.jpg` — the page's own caption on this photo reads
+  verbatim: *"A 1500 Gallon Concrete Tank we installed."* No people in frame.
+- `copper-vessel-sink-install.jpg` — same album, no individual caption; the
+  companion photo in the album is captioned *"Finished Product of a poured to
+  size shower pan we installed."* Shows an installed copper vessel basin and
+  wall-mount faucet. No people in frame.
 
-Screenshots taken as evidence of this check (not used on the page, scratch
-only):
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-trades/tt-plumbing/01_search.png`,
-`03_scrolled.png`.
+Both downscaled with `sips -Z 1600` to 1200×1600. Combined ~0.76 MB, well under
+the 2 MB per-site budget. Referenced with relative paths, `loading="lazy"`, and
+explicit `width`/`height`.
 
-## Conclusion
+## Rejected candidates (Facebook)
 
-No genuine, usable photos of T&T Plumbing exist on either permitted source
-as of 2026-08-04. `sites/tt-plumbing/img/` was not created.
-`sites/tt-plumbing/index.html` was not changed for imagery — it continues
-to use the CSS/inline-SVG visual system already in place (blueprint-line
-hero background, circular seal/stamp motif, line-art service-area map).
+The page has 33 photos in its own Photos tab. Every one considered and rejected:
+
+| Photo | Why rejected |
+|---|---|
+| `fbid=1619189504774652` — "Meet the T&T Plumbing crew" era group shot in a log cabin | **Identifiable faces.** Nine staff members, all recognisable. |
+| `fbid=1599650256728577` — captioned "Meet the T&T Plumbing crew. Christmas dinner 2016" | Same reason — crew photo. |
+| `fbid=373409028124324` — "Amy's Cut Above Grand Reopening" flyer | Promo graphic, and it advertises **a different business** (a cosmetologist the page welcomed as an admin assistant). Banned twice over. |
+| `fbid=1619190964774506` — "Finished Product of a poured to size shower pan we installed." | Eligible on the rules (their own work, no faces) but rejected on quality: a dark, grainy, near-featureless grey slab. Adding it would make the page worse, not better. |
+| `fbid=1619190064774596` — copper basin sitting on an antique sideboard | Eligible on the rules but rejected on quality: a badly blown-out window behind the subject, and it is a pre-install staging shot, not finished work. |
+| `fbid=1352202400244977` (18 Jul 2025) — a shop-made fire pit cut from a water heater tank with "T&T PLUMBING" punched into it | Their own photo, no faces, but it is a hunk of scrap in weeds. Not homepage material. |
+| `fbid=2587824441244482` (20 Nov 2018) — "PEDESTAL SINK AND LAV FAUCET GIVE AWAY!" | Contest promo post; product shot, not their work. |
+| `fbid=2381695258524069`, `2294720453888217`, `1728729743820627`, `1728729457153989`, `1728729377153997`, `1728728977154037`, `1728725703821031`, `1728725417154393`, `1696261440400791`, `1696260590400876`, `1696260110400924`, `1696259993734269`, `1696259990400936`, `1659140917446177`, `1659140884112847`, `1659140847446184`, `1658573964169539`, `1658573927502876`, `1658573894169546`, `1619189504774652`, `1547013671992236`, `1536780409682229`, `1535651979795072`, `259146586217236`, `259146582883903` | Remaining album/profile/cover images. Not used — the two selected photos already carry the section, and adding low-resolution 2016–2017 phone shots of unknown subject matter would dilute it. None were downloaded. |
+
+Instagram: no Instagram account for T&T Plumbing surfaced in search. Not
+checked further.
+
+## Source 1 — their own website (checked 2026-08-04, unchanged)
+
+`https://tntplumbingofashton.wixsite.com/tntplumbing` — a free Wix subdomain.
+Verified as theirs (homepage text contains "Call: TnT Plumbing at 208-534-8983
+or 208-652-7373"). All nine unique images on the site were inspected and all
+were rejected: third-party social-media brand logos (Facebook, Twitter, Google+
+icons), generic wrench/faucet clipart, a 3D-rendered "plumber mascot", and a
+studio stock flat-lay of a wrench on blueprints. No exterior, truck, signage, or
+real work photos anywhere on the site.
+
+## Source 2 — Google Maps / Google Business Profile (checked 2026-08-04, unchanged)
+
+Listing "T & T Plumbing, Inc." at Ashton, ID 83420, pin on Main St. **Unclaimed
+listing with zero uploaded photos** — the panel shows "Photos" followed
+immediately by an "Add photos & videos" prompt, and a DOM query for
+`googleusercontent.com` images returned zero matches. Nothing to pull.

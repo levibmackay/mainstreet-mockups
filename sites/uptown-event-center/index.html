@@ -139,6 +139,13 @@
     text-decoration: none;
   }
 
+  /* Real Uptown Event Center logo from the venue's own site. Gold gradient
+     type inside a heavy black keyline, so it holds up over both the hero
+     photography and the black footer without any plate behind it. */
+  .brand-logo { display: block; width: auto; height: 40px; flex-shrink: 0; }
+  .footer-logo { display: block; width: auto; height: 52px; }
+  @media (max-width: 520px) { .brand-logo { height: 32px; } }
+
   .brand-mark { width: 30px; height: 30px; flex-shrink: 0; }
 
   .brand-name {
@@ -671,21 +678,8 @@
 <header class="site-header" id="siteHeader">
   <div class="wrap header-row">
     <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-hidden="true">
-        <title>Uptown Event Center fanlight mark</title>
-        <path d="M4 30 A16 16 0 0 1 36 30" fill="none" stroke="url(#markGrad)" stroke-width="1.6"/>
-        <path d="M8 30 A12 12 0 0 1 32 30" fill="none" stroke="url(#markGrad)" stroke-width="1.2"/>
-        <line x1="20" y1="30" x2="20" y2="12" stroke="url(#markGrad)" stroke-width="1.2"/>
-        <line x1="20" y1="14" x2="10" y2="30" stroke="url(#markGrad)" stroke-width="1"/>
-        <line x1="20" y1="14" x2="30" y2="30" stroke="url(#markGrad)" stroke-width="1"/>
-        <defs>
-          <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#d8b567"/>
-            <stop offset="1" stop-color="#f6e3ad"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <span class="brand-name gold-text">Uptown Event Center</span>
+      <img class="brand-logo" src="img/logo-uptown-event-center.png"
+           alt="Uptown Event Center" width="101" height="40">
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="#heritage">Heritage</a>
@@ -973,7 +967,8 @@
 
 <footer class="site-footer">
   <div class="wrap footer-row">
-    <span class="footer-brand gold-text">Uptown Event Center</span>
+    <img class="footer-logo" src="img/logo-uptown-event-center.png"
+         alt="Uptown Event Center" width="132" height="52" loading="lazy">
     <span class="footer-meta">57 E Main St, Rexburg, Idaho · (208) 569-0049</span>
   </div>
 </footer>
