@@ -21,7 +21,9 @@
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
-  html{ -webkit-text-size-adjust:100%; }
+  /* The header is sticky and ~81px tall, so an anchor jump would otherwise
+     land with the target section's heading tucked underneath it. */
+  html{ -webkit-text-size-adjust:100%; scroll-padding-top: 6rem; }
   html,body{ margin:0; padding:0; width:100%; overflow-x:hidden; }
   body{
     background:var(--slate);
