@@ -294,6 +294,46 @@
     50%{ transform:translateY(-10px); }
   }
 
+  /* -------------------- storefront photo band -------------------- */
+  .storefront{ position:relative; background:var(--midnight); }
+  .storefront-media{
+    position:relative;
+    width:100%;
+    height:clamp(280px, 42vw, 560px);
+    overflow:hidden;
+  }
+  .storefront-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .storefront-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg,
+      rgba(7,12,24,0) 0%,
+      rgba(7,12,24,0.45) 50%,
+      rgba(7,12,24,0.92) 100%);
+    pointer-events:none;
+  }
+  .storefront-caption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding-block:clamp(1.5rem, 4vw, 2.6rem);
+    z-index:2;
+  }
+  .storefront-caption .eyebrow{ color:var(--cyan-2); margin-bottom:.9rem; }
+  .storefront-caption .eyebrow::before{ background:var(--cyan-2); }
+  .storefront-text{
+    color:var(--white);
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(1.05rem, 2.6vw, 1.5rem);
+    line-height:1.5;
+    max-width:38ch;
+    margin:0;
+  }
+
   /* -------------------- section shell -------------------- */
   section{
     padding-block:clamp(4.5rem, 9vw, 7rem);
@@ -638,6 +678,22 @@
     </div>
   </section>
 
+  <!-- ============ STOREFRONT ============ -->
+  <section class="storefront" id="storefront" aria-label="Our storefront">
+    <div class="storefront-media">
+      <img
+        src="img/storefront-sign.jpg"
+        alt="Rexburg Vision Center's blue and white monument sign on a red brick base in front of the practice building, framed by a tree and shrubs"
+        width="1440" height="960"
+        loading="lazy">
+      <div class="storefront-scrim" aria-hidden="true"></div>
+      <div class="storefront-caption wrap focus-in">
+        <p class="eyebrow">On the sign since 1963</p>
+        <p class="storefront-text">The same monument sign at 49 E 1st South that generations of Rexburg patients have driven past on their way in.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SERVICES ============ -->
   <section class="services" id="services">
     <div class="wrap">
@@ -732,8 +788,8 @@
           <p>49 E 1st South, in the heart of Rexburg &mdash; easy to find, easy to walk to, and easy to reach by phone.</p>
         </div>
         <div class="why-item focus-in d3">
-          <h3>Rated by real patients</h3>
-          <p>4.5 out of 5 stars from 124 reviews on public listings &mdash; a strong, independently verified track record.</p>
+          <h3>Locally owned, still independent</h3>
+          <p>In an era of clinic chains and big-box optical counters, Rexburg Vision Center remains an independently owned practice in the town where it started.</p>
         </div>
       </div>
     </div>

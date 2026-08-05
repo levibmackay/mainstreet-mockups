@@ -14,7 +14,7 @@ self-confirming rather than inferred.
 
 | Local file | Source URL | Source type | Used on page | Date |
 |---|---|---|---|---|
-| `img/storefront-sign.jpg` | https://rexburgvision.com/images/banner-2.jpg | Own site (homepage banner) | Hero / storefront treatment | 2026-08-05 |
+| `img/storefront-sign.jpg` | https://rexburgvision.com/images/banner-2.jpg | Own site (homepage banner) | Full-bleed storefront band, directly below the hero | 2026-08-05 |
 
 Verified by opening it: the practice's blue-and-white monument sign reading
 "REXBURG VISION CENTER" with their logo mark, mounted on a red brick base in

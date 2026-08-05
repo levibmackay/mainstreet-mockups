@@ -14,6 +14,7 @@
     --ivory-dim: #ece3d4;
     --gold: #b8924f;
     --gold-bright: #d4af6a;
+    --gold-deep: #7a5a24; /* AA-safe gold for text on ivory: ~5.7:1, plain --gold is ~2.6:1 */
     --graphite: #2b2a28;
     --graphite-soft: #55524c;
     --line: rgba(184,146,79,0.35);
@@ -135,6 +136,7 @@
   .call-chip{
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap: 0.5rem;
     background: var(--oxblood);
     color: var(--ivory);
@@ -145,8 +147,22 @@
     letter-spacing: 0.04em;
     white-space: nowrap;
     min-height: 44px;
+    min-width: 44px;
+    flex-shrink: 0;
   }
   .call-chip:hover{ background: var(--oxblood-light); }
+  /* Below ~480px, brand block + full call-chip text no longer both fit
+     the header row (measured: ~200px brand + ~173px chip + gap vs
+     ~280px available at a 320px viewport). Collapse the chip to an
+     icon-only tap target; the accessible name still comes from
+     aria-label on the anchor. */
+  @media (max-width: 480px){
+    .call-chip{ padding: 0.6rem; }
+    .call-chip .chip-text{ display:none; }
+    .brand svg{ width: 28px; height: 28px; }
+    .brand-text .name{ font-size: 0.9rem; }
+    .brand-text .sub{ font-size: 0.56rem; letter-spacing: 0.16em; }
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -165,6 +181,15 @@
       radial-gradient(ellipse at 85% 85%, rgba(122,44,55,0.5), transparent 60%),
       linear-gradient(160deg, var(--oxblood-deep), var(--oxblood) 70%);
     z-index:-2;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    z-index:-1;
+    pointer-events:none;
   }
   .hero-guilloche{
     position:absolute;
@@ -266,7 +291,7 @@
   }
   .eyebrow{
     display:flex; align-items:center; gap:0.75rem;
-    color: var(--gold);
+    color: var(--gold-deep);
     font-size: 0.75rem;
     letter-spacing: 0.24em;
     text-transform: uppercase;
@@ -323,7 +348,7 @@
   .process-num{
     font-family: ui-serif, Georgia, serif;
     font-size: 2.2rem;
-    color: var(--gold);
+    color: var(--gold-deep);
     line-height:1;
   }
   .process-item h3{
@@ -639,9 +664,9 @@
         <a href="#location">Location</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="call-chip" href="tel:(208) 356-7474">
+      <a class="call-chip" href="tel:+12083567474" aria-label="Call (208) 356-7474">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="currentColor"/></svg>
-        (208) 356-7474
+        <span class="chip-text">(208) 356-7474</span>
       </a>
     </nav>
   </div>
@@ -679,7 +704,7 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
               Request a Consultation
             </a>
-            <a class="btn-ghost" href="tel:(208) 356-7474">
+            <a class="btn-ghost" href="tel:+12083567474">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="currentColor"/></svg>
               (208) 356-7474
             </a>
@@ -809,7 +834,7 @@
             <hr class="hairline" style="margin-bottom:1.6rem;">
             <div class="phone-row">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="#5c1f28"/></svg>
-              <a class="tel" href="tel:(208) 356-7474">(208) 356-7474</a>
+              <a class="tel" href="tel:+12083567474">(208) 356-7474</a>
             </div>
             <p class="location-note">Please call ahead to arrange a visit.</p>
           </div>
@@ -848,7 +873,7 @@
       </div>
       <div class="contact-grid">
         <div class="contact-direct reveal">
-          <a class="big-tel" href="tel:(208) 356-7474">
+          <a class="big-tel" href="tel:+12083567474">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="#d4af6a"/></svg>
             (208) 356-7474
           </a>
@@ -893,7 +918,7 @@
       <span class="footer-brand">Forsberg &amp; Evans Law Offices</span>
       <div class="footer-meta">
         49 Professional Plaza, Rexburg, Idaho<br>
-        <a href="tel:(208) 356-7474">(208) 356-7474</a>
+        <a href="tel:+12083567474">(208) 356-7474</a>
       </div>
     </div>
   </div>
