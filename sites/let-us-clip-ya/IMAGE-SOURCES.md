@@ -1,61 +1,86 @@
 # Image sources — Let Us Clip Ya LLC mockup
 
-Date: 2026-08-04
+Date: 2026-08-05
 
-**Result: zero images added.** `sites/let-us-clip-ya/img/` does not exist and
-`index.html` references no images. The page remains CSS/inline-SVG only, per
-BRIEF.md rule 4's fallback.
+**Result: 3 images added.** All three are genuine project photographs from the
+business's own website.
 
-This one needs explaining, because it did not start out that way.
+Business verified before anything was used: the mockup lists (208) 346-3846,
+and `letusclipya.com` serves that same number (`346-3846`) on its homepage
+along with the "Clip Ya" brand name. Correct business, confirmed by phone
+match on their own domain.
 
-## What happened
+## Images added: 3
 
-At some earlier point in this project, six JPEGs were downloaded into
-`sites/let-us-clip-ya/img/` (`firepit-hardscape.jpg`, `paver-patio.jpg`,
-`retaining-wall.jpg`, `sod-installation.jpg`, `stone-patio.jpg`,
-`water-feature.jpg`). They were never referenced in `index.html` and no
-sources log was ever written, so nothing recorded where they came from.
+| Local file | Source URL | Source type | Used on page | Date |
+|---|---|---|---|---|
+| `img/firepit-patio-rexburg.jpg` | https://letusclipya.com/img/slides/rexburg-landscaping-firepit.jpg | Own site (homepage slider) | Completed-work / full-bleed band | 2026-08-05 |
+| `img/boulder-wall-rexburg.jpg` | https://letusclipya.com/img/rock-landscaping-rexburg-idaho.jpg | Own site | Completed-work grid | 2026-08-05 |
+| `img/church-grounds-swan-valley.jpg` | https://letusclipya.com/img/lds-church-landscape-swan-valley-idaho.jpg | Own site | Completed-work grid | 2026-08-05 |
 
-Three separate agents were subsequently assigned to resolve them. All three
-were killed by a stall watchdog mid-task. The last one got furthest: it
-curated the set down to four renamed files (`work-boulder-retaining-wall.jpg`,
-`work-fresh-sod.jpg`, `work-paver-patio.jpg`, `work-sunken-firepit.jpg`) and
-added seven `<img>` references to `index.html` — but it died before the two
-halves matched. The page was left referencing seven filenames while only four
-existed on disk: **seven broken images on a page intended to be emailed cold
-to the business owner.**
+Each was opened and visually verified in the main session:
 
-## Why everything was removed rather than repaired
+- `firepit-patio-rexburg.jpg` (1728×488) — a curved flagstone patio with a
+  round stone gas firepit and seat wall, bistro table and chairs, mulched
+  beds with boulders and ornamental grasses, and a sharp lawn edge. No
+  people. Easily the strongest image; its very wide crop suits a full-bleed
+  band rather than a grid cell.
+- `boulder-wall-rexburg.jpg` (500×500) — a boulder retaining wall above fresh
+  sod, shot low against a cloudy sky. No people. Heavily HDR-processed.
+- `church-grounds-swan-valley.jpg` (500×500) — a brick LDS meetinghouse with
+  newly installed lawn, young trees and boulder beds, mountains behind. No
+  people. Useful as the commercial/institutional example.
 
-The four surviving files could not be given a provenance. The scratchpad for
-that agent was never created, and the only working files that survived for
-this business are two Google Maps screenshots
-(`scratchpad/agent-outdoor/let-us-clip-ya/maps-Let_Us_Clip_Ya_Rigby_ID.png`
-and `…_Rexburg_ID.png`) — no saved source HTML, no raw downloads, no URL list.
+Optimized with `sips` at JPEG quality 80; native dimensions kept, since all
+three are already at or under the 1600px long-edge cap. Total `img/` folder
+size: 936KB, well under the 2MB budget.
 
-BRIEF.md rule 4 requires a per-file record of the exact source URL, precisely
-so an image can be pulled quickly if anyone questions where it came from. An
-image whose source cannot be stated fails that requirement no matter how
-plausible its filename looks. A descriptive filename is not evidence — an
-earlier agent on a sibling site (`reliable-landscape`) found a page whose
-address and phone both matched the business but whose logo read a completely
-different company name, which is exactly the trap a filename would hide.
+**Resolution caveat, worth knowing before designing around these:** their site
+simply does not host large images. The two grid photos are 500×500 natives and
+the band is 1728×488. They must not be displayed larger than roughly their
+native size or they will visibly soften. This is a real constraint on the
+page, not an oversight.
 
-There was also a quality signal pointing the same way: the surviving files
-were reported at roughly 460–500px on the long edge, i.e. thumbnail-derived,
-which is well below what this page needs.
+## Sources checked and rejected
 
-So `index.html` was reverted to its last committed (photo-free) state and the
-`img/` folder was deleted. Removing them is the conservative call: the cost is
-a page with no photos, which several sites in this project legitimately have.
-The cost of the alternative is publishing someone else's photograph, or a
-competitor's, under this business's name.
+**Own site (letusclipya.com):**
 
-## Still to do
+- `img/bark-rexburg-idaho-delivered-thumb.jpg`,
+  `custom-firepit-idaho-falls-thumb.jpg`,
+  `firepit-landscape-in-idaho-falls-thumb.jpg`,
+  `hardscapes-in-jackson-hole-thumb.jpg`, `lawn-care-rexburg-thumb.jpg`,
+  `paver-installation-jackson-hole-thumb.jpg`,
+  `pavers-in-jackson-hole-thumb.jpg`,
+  `sprinkler-installation-in-rexburg-thumb.jpg` — not used. All are
+  explicitly `-thumb` derivatives and too small to display at any meaningful
+  size. They are genuine project photos, so if larger originals are ever
+  obtained directly from the owner they would be good material.
+- `img/afton-wyoming-landscaping-company.jpg` (500×500) — genuine and
+  available, but not integrated: it was not opened and visually vetted in
+  this pass, and nothing goes on the page unseen. A legitimate candidate for
+  a future pass.
+- `img/logo.png`, `img/skidsteer-website.png` — not used. Brand mark and a
+  cut-out graphic, not photographs.
 
-This business has NOT had a proper sourcing pass. Nobody has yet verified
-whether Let Us Clip Ya LLC has its own website, and its Google Business
-Profile was only screenshotted, never assessed in a surviving log. Landscape
-installation is one of the better categories for genuine completed-work
-photography, so this is worth revisiting — it is an open task, not a
-determination that no photos exist.
+**Google Maps / Google Business Profile:** not checked in this pass. Their own
+site supplied enough genuine, privacy-safe project photography. Earlier
+attempts on this business did screenshot the Maps listing — the artifacts are
+at `scratchpad/agent-outdoor/let-us-clip-ya/` — but no usable image was ever
+recorded from them.
+
+## History — why this file was rewritten
+
+An earlier pass left six unsourced JPEGs in this directory and, after three
+agents were killed mid-task by a stall watchdog, ended with `index.html`
+referencing seven filenames while only four existed on disk — seven broken
+images on a page meant to be emailed to the owner.
+
+Because no agent had recorded where those files came from, their provenance
+could not be stated, and BRIEF.md rule 4 requires a per-file source URL. They
+were therefore deleted and `index.html` was reverted to its photo-free state
+rather than shipping images we could not account for.
+
+This pass redid the work properly: found and verified the real website by
+phone match, pulled the images from URLs that are recorded above, and opened
+each one before accepting it. The earlier files are gone; the three here are
+new downloads with known sources.
