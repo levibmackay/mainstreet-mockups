@@ -317,17 +317,108 @@
     border-radius:var(--radius);
     padding:1.75rem;
     box-shadow:0 10px 26px -18px rgba(38,53,15,0.5);
+    transition:transform 0.35s var(--ease-bounce), box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .service-card:hover, .service-card:focus-within{
+    transform:translateY(-6px);
+    border-color:var(--lime-600);
+    box-shadow:0 20px 34px -18px rgba(38,53,15,0.65);
   }
   .service-card .icon-wrap{
     width:3rem; height:3rem;
     margin-bottom:1rem;
     color:var(--lime-600);
+    transition:transform 0.35s var(--ease-bounce);
   }
+  .service-card:hover .icon-wrap{ transform:rotate(-6deg) scale(1.08); }
   .service-card h3{
     font-size:1.2rem;
     margin-bottom:0.6rem;
   }
   .service-card p{ color:var(--olive-900); font-size:0.98rem; }
+  @media (prefers-reduced-motion: reduce){
+    .service-card, .service-card .icon-wrap{ transition:none; }
+    .service-card:hover{ transform:none; }
+    .service-card:hover .icon-wrap{ transform:none; }
+  }
+
+  /* ---------- photo band (full-bleed) ---------- */
+  .photo-band{
+    position:relative;
+    width:100%;
+    height:clamp(240px, 32vw, 420px);
+    overflow:hidden;
+    background:var(--olive-900);
+  }
+  .photo-band img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 62%;
+    display:block;
+  }
+  .photo-band::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(31,43,15,0.88) 0%, rgba(31,43,15,0.15) 45%, transparent 70%);
+    pointer-events:none;
+  }
+  .photo-band .band-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:clamp(1.1rem, 3.5vw, 2.25rem) clamp(1.25rem, 4vw, 3rem);
+    z-index:1;
+  }
+  .photo-band .band-caption p{
+    color:var(--cream);
+    font-weight:800;
+    font-size:clamp(1.05rem, 2.6vw, 1.6rem);
+    max-width:40ch;
+    text-shadow:0 2px 10px rgba(0,0,0,0.35);
+  }
+  .photo-band .band-caption .eyebrow{ color:var(--lime-400); margin-bottom:0.35rem; display:block; }
+
+  /* ---------- recent work photo pairing ---------- */
+  .work{ background:var(--cream-dim); }
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:clamp(1.5rem, 4vw, 2.5rem);
+    max-width:960px;
+    margin:0 auto;
+  }
+  .work-photo{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 10px 26px -18px rgba(38,53,15,0.5);
+    transition:transform 0.35s var(--ease-bounce), box-shadow 0.35s ease;
+  }
+  .work-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 34px -18px rgba(38,53,15,0.65);
+  }
+  .work-photo .frame{
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:var(--olive-900);
+  }
+  .work-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .work-photo figcaption{
+    padding:0.9rem 1.15rem 1.05rem;
+    font-weight:700;
+    font-size:0.92rem;
+    color:var(--olive-900);
+    border-top:1px solid var(--line);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .work-photo{ transition:none; }
+    .work-photo:hover{ transform:none; }
+  }
 
   /* ---------- why us ---------- */
   .why{

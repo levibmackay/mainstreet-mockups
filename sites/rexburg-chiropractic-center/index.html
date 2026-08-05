@@ -56,6 +56,21 @@
     position:absolute; width:1px; height:1px; padding:0; margin:-1px;
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
+  a.visually-hidden:focus{
+    position:fixed;
+    top:0.75rem; left:0.75rem;
+    width:auto; height:auto;
+    padding:0.75rem 1.25rem;
+    margin:0;
+    overflow:visible; clip:auto; white-space:normal;
+    background:var(--burgundy-950);
+    color:var(--cream);
+    font-weight:700;
+    font-size:0.95rem;
+    border-radius:4px;
+    z-index:100;
+    box-shadow:var(--shadow);
+  }
 
   a:focus-visible,
   button:focus-visible,
@@ -101,15 +116,18 @@
     text-decoration:none;
     color:var(--burgundy-800);
     transition:color .3s ease;
+    min-width:0;
   }
   header.site.scrolled .brand{ color:var(--cream); }
   .brand-mark{ width:38px; height:38px; flex:none; color:var(--burgundy-700); transition:color .3s ease; }
   header.site.scrolled .brand-mark{ color:var(--brass-500); }
   .brand-text{
     font-family:var(--serif);
-    font-size:1.08rem;
+    font-size:clamp(0.8rem, 3vw, 1.08rem);
     letter-spacing:0.02em;
     font-weight:600;
+    min-width:0;
+    overflow-wrap:break-word;
   }
   .brand-text small{
     display:block;
@@ -118,7 +136,7 @@
     font-weight:700;
     letter-spacing:0.15em;
     text-transform:uppercase;
-    color:var(--brass-700);
+    color:var(--brass-800);
   }
   header.site.scrolled .brand-text small{ color:var(--brass-200); }
 
@@ -155,13 +173,28 @@
     font-weight:700;
     letter-spacing:0.01em;
     min-height:44px;
+    min-width:44px;
+    flex:none;
+    white-space:nowrap;
     transition:background-color .3s ease, transform .2s ease;
   }
+  .nav-cta svg{ flex:none; }
   .nav-cta:hover{ background:var(--brass-600); transform:translateY(-1px); }
   header.site.scrolled .nav-cta{ background:var(--brass-600); color:var(--burgundy-950) !important; }
 
   @media (max-width: 760px){
     nav.primary ul li:not(.nav-cta-item){ display:none; }
+  }
+
+  @media (max-width: 420px){
+    header.site .wrap{ gap:0.6rem; }
+    .wrap{ padding-inline:1rem; }
+    .brand-text small{ display:none; }
+    .nav-cta{ padding:0.62rem 0.75rem; }
+    .nav-cta-text{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
   }
 
   /* ---------- Reveal on scroll ---------- */
@@ -298,7 +331,7 @@
     letter-spacing:0.19em;
     text-transform:uppercase;
     font-weight:700;
-    color:var(--brass-700);
+    color:var(--brass-800);
     margin-bottom:0.9rem;
   }
   .section-head h2{ font-size:clamp(1.65rem, 3.2vw, 2.3rem); }
@@ -508,7 +541,7 @@
         <li><a href="#services">Care</a></li>
         <li><a href="#why">Why Us</a></li>
         <li><a href="#location">The Home</a></li>
-        <li class="nav-cta-item"><a class="nav-cta" href="tel:+12083566772">Call (208) 356-6772</a></li>
+        <li class="nav-cta-item"><a class="nav-cta" href="tel:+12083566772"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.5.56 1.5 1.5 0 0 1 1.5 1.5v3.4A1.5 1.5 0 0 1 20.4 22 17.9 17.9 0 0 1 2 3.6 1.5 1.5 0 0 1 3.5 2h3.4A1.5 1.5 0 0 1 8.4 3.5a11 11 0 0 0 .56 3.5 1.5 1.5 0 0 1-.37 1.5z" stroke-linejoin="round"/></svg><span class="nav-cta-text">Call (208) 356-6772</span></a></li>
       </ul>
     </nav>
   </div>

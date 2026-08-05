@@ -31,6 +31,13 @@
   html{ scroll-behavior:smooth; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
+    *, *::before, *::after{
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+      scroll-behavior:auto !important;
+    }
+    .service-card:hover, .contact-link:hover, .contact-link:focus-visible{ transform:none !important; }
   }
 
   body{
@@ -81,6 +88,18 @@
     outline:3px solid var(--spring-400);
     outline-offset:2px;
   }
+  /* spring-400 on spring-500 (buttons) is too low-contrast to read as a
+     focus ring — use ink instead wherever the element's own background is
+     spring-500. Same for on-paper sections, where spring-400 reads too
+     close to the pale paper background. */
+  a.skip-link:focus-visible,
+  .btn-primary:focus-visible,
+  .header-call:focus-visible{
+    outline-color:var(--ink);
+  }
+  section.on-paper :focus-visible{
+    outline-color:var(--green-700);
+  }
 
   .wrap{
     max-width:1180px;
@@ -110,11 +129,11 @@
   }
   .brand{
     display:flex; align-items:center; gap:0.65rem;
-    font-family:var(--ff-serif); font-weight:600; font-size:1.05rem;
+    font-family:var(--ff-serif); font-weight:600; font-size:clamp(0.88rem,3.6vw,1.05rem);
     color:var(--paper); min-width:0;
   }
   .brand svg{ flex:none; }
-  .brand-text{ line-height:1.2; }
+  .brand-text{ line-height:1.2; min-width:0; overflow-wrap:anywhere; }
   .brand-text small{
     display:block; font-family:var(--ff-mono); font-size:0.62rem;
     letter-spacing:0.14em; text-transform:uppercase; color:var(--ochre-300);
@@ -137,6 +156,11 @@
   .header-call:hover{ background:var(--spring-400); }
   @media (max-width:760px){
     .nav-links{ display:none; }
+  }
+  @media (max-width:420px){
+    .brand-text small{ display:none; }
+    .header-call{ padding:0.6rem 0.75rem; }
+    .header-call .call-label{ display:none; }
   }
 
   /* ---------- hero ---------- */
