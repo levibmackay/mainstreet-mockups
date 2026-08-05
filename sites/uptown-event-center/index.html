@@ -443,6 +443,51 @@
     font-size: 0.98rem;
   }
 
+  /* ---------- Gallery ---------- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 620px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 980px) {
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .gallery-photo {
+    position: relative;
+    border: 1px solid rgba(216,181,103,0.22);
+    border-radius: 3px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--panel);
+    transition: border-color 0.5s ease, transform 0.5s ease;
+  }
+
+  .gallery-photo:hover { border-color: rgba(216,181,103,0.55); transform: translateY(-4px); }
+
+  .gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-photo figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0.8rem 1rem;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ivory);
+    background: linear-gradient(0deg, rgba(12,10,8,0.82), rgba(12,10,8,0) 100%);
+  }
+
   .occasions-note a {
     color: var(--gold-1);
     text-decoration: underline;
@@ -629,6 +674,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="#heritage">Heritage</a>
       <a href="#occasions">Occasions</a>
+      <a href="#gallery">Gallery</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
       <a class="btn btn-solid nav-cta" href="tel:+12085233722">(208) 523-3722</a>
@@ -796,6 +842,46 @@
       <p class="occasions-note reveal" style="--d:0">Every event is different. <a href="tel:+12085233722">Call and tell us your date and guest count</a>, and we'll talk through what's possible.</p>
     </div>
   </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" aria-labelledby="gallery-heading">
+    <div class="wrap">
+      <div class="section-head center reveal" style="--d:0">
+        <span class="label eyebrow">Inside the Venue</span>
+        <h2 id="gallery-heading" class="gold-text">A look at the room.</h2>
+        <p>Real photos of the space, taken inside Uptown Event Center in downtown Rexburg.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-photo reveal" style="--d:0">
+          <img src="img/ballroom-dance-floor.jpg" alt="The ballroom at Uptown Event Center dressed for a private party, with a balloon arch, a sequin backdrop and marquee letters set up on the hardwood dance floor" width="1048" height="1400" loading="lazy">
+          <figcaption>The main ballroom</figcaption>
+        </figure>
+        <figure class="gallery-photo reveal" style="--d:80">
+          <img src="img/ballroom-reception-set.jpg" alt="The ballroom set with round tables, white chair covers, and teal sashes for a reception" width="1400" height="1050" loading="lazy">
+          <figcaption>Set for a reception</figcaption>
+        </figure>
+        <figure class="gallery-photo reveal" style="--d:160">
+          <img src="img/ceremony-chairs.jpg" alt="Rows of white folding chairs arranged for a ceremony on the ballroom floor" width="1400" height="1050" loading="lazy">
+          <figcaption>Ready for a ceremony</figcaption>
+        </figure>
+        <figure class="gallery-photo reveal" style="--d:0">
+          <img src="img/reception-table-decor.jpg" alt="A round reception table with a brown tablecloth, tall silver centerpiece, and draped chair covers" width="1050" height="1400" loading="lazy">
+          <figcaption>Table &amp; chair styling</figcaption>
+        </figure>
+        <figure class="gallery-photo reveal" style="--d:80">
+          <img src="img/brides-room.jpg" alt="A private getting-ready room with a mirrored wall, high-top table, and seating" width="1400" height="1050" loading="lazy">
+          <figcaption>The bride's room</figcaption>
+        </figure>
+        <figure class="gallery-photo reveal" style="--d:160">
+          <img src="img/kitchen-prep-area.jpg" alt="The onsite prep kitchen with counters, sink, and a refrigerator for caterers and hosts" width="1400" height="1050" loading="lazy">
+          <figcaption>Kitchen &amp; prep area</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="gold-rule"></div>
 
   <!-- ============ LOCATION ============ -->
   <section class="location" id="location" aria-labelledby="location-heading">
