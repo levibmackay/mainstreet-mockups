@@ -25,7 +25,7 @@ cat > "$out" <<'HEAD'
   h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 .4rem; letter-spacing: -.02em; }
   .sub { color: #99a1b3; margin: 0 0 2.5rem; }
   ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-  a.card {
+  .card {
     display: flex; justify-content: space-between; align-items: center; gap: 1rem;
     padding: .95rem 1.15rem; border: 1px solid #262b36; border-radius: 10px;
     background: #161a22; color: inherit; text-decoration: none;
@@ -33,6 +33,9 @@ cat > "$out" <<'HEAD'
   }
   a.card:hover, a.card:focus-visible { border-color: #4a7fd4; background: #1b212b; }
   a.card:focus-visible { outline: 2px solid #4a7fd4; outline-offset: 2px; }
+  .card.blocked { border-color: #5c2b2b; background: #1a1416; cursor: default; }
+  .card.blocked .name { color: #b9a3a3; }
+  .card.blocked .go { color: #d98a8a; font-weight: 600; }
   .name { font-weight: 600; }
   .go { color: #7d8798; font-size: .85rem; white-space: nowrap; }
   footer { margin-top: 3rem; color: #7d8798; font-size: .85rem; border-top: 1px solid #262b36; padding-top: 1.25rem; }
@@ -53,8 +56,15 @@ for d in sites/*/; do
   # Prefer the page's own <title>, minus our " — descriptor" suffix.
   name=$(sed -n 's:.*<title>\([^<]*\)</title>.*:\1:p' "$d/index.html" | head -1 | sed 's/ [—-] .*//')
   [ -n "$name" ] || name="$slug"
-  printf '  <li><a class="card" href="sites/%s/"><span class="name">%s</span><span class="go">%s &rarr;</span></a></li>\n' \
-    "$slug" "$name" "$slug" >> "$out"
+  # A site with a DO-NOT-CONTACT.md is rendered unlinked, so nobody opens or
+  # sends it by accident. See that file for why.
+  if [ -f "$d/DO-NOT-CONTACT.md" ]; then
+    printf '  <li><span class="card blocked"><span class="name">%s</span><span class="go">DO NOT CONTACT</span></span></li>\n' \
+      "$name" >> "$out"
+  else
+    printf '  <li><a class="card" href="sites/%s/"><span class="name">%s</span><span class="go">%s &rarr;</span></a></li>\n' \
+      "$slug" "$name" "$slug" >> "$out"
+  fi
   count=$((count + 1))
 done
 

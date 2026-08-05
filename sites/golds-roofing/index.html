@@ -451,6 +451,15 @@
   .contact-fact dd.placeholder{
     color:var(--paper-dim); font-style:italic;
   }
+  .contact-fact a.contact-tel{
+    display:inline-block; min-height:44px; line-height:44px;
+    color:var(--paper); text-decoration:none;
+    border-bottom:1px solid currentColor;
+  }
+  .contact-fact a.contact-tel:hover{ border-bottom-color:transparent; }
+  .contact-fact a.contact-tel:focus-visible{
+    outline:2px solid var(--paper); outline-offset:3px;
+  }
 
   form.estimate-form{
     background:var(--charcoal-700);
@@ -774,11 +783,9 @@
             <dt>Business</dt>
             <dd>Golds North Fork Roofing</dd>
             <dt>Location</dt>
-            <dd>St. Anthony, Idaho</dd>
+            <dd>1976 E 350th N, Saint Anthony, Idaho</dd>
             <dt>Phone</dt>
-            <dd class="placeholder">Placeholder, real number to be added</dd>
-            <dt>Email</dt>
-            <dd class="placeholder">Placeholder, real address to be added</dd>
+            <dd><a class="contact-tel" href="tel:+12082060317">(208)&nbsp;206-0317</a></dd>
           </dl>
 
           <p class="estimate-notice">
