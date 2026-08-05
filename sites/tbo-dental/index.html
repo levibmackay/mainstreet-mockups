@@ -11,12 +11,14 @@
     --mint-800:#175e58;
     --mint-700:#1d746c;
     --mint-600:#268e84;
+    --mint-text:#23837a; /* AA-safe mint for small text on white: 4.5:1 (--mint-600 is 3.92:1) */
     --mint-500:#3fb8b0;
     --mint-400:#6cc9c2;
     --mint-200:#c6ece8;
     --mint-100:#e4f7f5;
     --coral-600:#e35d43;
     --coral-500:#f27a5d;
+    --coral-aa:#b75c46; /* AA-safe coral for white text: 4.53:1 (plain --coral-500 is 2.72:1) */
     --coral-400:#ff9a7d;
     --coral-100:#ffe3d8;
     --white:#ffffff;
@@ -556,6 +558,12 @@
     .reveal{ opacity:1 !important; transform:none !important; }
     .service-card:hover, .btn:hover{ transform:none !important; }
   }
+
+  /* White text needs a deeper coral than the decorative brand tone. */
+  .nav-cta, .btn-primary{ background: var(--coral-aa); }
+
+  /* The 11px brand subtitle needs the deeper mint to clear AA on white. */
+  .brand-text small{ color: var(--mint-text); }
 </style>
 </head>
 <body>

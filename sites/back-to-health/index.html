@@ -11,6 +11,7 @@
     --forest-dark: #1e3329;
     --forest-light: #3d6350;
     --terracotta: #c1704f;
+    --terracotta-aa: #a55f43; /* AA-safe terracotta for white text: 4.5:1 (plain --terracotta is 3.42:1) */
     --terracotta-dark: #a5583b;
     --oat: #f3ece1;
     --oat-dark: #e8dcc8;
@@ -535,6 +536,9 @@
     position:absolute; width:1px; height:1px; padding:0; margin:-1px;
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
+
+  /* White text needs a darker terracotta than the decorative brand tone. */
+  .btn-primary{ background: var(--terracotta-aa); }
 </style>
 </head>
 <body>

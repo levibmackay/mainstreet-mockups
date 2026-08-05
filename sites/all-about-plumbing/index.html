@@ -38,6 +38,15 @@
     -webkit-font-smoothing:antialiased;
   }
 
+  /* fine film-grain texture, layered as an extra background-image on a
+     couple of accent panels alongside their existing gradients. Opacity is
+     baked into the SVG itself (rect opacity) so it always paints as part of
+     the box's own background — beneath all in-flow content, never at risk
+     of sitting over text the way a page-wide overlay pseudo-element would. */
+  :root{
+    --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  }
+
   h1,h2,h3{
     font-family: ui-serif, Georgia, serif;
     font-weight:700;
@@ -102,7 +111,7 @@
   .brand .mark{ flex:none; width:34px; height:34px; }
   .brand-text{ display:flex; flex-direction:column; line-height:1.1; }
   .brand-text strong{ font-size:1.02rem; letter-spacing:0.01em; }
-  .brand-text span{ font-family: ui-sans-serif, system-ui, sans-serif; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copper-500); }
+  .brand-text span{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-500); }
 
   nav.primary{ display:flex; align-items:center; gap:1.6rem; }
   nav.primary a{
@@ -186,6 +195,7 @@
     padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem);
     overflow:hidden;
     background:
+      var(--grain),
       radial-gradient(1200px 600px at 85% -10%, rgba(184,115,51,0.16), transparent 60%),
       radial-gradient(900px 500px at -10% 110%, rgba(184,115,51,0.10), transparent 60%);
   }
@@ -203,8 +213,9 @@
     display:inline-flex;
     align-items:center;
     gap:0.5rem;
-    font-size:0.72rem;
-    letter-spacing:0.18em;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--copper-500);
     margin-bottom:1.1rem;
@@ -263,7 +274,7 @@
   /* review stat panel */
   .stat-panel{
     position:relative;
-    background: linear-gradient(160deg, var(--navy-800), var(--navy-950));
+    background: var(--grain), linear-gradient(160deg, var(--navy-800), var(--navy-950));
     border:1px solid var(--line);
     border-radius: 20px;
     padding: clamp(2rem, 4vw, 2.75rem);
@@ -301,8 +312,9 @@
   .stat-source{
     display:inline-block;
     margin-top:1.25rem;
-    font-size:0.7rem;
-    letter-spacing:0.12em;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--slate-dim);
     border-top:1px solid var(--line);
@@ -311,7 +323,15 @@
   }
 
   /* ---------- section shells ---------- */
+  /* padding-block is deliberately uneven per section (not a flat repeat) so
+     the page has spatial rhythm: services and why-us get room to breathe as
+     the two content-heavy sections, work and area run tighter since photos
+     and the diagram carry their own visual weight. */
   section{ padding-block: clamp(3rem, 7vw, 5.5rem); position:relative; }
+  #services{ padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+  #work{ padding-block: clamp(2.75rem, 6vw, 4.5rem); }
+  #why{ padding-block: clamp(3.75rem, 9vw, 7.25rem); }
+  #area{ padding-block: clamp(2.5rem, 6vw, 4.25rem); }
   .section-head{ max-width:60ch; margin-bottom: clamp(2rem, 4vw, 3rem); }
   .section-head .eyebrow{ margin-bottom:0.75rem; }
   .section-head h2{
@@ -334,6 +354,21 @@
     .reveal{ opacity:1; transform:none; transition:none; }
   }
 
+  /* global reduced-motion backstop: neutralizes every transform/transition
+     added anywhere on the page (hover lifts, icon color shifts, image zoom,
+     header scale) so nothing moves for users who've asked for less motion */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      transition-duration: 0.001ms !important;
+      transition-delay: 0s !important;
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+    .nav-row, .service-card:hover, .work-card:hover, .work-card:hover img,
+    .call-btn:hover, .btn-primary:hover{ transform:none !important; }
+  }
+
   /* ---------- services ---------- */
   .services-grid{
     display:grid;
@@ -349,7 +384,13 @@
   }
   .service-card:hover{ transform:translateY(-4px); border-color:var(--copper-600); }
   .service-card .icon{ width:40px; height:40px; margin-bottom:1rem; }
-  .service-card .icon path, .service-card .icon circle, .service-card .icon line{ stroke:var(--copper-500); }
+  .service-card .icon path, .service-card .icon circle, .service-card .icon line{
+    stroke:var(--copper-500);
+    transition: stroke 0.3s var(--ease);
+  }
+  .service-card:hover .icon path,
+  .service-card:hover .icon circle,
+  .service-card:hover .icon line{ stroke:var(--copper-400); }
   .service-card h3{ font-size:1.15rem; color:var(--cream); margin-bottom:0.4rem; }
   .service-card p{ color:var(--slate); font-size:0.94rem; margin-bottom:0; }
 
@@ -373,7 +414,10 @@
     width:100%;
     height:230px;
     object-fit:cover;
+    transform: scale(1);
+    transition: transform 0.5s var(--ease);
   }
+  .work-card:hover img{ transform: scale(1.06); }
   .work-card .cap{ padding: 0.95rem 1.1rem 1.15rem; }
   .work-card .cap h3{ font-size:0.98rem; color:var(--cream); margin-bottom:0.25rem; }
   .work-card .cap p{ color:var(--slate); font-size:0.85rem; margin:0; }
@@ -405,7 +449,7 @@
 
   .why-visual{
     position:relative;
-    background: linear-gradient(160deg, var(--navy-800), var(--navy-950));
+    background: var(--grain), linear-gradient(160deg, var(--navy-800), var(--navy-950));
     border:1px solid var(--line);
     border-radius:20px;
     padding:2.5rem;
@@ -427,7 +471,7 @@
   .area-svg .node circle{ fill:var(--navy-900); stroke:var(--copper-500); stroke-width:2.5; }
   .area-svg .node .dot{ fill:var(--copper-500); }
   .area-svg text{ fill:var(--cream); font-family: ui-sans-serif, system-ui, sans-serif; font-size:15px; font-weight:600; }
-  .area-svg .sub{ fill:var(--slate); font-size:11px; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; }
+  .area-svg .sub{ fill:var(--slate); font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:10px; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; }
 
   /* ---------- contact ---------- */
   .contact{
@@ -476,12 +520,23 @@
   .concept-note{
     text-align:center;
     font-size:0.78rem;
-    color:#5f7089;
+    color:var(--slate-dim);
     background:var(--navy-950);
     padding:1rem 1.25rem 1.5rem;
     margin:0;
     border-top:1px solid var(--line);
   }
+
+  /* ---------- scrollbar ---------- */
+  html{ scrollbar-color: var(--copper-700) var(--navy-950); scrollbar-width: thin; }
+  ::-webkit-scrollbar{ width:12px; }
+  ::-webkit-scrollbar-track{ background:var(--navy-950); }
+  ::-webkit-scrollbar-thumb{
+    background:var(--copper-700);
+    border-radius:999px;
+    border:3px solid var(--navy-950);
+  }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--copper-600); }
 
   .sr-only{
     position:absolute; width:1px; height:1px;

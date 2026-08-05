@@ -154,6 +154,11 @@
     min-height:44px;
   }
   .header-call:hover{ background:var(--spring-400); }
+  /* `nav.primary-nav a` (0,1,2) out-specifies `.header-call` (0,1,0), so the
+     button's dark ink was losing to the pale nav color — pale text on the
+     spring-green button at 1.24:1. */
+  nav.primary-nav a.header-call,
+  nav.primary-nav a.header-call:hover{ color:var(--ink); }
   @media (max-width:760px){
     .nav-links{ display:none; }
   }
@@ -254,6 +259,10 @@
   }
   section.on-paper .eyebrow{ color:var(--green-700); }
   section.on-paper h2, section.on-paper h3{ color:var(--ink); }
+  /* The service cards are dark green panels sitting inside the light
+     .on-paper section, so the rule above was painting their headings dark
+     ink on dark green — 1.44:1, essentially invisible. */
+  section.on-paper .service-card h3{ color:var(--paper); }
   section.on-paper .section-head p{ color:#3c4a3f; }
 
   /* ---------- services ---------- */

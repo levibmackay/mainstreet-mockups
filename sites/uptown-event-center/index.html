@@ -31,6 +31,7 @@
     font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    overflow-wrap: anywhere;
   }
 
   img, svg { max-width: 100%; display: block; }
@@ -443,27 +444,34 @@
     font-size: 0.98rem;
   }
 
-  /* ---------- Gallery ---------- */
+  /* ---------- Gallery ----------
+     Six photos, mixed aspect ratios: two portrait (ballroom-dance-floor,
+     reception-table-decor) and four landscape. A masonry column layout lets
+     every photo keep its true proportions instead of being force-cropped
+     into a uniform box. */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    column-count: 1;
+    column-gap: 1.25rem;
   }
 
   @media (min-width: 620px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { column-count: 2; }
   }
 
   @media (min-width: 980px) {
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid { column-count: 3; }
   }
 
   .gallery-photo {
     position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 0 1.25rem;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
     border: 1px solid rgba(216,181,103,0.22);
     border-radius: 3px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
     background: var(--panel);
     transition: border-color 0.5s ease, transform 0.5s ease;
   }
@@ -472,8 +480,7 @@
 
   .gallery-photo img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
   }
 
@@ -562,11 +569,14 @@
   .phone-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.9rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    max-width: 100%;
     margin-top: 2.6rem;
-    padding: 1.15rem 2.6rem;
+    padding: 1.15rem clamp(1.4rem, 6vw, 2.6rem);
     font-family: ui-serif, Georgia, serif;
-    font-size: clamp(1.4rem, 3.4vw, 2rem);
+    font-size: clamp(1.25rem, 6vw, 2rem);
     letter-spacing: 0.02em;
     text-decoration: none;
     border: 1px solid var(--gold-2);

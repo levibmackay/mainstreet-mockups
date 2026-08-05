@@ -138,8 +138,14 @@
     letter-spacing: 0.02em;
     transition: color 0.2s ease;
   }
-  nav.site-nav a:hover{ color: var(--red-text); }
+  nav.site-nav a:not(.btn-call):hover{ color: var(--red-text); }
   @media (prefers-reduced-motion: reduce){ nav.site-nav a{ transition: none; } }
+
+  /* `nav.site-nav a` (0,1,2) out-specifies `.btn-call` (0,1,0), so the call
+     button's white was losing to the dim nav grey: white-on-red became
+     grey-on-red at 1.84:1, far below AA and barely readable. */
+  nav.site-nav a.btn-call,
+  nav.site-nav a.btn-call:hover{ color: #fff; }
 
   .btn-call{
     font-family: var(--mono);
@@ -164,8 +170,6 @@
     nav.site-nav .nav-links{ display: none; }
   }
 
-  /* Below ~400px the brand plus a full-text call button no longer fit.
-     Collapse the button to its icon; aria-label carries the accessible name. */
   /* Below ~400px the brand (177px) plus a full-text call button no longer fit
      inside the header's content box. Collapse the button to its icon; the
      aria-label carries the accessible name. The selector has to out-specify
@@ -490,7 +494,7 @@
   .concept-note{
     text-align: center;
     font-size: 0.75rem;
-    color: #6b7078;
+    color: #747982; /* AA: 4.5:1 on --black; #6b7078 was 3.95:1 */
     background: var(--black);
     padding: 14px 20px 26px;
     margin: 0;

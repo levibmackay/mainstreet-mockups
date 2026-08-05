@@ -8,7 +8,10 @@
 <style>
   :root{
     --coral:#e8756b;
+    --coral-aa:#b65c54; /* AA-safe coral for white text: 4.52:1 (plain --coral is 2.92:1) */
+    --gold-aa:#b48836; /* AA-safe gold for large display text on cream: 3.01:1 (plain --gold is 2.1:1) */
     --coral-deep:#c85a51;
+    --coral-text:#b7524a; /* AA-safe coral for body-size text on cream/white: 4.5:1 (--coral-deep is 3.89:1) */
     --coral-soft:#f6a89f;
     --cream:#fdf6ee;
     --cream-deep:#f7e9d8;
@@ -466,7 +469,7 @@
     line-height:1.65;
   }
   .cta-actions{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
-  .cta .btn-primary{ background:#fff; color:var(--coral-deep); box-shadow:0 12px 30px rgba(0,0,0,0.18); }
+  .cta .btn-primary{ background:#fff; color:var(--coral-text); box-shadow:0 12px 30px rgba(0,0,0,0.18); }
   .cta .btn-primary:hover{ background:var(--cream); }
   .cta .btn-ghost{ border-color:#fff; color:#fff; }
   .cta .btn-ghost:hover{ background:rgba(255,255,255,0.14); }
@@ -510,6 +513,17 @@
     background:#241a15;
     padding: 0.9rem 1.2rem;
   }
+
+  /* White text needs a deeper coral than the decorative gradient tone, and
+     the display gold needs deepening to clear 3:1 on the cream background. */
+  .btn-primary, .nav-mail{ background: var(--coral-aa); }
+  /* `.hero h1 .sw` out-specifies a bare `.sw`, so the AA gold has to match it. */
+  .hero h1 .sw{ color: var(--gold-aa); }
+  /* Coral-deep is a decorative stroke colour; text on light backgrounds needs
+     the deeper --coral-text to clear AA. */
+  .btn-ghost,
+  p a[href^="mailto:"],
+  .loc-row a[href^="mailto:"]{ color: var(--coral-text); }
 </style>
 </head>
 <body>

@@ -154,6 +154,10 @@
   }
   .btn-call:hover{ transform: translateY(-1px); box-shadow: 0 6px 22px rgba(245,208,32,0.25); }
   @media (prefers-reduced-motion: reduce){ .btn-call{ transition: none; } .btn-call:hover{ transform: none; } }
+  /* `nav.site-nav a` (0,1,2) out-specifies `.btn-call` (0,1,0), so the button's
+     black was losing to the dim nav grey — grey on yellow at 1.74:1. */
+  nav.site-nav a.btn-call,
+  nav.site-nav a.btn-call:hover{ color: var(--black); }
 
   @media (max-width: 720px){
     nav.site-nav .nav-links{ display: none; }

@@ -14,6 +14,7 @@
     --cream-dim:#eae5d9;
     --bone:#fbfaf6;
     --clay:#c17a5a;
+    --clay-aa:#a0654b; /* AA-safe clay for white text: 4.51:1 (plain --clay is 3.24:1) */
     --clay-dark:#a35f42;
     --ink:#2c3630;
     --ink-soft:#4a5650;
@@ -545,6 +546,9 @@
     transition:top .3s var(--ease);
   }
   .skip-link:focus{top:1rem;}
+
+  /* White text needs a darker clay than the decorative brand tone. */
+  .btn-primary{ background: var(--clay-aa); }
 </style>
 </head>
 <body>

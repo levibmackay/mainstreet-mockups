@@ -11,6 +11,7 @@
     --steel-dark: #2b4a63;
     --steel-darker: #1f3849;
     --signal: #0091ff;
+    --signal-aa: #0078d4; /* AA-safe signal blue for white text: 4.53:1 (plain --signal is 3.23:1) */
     --signal-dark: #0072c9;
     --ink: #17242e;
     --paper: #ffffff;
@@ -608,6 +609,9 @@
 
   /* stagger helper */
   .stagger > * { transition-delay: calc(var(--i, 0) * 90ms); }
+
+  /* White text needs a darker blue than the decorative schematic tone. */
+  .nav-cta, .btn-primary{ background: var(--signal-aa); }
 </style>
 </head>
 <body>

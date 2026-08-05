@@ -16,6 +16,7 @@
     --copper-700:#8a4f26;
     --copper-600:#a05e2d;
     --copper-500:#b8763f;
+    --copper-aa:#c78044; /* AA-safe copper under the dark button label: 4.51:1 (plain --copper-500 is 3.89:1) */
     --copper-200:#eeddc9;
     --cream:#faf6ef;
     --cream-2:#f3ede1;
@@ -489,6 +490,9 @@
     .segment, .spine-line{ opacity:1 !important; transform:none !important; }
     .ripple{ animation:none !important; }
   }
+
+  /* The dark button label needs a slightly lighter copper behind it. */
+  .btn-primary{ background: var(--copper-aa); }
 </style>
 </head>
 <body>

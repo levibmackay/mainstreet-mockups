@@ -151,6 +151,11 @@
     flex-shrink: 0;
   }
   .call-chip:hover{ background: var(--oxblood-light); }
+  /* `nav.site-nav a` (0,1,2) out-specifies `.call-chip` (0,1,0), so the chip's
+     ivory was losing to the graphite nav color — dark text on the dark oxblood
+     chip at 1.15:1, effectively unreadable. */
+  nav.site-nav a.call-chip,
+  nav.site-nav a.call-chip:hover{ color: var(--ivory); }
   /* Below ~480px, brand block + full call-chip text no longer both fit
      the header row (measured: ~200px brand + ~173px chip + gap vs
      ~280px available at a 320px viewport). Collapse the chip to an
