@@ -402,6 +402,16 @@
     border-radius:26px;
     padding:2rem 1.7rem;
     backdrop-filter: blur(2px);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+  .why-card:hover, .why-card:focus-within{
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.4);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .why-card{ transition:none; }
+    .why-card:hover, .why-card:focus-within{ transform:none; }
   }
   .why-card svg{ width:34px; height:34px; color:var(--gold-light); margin-bottom:1rem; }
   .why-card h3{ color:#fff; font-size:1.15rem; margin-bottom:0.6rem; }
@@ -586,6 +596,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <svg class="grain-layer" aria-hidden="true"><rect filter="url(#grain)"/></svg>
     <div class="wrap hero-grid">
       <div class="reveal is-visible">
         <div class="rating-chip">
@@ -679,6 +690,7 @@
 
   <!-- WHY US -->
   <section class="why" id="why">
+    <svg class="grain-layer" aria-hidden="true"><rect filter="url(#grain)"/></svg>
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Why Styles &amp; Smiles</p>
@@ -758,6 +770,7 @@
 
   <!-- CTA -->
   <section class="cta" id="contact">
+    <svg class="grain-layer" aria-hidden="true"><rect filter="url(#grain)"/></svg>
     <div class="wrap">
       <p class="eyebrow reveal">Ready when you are</p>
       <h2 class="reveal">Say hello to Styles &amp; Smiles.</h2>
