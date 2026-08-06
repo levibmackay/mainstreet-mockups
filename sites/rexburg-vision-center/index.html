@@ -553,6 +553,7 @@
   }
   .loc-row:last-child{border-bottom:none;}
   .loc-row .ic{width:22px;height:22px;flex:none; margin-top:.15rem; color:var(--cyan-2);}
+  .loc-row .body{min-width:0;}
   .loc-row .body strong{
     display:block;
     font-size:.72rem;
@@ -565,6 +566,7 @@
     font-size:1.05rem;
     color:var(--white);
     text-decoration:none;
+    overflow-wrap:anywhere;
   }
   .loc-row .body a:hover{ color:var(--cyan-2); }
 
@@ -605,8 +607,8 @@
   }
   .foot-brand{ display:flex; align-items:center; gap:.6rem; color:var(--white); }
   .foot-brand svg{width:22px;height:22px;}
-  .foot-links{ display:flex; gap:1.4rem; }
-  .foot-links a{ color:rgba(247,249,252,0.7); text-decoration:none; }
+  .foot-links{ display:flex; flex-wrap:wrap; gap:1.4rem; }
+  .foot-links a{ color:rgba(247,249,252,0.7); text-decoration:none; overflow-wrap:anywhere; }
   .foot-links a:hover{ color:var(--cyan-2); }
 
   .concept-note{

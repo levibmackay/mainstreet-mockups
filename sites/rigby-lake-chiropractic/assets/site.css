@@ -134,7 +134,7 @@ header.site.scrolled nav.primary a{ color:var(--cream); }
   border-bottom:2px solid transparent !important;
 }
 .nav-cta:hover{ background:var(--teal-700); }
-header.site.scrolled .nav-cta{ background:var(--copper-500); color:var(--teal-950) !important; }
+header.site.scrolled .nav-cta{ background:var(--copper-aa); color:var(--teal-950) !important; }
 @media (max-width:880px){ .nav-item-hide{ display:none; } }
 @media (max-width:430px){
   .brand-text small{ display:none; }
