@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
-# Regenerates index.html — a private contact sheet linking every mockup.
+# Regenerates the contact sheet listing every mockup.
 # Run after adding or removing a site. Usage: ./build-index.sh
+#
+# The sheet is written to contact-sheet.local.html, which is gitignored and
+# therefore never published. It used to be written to index.html, and because
+# this repo is served directly by GitHub Pages that made it the front page of
+# mockups.levimackay.com: a public list naming every prospect in the pipeline,
+# reachable by deleting the path off any mockup URL that had been emailed to
+# one of them. noindex kept it out of Google. It did not keep it away from a
+# person who trimmed a URL. See index.html for what is published instead.
 cd "$(dirname "$0")" || exit 1
 
-out=index.html
+out=contact-sheet.local.html
 
 cat > "$out" <<'HEAD'
 <!doctype html>

@@ -10,3 +10,7 @@ package-lock.json
 .impeccable/
 
 .DS_Store
+
+# The prospect contact sheet. Names every business in the pipeline, so it
+# must never be published from this repo, which GitHub Pages serves whole.
+contact-sheet.local.html
