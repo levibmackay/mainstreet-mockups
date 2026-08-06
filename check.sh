@@ -23,12 +23,34 @@ for f in sites/*/*.html; do
     [ -f "$cand" ] && sheets+=("$cand")
   done < <(sed -n 's/.*<link[^>]*rel="stylesheet"[^>]*href="\([^"]*\)".*/\1/p' "$f")
 
+  # Some sites are built React apps rather than hand-written HTML. Their
+  # shell is nearly empty and the markup lives in the bundle, so h1 and the
+  # reduced-motion block have to be looked for there too. The rules below
+  # that protect a prospect (noindex, the concept note, viewport) are NOT
+  # relaxed for these — those must be in the shell, where they apply even
+  # before JavaScript runs.
+  bundles=()
+  while IFS= read -r src; do
+    [ -n "$src" ] || continue
+    case "$src" in http*|//*) continue ;; esac
+    cand="$(dirname "$f")/$(basename "$src")"
+    [ -f "$cand" ] || cand="./${src#/}"
+    [ -f "$cand" ] && bundles+=("$cand")
+  done < <(sed -n 's/.*<script[^>]*src="\([^"]*\)".*/\1/p' "$f")
+
   grep -q 'name="robots" content="noindex, nofollow"' "$f" || problems+=("MISSING noindex")
   grep -q 'Concept design proposal' "$f"                   || problems+=("MISSING concept-note footer")
   grep -q 'width=device-width'      "$f"                   || problems+=("MISSING viewport meta")
-  grep -q '<h1'                     "$f"                   || problems+=("MISSING h1")
 
-  grep -q 'prefers-reduced-motion' "$f" "${sheets[@]}" 2>/dev/null \
+  # Hand-written pages spell it "<h1". A bundled React app does not: the tag
+  # survives minification either as a framer-motion property access (".h1")
+  # or as a bare tag-name string (`h1`), depending on how it was authored.
+  # Accept any of the three rather than let real h1s read as missing.
+  grep -q '<h1' "$f" 2>/dev/null \
+    || grep -qE '\.h1\b|[`"'"'"']h1[`"'"'"']' "${bundles[@]}" 2>/dev/null \
+    || problems+=("MISSING h1")
+
+  grep -q 'prefers-reduced-motion' "$f" "${sheets[@]}" "${bundles[@]}" 2>/dev/null \
     || problems+=("MISSING reduced-motion")
 
   # No external requests: Pages must serve this file standalone.
