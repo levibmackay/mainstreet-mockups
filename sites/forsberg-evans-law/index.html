@@ -599,6 +599,27 @@
     color: rgba(247,242,234,0.55);
     line-height:1.5;
   }
+  .form-note{
+    font-size: 0.88rem;
+    color: rgba(247,242,234,0.8);
+    background: rgba(184,146,79,0.14);
+    border: 1px solid rgba(247,242,234,0.22);
+    border-radius: 2px;
+    padding: 0.85rem 1rem;
+    margin: 0 0 1.25rem;
+  }
+  .form-note strong{ color: var(--gold-bright); }
+  .contact-form fieldset{ border: 0; margin: 0; padding: 0; }
+  .field input:disabled, .field textarea:disabled{
+    background: rgba(247,242,234,0.55);
+    color: rgba(30,30,30,0.55);
+    cursor: not-allowed;
+  }
+  .form-submit:disabled{
+    background: rgba(247,242,234,0.3);
+    color: rgba(30,30,30,0.5);
+    cursor: not-allowed;
+  }
 
   /* ---------- footer ---------- */
   footer.site-footer{
@@ -886,31 +907,36 @@
           <p>49 Professional Plaza, Rexburg, Idaho. Please call ahead to arrange a visit to the office.</p>
           <p style="font-size:0.85rem; color:rgba(247,242,234,0.55);">Submitting this form does not create an attorney-client relationship. Please do not include confidential details before speaking with the office directly.</p>
         </div>
-        <form class="contact-form reveal" style="--i:1" id="contactForm" aria-label="Contact form">
+        <form class="contact-form reveal" style="--i:1" id="contactForm" aria-label="Design concept contact form (non-functional)" onsubmit="return false;">
+          <p class="form-note"><strong>Design concept:</strong> this form is a design demonstration
+          and is not connected to a live inbox. Nothing entered here is sent or stored. Please call
+          (208) 356-7474 for an actual inquiry.</p>
+          <fieldset disabled>
           <div class="form-row">
             <div class="field">
               <label for="fname">Name</label>
-              <input id="fname" name="name" type="text" autocomplete="name" required>
+              <input id="fname" name="name" type="text" autocomplete="name" required disabled>
             </div>
             <div class="field">
               <label for="fphone">Phone</label>
-              <input id="fphone" name="phone" type="tel" autocomplete="tel">
+              <input id="fphone" name="phone" type="tel" autocomplete="tel" disabled>
             </div>
           </div>
           <div class="field">
             <label for="femail">Email</label>
-            <input id="femail" name="email" type="email" autocomplete="email" required>
+            <input id="femail" name="email" type="email" autocomplete="email" required disabled>
           </div>
           <div class="field">
             <label for="fmsg">How can the office help?</label>
-            <textarea id="fmsg" name="message" required></textarea>
+            <textarea id="fmsg" name="message" required disabled></textarea>
           </div>
-          <button type="submit" class="form-submit">
+          <button type="submit" class="form-submit" disabled>
             Send Message
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           <p class="form-disclaimer">This form is a design demonstration and is not connected to a live inbox. Please call (208) 356-7474 for an actual inquiry.</p>
+          </fieldset>
         </form>
       </div>
     </div>

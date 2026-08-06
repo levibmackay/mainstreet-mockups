@@ -599,6 +599,35 @@
     color: var(--muted);
     margin: 0;
   }
+  .form-note {
+    font-size: 0.9rem;
+    color: var(--muted);
+    background: var(--mist);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 0 0 1.6rem;
+  }
+  .form-note strong { color: var(--steel-darker); }
+  .contact-form-wrap fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .field input:disabled,
+  .field select:disabled,
+  .field textarea:disabled {
+    background: var(--mist);
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 0.85;
+  }
+  .form-submit-row .btn:disabled {
+    background: var(--mist);
+    color: var(--muted);
+    border: 1.5px solid var(--line);
+    cursor: not-allowed;
+  }
 
   /* ---------- Footer ---------- */
   footer.site-footer {
@@ -982,24 +1011,28 @@
 
         <div class="contact-form-wrap">
           <h3>Request an Estimate</h3>
-          <p class="form-sub">Fields marked with an asterisk are needed to get back to you. This form is a design preview, not yet connected to anything.</p>
+          <p class="form-sub">Fields marked with an asterisk are needed to get back to you.</p>
+          <p class="form-note"><strong>Design concept:</strong> this form is part of a design
+          concept and does not submit anywhere. Nothing typed into it is sent or stored. Please
+          call (208) 317-8702 or email jfyfe.centennialplumbing@hotmail.com to reach Centennial Plumbing.</p>
 
-          <form novalidate>
+          <form novalidate aria-label="Design concept estimate request form (non-functional)" onsubmit="return false;">
+            <fieldset disabled>
             <div class="form-grid two-col">
               <div class="field">
                 <label for="fname">Name *</label>
-                <input type="text" id="fname" name="name" autocomplete="off" placeholder="Your name">
+                <input type="text" id="fname" name="name" autocomplete="off" placeholder="Your name" disabled>
               </div>
               <div class="field">
                 <label for="fphone">Phone or Email *</label>
-                <input type="text" id="fphone" name="contact" autocomplete="off" placeholder="Best way to reach you">
+                <input type="text" id="fphone" name="contact" autocomplete="off" placeholder="Best way to reach you" disabled>
               </div>
             </div>
 
             <div class="form-grid" style="margin-top:1.15rem;">
               <div class="field">
                 <label for="fservice">Service Needed</label>
-                <select id="fservice" name="service">
+                <select id="fservice" name="service" disabled>
                   <option value="">Select one…</option>
                   <option value="drain">Drain Cleaning</option>
                   <option value="water-heater">Water Heater</option>
@@ -1011,14 +1044,15 @@
               </div>
               <div class="field">
                 <label for="fmessage">Describe the issue</label>
-                <textarea id="fmessage" name="message" placeholder="What's going on, and where in Rexburg?"></textarea>
+                <textarea id="fmessage" name="message" placeholder="What's going on, and where in Rexburg?" disabled></textarea>
               </div>
             </div>
 
             <div class="form-submit-row">
-              <button type="submit" class="btn btn-primary" id="formSubmitBtn">Send Request</button>
+              <button type="submit" class="btn btn-primary" id="formSubmitBtn" disabled>Send Request</button>
               <p class="form-disclaimer">Design preview only: this form does not currently send data anywhere.</p>
             </div>
+            </fieldset>
           </form>
         </div>
       </div>
