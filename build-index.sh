@@ -52,9 +52,18 @@ HEAD
 count=0
 for d in sites/*/; do
   slug=$(basename "$d")
-  [ -f "$d/index.html" ] || continue
+  # A DO-NOT-CONTACT directory still gets a row even with no index.html, so
+  # the reminder stays visible. Styles & Smiles has had its page deleted
+  # outright, because leaving it in the repo left it publicly reachable.
+  if [ ! -f "$d/index.html" ] && [ ! -f "$d/DO-NOT-CONTACT.md" ]; then
+    continue
+  fi
   # Prefer the page's own <title>, minus our " — descriptor" suffix.
-  name=$(sed -n 's:.*<title>\([^<]*\)</title>.*:\1:p' "$d/index.html" | head -1 | sed 's/ [—-] .*//')
+  if [ -f "$d/index.html" ]; then
+    name=$(sed -n 's:.*<title>\([^<]*\)</title>.*:\1:p' "$d/index.html" | head -1 | sed 's/ [—-] .*//')
+  else
+    name=""
+  fi
   [ -n "$name" ] || name="$slug"
   # A site with a DO-NOT-CONTACT.md is rendered unlinked, so nobody opens or
   # sends it by accident. See that file for why.
