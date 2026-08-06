@@ -80,4 +80,3 @@ review counts in those lists came from aggregators, not Google directly,
 and are directionally correct rather than exact.
 
 **Last updated:** 2026-08-05 19:46 PDT
-
