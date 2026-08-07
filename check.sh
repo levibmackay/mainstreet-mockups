@@ -85,3 +85,33 @@ done
 
 echo
 if [ "$fail" -eq 0 ]; then echo "All built sites pass."; else echo "Problems found above."; fi
+
+# Static-analysis mobile-layout rules (viewport sanity, fixed widths,
+# responsive images, media-query coverage, 16px form inputs, overflow
+# smells, tap targets). No browser: node qa/check.js still owns the real
+# rendered 320/768/1440 overflow and contrast checks; this is the fast,
+# no-Playwright-required layer that catches the same class of bug earlier.
+echo
+if command -v node >/dev/null 2>&1; then
+  node qa/check-responsive.js || fail=1
+else
+  echo "node not found — skipping qa/check-responsive.js (mobile-layout static checks)"
+fi
+
+# qa/check-responsive.js prints its own "N/N clean" line, which only counts
+# its own rule set. That line can read as "all clear" directly under a
+# content-check FAIL above, which is confusing, not dishonest, but still
+# worth a single honest bottom line for anyone skimming instead of reading
+# every section.
+echo
+if [ "$fail" -eq 0 ]; then
+  echo "OVERALL: all checks passed."
+else
+  echo "OVERALL: FAILED — see FAIL lines above."
+fi
+
+# The script previously never propagated $fail to its own exit code — every
+# problem above printed but a caller checking `./check.sh; echo $?` (or a
+# future CI hook) would still see 0. Fix it here rather than leave the new
+# checks just as silently ignorable as the old ones were.
+exit "$fail"

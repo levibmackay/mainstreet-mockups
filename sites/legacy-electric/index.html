@@ -160,7 +160,11 @@
   nav.site-nav a.btn-call:hover{ color: var(--black); }
 
   @media (max-width: 720px){
-    nav.site-nav .nav-links{ display: none; }
+    header.site{ flex-wrap: wrap; row-gap: 10px; }
+    nav.site-nav{ width: 100%; flex-wrap: wrap; justify-content: flex-start; }
+    nav.site-nav .nav-links{ display: flex; flex-wrap: wrap; gap: 8px 20px; width: 100%; order: 2; }
+    nav.site-nav a{ padding: 6px 0; }
+    nav.site-nav .btn-call{ order: 1; margin-left: auto; }
   }
   /* Header uses a fixed 24px side padding (not clamp) and justify-content:
      space-between with no gap fallback. At narrow widths the brand

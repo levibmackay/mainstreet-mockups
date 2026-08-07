@@ -158,6 +158,12 @@ select:focus-visible{
 .nav-cta:hover{ background: var(--signal-dark); }
 .nav-links-hide-narrow{ display: none; gap: clamp(1rem, 2vw, 1.75rem); }
 @media (min-width: 820px){ .nav-links-hide-narrow{ display: flex; } }
+/* Below 820px the nav-links are hidden, leaving brand + the CTA pill in a
+   no-wrap flex row that can outgrow a 320-480px viewport. Let it wrap. */
+@media (max-width: 480px){
+  .header-inner{ flex-wrap: wrap; row-gap: 0.6rem; }
+  .nav-cta{ flex: 1 1 100%; justify-content: center; }
+}
 @media (max-width: 400px){
   .brand-sub{ display: none; }
   .nav-cta{ padding: 0.6rem 0.8rem; font-size: 0.85rem; }
@@ -425,7 +431,7 @@ section.band{ padding-block: clamp(3rem, 7vw, 5.25rem); }
 .form-row label{ font-size: 0.85rem; font-weight: 700; color: var(--ink); }
 .form-row input, .form-row textarea, .form-row select{
   font: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--line);

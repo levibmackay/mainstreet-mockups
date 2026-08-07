@@ -121,6 +121,8 @@ header.site-header.scrolled{ border-bottom-color: rgba(216,181,103,0.25); }
   align-items:center;
   justify-content:space-between;
   gap:1rem;
+  flex-wrap:wrap;
+  row-gap:0.5rem;
 }
 .brand{ display:flex; align-items:center; gap:0.7rem; text-decoration:none; min-width:0; }
 .brand-mark{ width:30px; height:30px; flex-shrink:0; }

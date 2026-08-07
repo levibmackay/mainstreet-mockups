@@ -1,0 +1,39 @@
+name: Check mockups
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# This repo publishes straight off main via legacy GitHub Pages, so this
+# workflow cannot block a bad deploy. It runs anyway so a broken page is
+# reported within a minute instead of being found by a prospect on their
+# phone. Treat a red run here as "the live site is already wrong".
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+
+      # The content and static-layout rules. Needs no browser.
+      - name: Content and layout rules
+        run: ./check.sh
+
+      # qa/check.js renders every page in a real browser and checks horizontal
+      # overflow at 320/768/1440 plus WCAG AA contrast. Both classes of bug
+      # survived hand-checking by several people, so this is the check that
+      # actually matters. Playwright is deliberately not a dependency of this
+      # repo (there is no build step here on purpose), so install it just for
+      # the run and point the script at it.
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Render every page and check overflow and contrast
+        env:
+          PLAYWRIGHT_PATH: ${{ github.workspace }}/node_modules/playwright
+        run: node qa/check.js

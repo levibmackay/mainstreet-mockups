@@ -144,6 +144,39 @@ nav.primary a.nav-link[aria-current="page"]{ color:var(--copper-500); }
   .nav-toggle{ display:none; }
 }
 
+/* mobile secondary nav strip: nav.primary's links hide under 780px, so
+   this is the only way to reach Services/About/Gallery/Contact from a
+   phone once someone is off the home page. */
+.mobile-nav{
+  display:none;
+  border-bottom:1px solid var(--line);
+  background:var(--navy-950);
+}
+@media (max-width: 780px){ .mobile-nav{ display:block; } }
+.mobile-nav ul{
+  list-style:none;
+  display:flex;
+  gap:0;
+  margin:0;
+  padding:0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.mobile-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0.5rem 0.95rem;
+  font-size:0.82rem;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--slate);
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--copper-400); border-color:var(--copper-500); }
+.mobile-nav a[aria-current="page"]{ color:var(--copper-500); border-color:var(--copper-500); }
+
 @media (max-width: 480px){
   .brand{ min-width:0; flex-shrink:1; }
   .brand-text{ min-width:0; }
@@ -520,7 +553,7 @@ section{ padding-block: clamp(3rem, 7vw, 5.5rem); position:relative; }
 .form-row input,
 .form-row textarea{
   font: inherit;
-  font-size:0.98rem;
+  font-size:1rem;
   color:var(--cream);
   background: var(--navy-900);
   border:1px solid var(--line);

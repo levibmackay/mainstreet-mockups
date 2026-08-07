@@ -456,7 +456,7 @@ h3{ font-size:1.1rem; line-height:1.25; margin-bottom:0.45rem; }
 .field input,
 .field textarea{
   font:inherit;
-  font-size:0.97rem;
+  font-size:1rem;
   color:var(--fog);
   background:var(--ink-950);
   border:1px solid var(--line-soft);

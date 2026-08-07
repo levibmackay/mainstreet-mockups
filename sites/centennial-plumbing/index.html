@@ -155,7 +155,41 @@
     white-space: nowrap;
   }
   .nav-links-hide-narrow { display: none; gap: 1.75rem; }
-  @media (min-width: 760px) { .nav-links-hide-narrow { display: flex; } }
+  @media (min-width: 820px) { .nav-links-hide-narrow { display: flex; } }
+
+  /* Below 820px the nav-links are hidden, leaving brand + the "Request an
+     Estimate" pill in a no-wrap flex row. That pill's full label plus the
+     two-line brand wordmark are together wider than a 320-480px viewport,
+     so let the row wrap onto two lines rather than overflowing the header. */
+  @media (max-width: 480px) {
+    .header-inner { flex-wrap: wrap; row-gap: 0.6rem; }
+    .nav-cta { flex: 1 1 100%; justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .brand-sub { display: none; }
+    .nav-cta { padding: 0.6rem 0.8rem; font-size: 0.85rem; }
+  }
+
+  /* mobile secondary nav strip: .nav-links-hide-narrow hides under 820px
+     with no JS toggle, and the footer here carries no page links, so this
+     is the only way to reach the other pages from a phone. */
+  .mobile-nav {
+    display: none;
+    border-bottom: 1px solid var(--line);
+    background: var(--mist);
+  }
+  @media (max-width: 819px) { .mobile-nav { display: block; } }
+  .mobile-nav ul {
+    list-style: none; display: flex; gap: 0; margin: 0; padding: 0;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .mobile-nav a {
+    display: inline-flex; align-items: center; min-height: 44px;
+    padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700;
+    text-decoration: none; color: var(--steel-dark); white-space: nowrap;
+    border-bottom: 2px solid transparent;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible { color: var(--signal-dark); border-color: var(--signal-dark); }
 
   /* ---------- Buttons ---------- */
   .btn {
@@ -695,6 +729,14 @@
     </nav>
   </div>
 </header>
+
+<nav class="mobile-nav" aria-label="Pages">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 <main id="top">
 

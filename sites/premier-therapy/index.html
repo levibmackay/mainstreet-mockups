@@ -179,6 +179,40 @@
     .phone-pill{padding:0.6rem;width:44px;justify-content:center;}
   }
 
+  /* mobile secondary nav strip: this header has never carried links to
+     the interior pages (about/services/contact) at any width, only a brand
+     mark and a call button, so this is the only way to reach them on a
+     phone. Shown under 720px to match the interior pages' own breakpoint. */
+  .mobile-nav{
+    display:none;
+    border-bottom:1px solid var(--line);
+    background:var(--bone);
+  }
+  @media (max-width:720px){ .mobile-nav{display:block;} }
+  .mobile-nav ul{
+    list-style:none;
+    display:flex;
+    gap:0;
+    margin:0;
+    padding:0;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .mobile-nav a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:0.5rem 0.95rem;
+    font-size:0.82rem;
+    font-weight:700;
+    text-decoration:none;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    border-bottom:2px solid transparent;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible{color:var(--sage-deep);border-color:var(--clay-dark);}
+  .mobile-nav a[aria-current="page"]{color:var(--clay-dark);border-bottom-color:var(--clay-dark);}
+
   /* ---------- Reveal animation ---------- */
   .reveal{
     opacity:0;
@@ -618,6 +652,15 @@
     </div>
   </div>
 </header>
+
+<nav class="mobile-nav" aria-label="Pages">
+  <ul>
+    <li><a href="#top" aria-current="page">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 <main id="main">
 

@@ -504,7 +504,7 @@ p{ margin:0 0 1em; }
 .form-row textarea,
 .form-row select{
   font:inherit;
-  font-size:0.98rem;
+  font-size:1rem;
   color:var(--white);
   background:var(--slate-4);
   border:1px solid var(--line);

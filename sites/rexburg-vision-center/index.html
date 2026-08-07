@@ -172,12 +172,14 @@
   .nav-cta{
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap:.4rem;
     background:var(--cyan-2);
     color:var(--midnight);
     font-weight:600;
     font-size:.82rem;
     padding:.55rem 1rem;
+    min-height:44px;
     border-radius:999px;
     text-decoration:none;
     white-space:nowrap;
@@ -186,6 +188,37 @@
   @media (max-width:760px){
     .menu-links-desktop nav.links{display:none;}
   }
+
+  /* mobile secondary nav strip: primary nav hides under 760px, so this is
+     the only way to reach other pages from a phone. */
+  .mobile-nav{
+    display:none;
+    border-bottom:1px solid var(--line);
+    background:var(--midnight);
+  }
+  @media (max-width:760px){ .mobile-nav{ display:block; } }
+  .mobile-nav ul{
+    list-style:none;
+    display:flex;
+    gap:0;
+    margin:0;
+    padding:0;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .mobile-nav a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:.5rem .95rem;
+    font-size:.82rem;
+    font-weight:700;
+    text-decoration:none;
+    color:var(--cyan-dim);
+    white-space:nowrap;
+    border-bottom:2px solid transparent;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--cyan-2); border-color:var(--cyan); }
 
   /* -------------------- hero -------------------- */
   .hero{
@@ -644,6 +677,17 @@
     </div>
   </div>
 </header>
+
+<nav class="mobile-nav" aria-label="Pages">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="#heritage">Since 1963</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 <main id="top">
 

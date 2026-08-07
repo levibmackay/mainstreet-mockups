@@ -159,6 +159,38 @@ nav.links a[aria-current="page"]{ border-color: var(--terracotta); color: var(--
 .call-pill:hover{ background: var(--forest-dark); }
 
 @media (max-width: 820px){ nav.links{ display: none; } }
+
+/* mobile secondary nav strip, since nav.links hides under 820px */
+.mobile-nav{
+  display: none;
+  border-bottom: 1px solid var(--line);
+  background: var(--oat);
+}
+@media (max-width: 820px){ .mobile-nav{ display: block; } }
+.mobile-nav ul{
+  list-style: none;
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-nav a{
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--forest-dark);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.mobile-nav a:hover{ border-bottom-color: var(--terracotta); }
+.mobile-nav a[aria-current="page"]{ color: var(--terracotta-dark); border-bottom-color: var(--terracotta); }
+
 @media (max-width: 400px){
   .site-nav{ gap: 0.6rem; padding-inline: 1rem; }
   .brand-text span{ display: none; }
@@ -425,7 +457,7 @@ section.band{ padding-block: clamp(3rem, 7vw, 5.5rem); }
 .form-row label{ font-size: 0.85rem; font-weight: 700; color: var(--ink); }
 .form-row input, .form-row textarea{
   font: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--ink);
   background: var(--bone);
   border: 1px solid var(--line);

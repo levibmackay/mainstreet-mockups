@@ -186,9 +186,9 @@
       visibility:hidden;
     }
     nav.primary.open{ transform:translateX(0); visibility:visible; }
-    nav.primary a{ color:var(--blush-soft); font-size:1.1rem; }
+    nav.primary a{ color:var(--blush-soft); font-size:1.1rem; padding:0.75rem 0.1rem; min-height:44px; display:inline-flex; align-items:center; }
     nav.primary a::after{ background:var(--gold-light); }
-    .nav-call{ border-color:var(--gold-light); color:var(--blush-soft) !important; }
+    .nav-call{ border-color:var(--gold-light); color:var(--blush-soft) !important; min-height:44px; }
     .nav-toggle{ display:flex; }
     @media (prefers-reduced-motion: reduce){
       nav.primary{ transition:none; }

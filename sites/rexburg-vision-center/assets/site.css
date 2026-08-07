@@ -119,6 +119,38 @@ nav.links a[aria-current="page"]{ color:var(--cyan-2); border-bottom-color:var(-
 }
 .nav-cta:hover{ background:var(--cyan-2); }
 @media (max-width:880px){ nav.links{ display:none; } }
+
+/* mobile secondary nav strip: primary nav hides under 880px, so this is
+   the only way to reach other pages from a phone. */
+.mobile-nav{
+  display:none;
+  border-bottom:1px solid var(--line);
+  background:var(--midnight);
+}
+@media (max-width:880px){ .mobile-nav{ display:block; } }
+.mobile-nav ul{
+  list-style:none;
+  display:flex;
+  gap:0;
+  margin:0;
+  padding:0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.mobile-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0.5rem 0.95rem;
+  font-size:0.82rem;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--cyan-dim);
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--cyan-2); border-color:var(--cyan); }
+
 @media (max-width:430px){
   .brand-word small{ display:none; }
   .nav-cta .cta-label{ display:none; }
@@ -281,7 +313,7 @@ section{ padding-block:clamp(3rem,7vw,5.5rem); }
 .form-row{ display:flex; flex-direction:column; gap:0.35rem; margin-bottom:1.15rem; }
 .form-row label{ font-size:0.85rem; font-weight:600; color:rgba(247,249,252,0.85); }
 .form-row input, .form-row textarea{
-  font:inherit; font-size:0.98rem; color:var(--white);
+  font:inherit; font-size:1rem; color:var(--white);
   background:var(--midnight); border:1px solid var(--line);
   border-radius:5px; padding:0.7rem 0.85rem; width:100%; max-width:100%;
 }

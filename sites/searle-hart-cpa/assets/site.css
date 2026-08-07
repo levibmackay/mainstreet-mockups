@@ -132,6 +132,37 @@ header.site.scrolled .nav-cta{ background:var(--gold-500); color:var(--pine-950)
   .nav-cta{ padding:0.65rem 0.85rem; }
 }
 
+/* mobile secondary nav strip: primary nav hides under 900px, so this is
+   the only way to reach other pages from a phone. */
+.mobile-nav{
+  display:none;
+  border-bottom:1px solid var(--rule);
+  background:var(--pine-950);
+}
+@media (max-width:900px){ .mobile-nav{ display:block; } }
+.mobile-nav ul{
+  list-style:none;
+  display:flex;
+  gap:0;
+  margin:0;
+  padding:0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.mobile-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0.5rem 0.95rem;
+  font-size:0.82rem;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--ivory-dim);
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--gold-300); border-color:var(--gold-500); }
+
 /* ---------- sections ---------- */
 section{ padding-block:clamp(3rem,7vw,5.5rem); }
 .section-head{ max-width:62ch; margin-bottom:clamp(2rem,4vw,3rem); }
@@ -309,7 +340,7 @@ section{ padding-block:clamp(3rem,7vw,5.5rem); }
 .form-row{ display:flex; flex-direction:column; gap:0.35rem; margin-bottom:1.15rem; }
 .form-row label{ font-size:0.85rem; font-weight:700; color:var(--graphite-soft); }
 .form-row input, .form-row textarea{
-  font:inherit; font-size:0.98rem; color:var(--graphite);
+  font:inherit; font-size:1rem; color:var(--graphite);
   background:#fffdf8; border:1px solid var(--rule);
   border-radius:var(--radius); padding:0.7rem 0.85rem; width:100%; max-width:100%;
 }

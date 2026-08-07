@@ -99,6 +99,39 @@ Any sibling page added before that was fixed would have shipped with no
 noindex check, no disclosure check, no external-request check, and no
 contrast or 320px check. Do not add a page without running both scripts.
 
+`check.sh` also runs `qa/check-responsive.js`, a static-analysis pass over
+every page's markup and its resolved stylesheet (same local-stylesheet
+resolution `check.sh` already does, so a shared `assets/site.css` counts).
+No browser, no rendering — `node qa/check.js` still owns that. It checks:
+
+- Viewport meta is present, has `width=device-width`, and doesn't disable
+  zoom (`user-scalable=no` or `maximum-scale` under 5). **Fails the build.**
+- A nav (`nav`, `.nav-links`, etc., not just a CTA label inside one) that
+  goes `display:none` at a `max-width` breakpoint needs a detected fallback
+  — a toggle/hamburger/mobile-menu selector that becomes visible, an
+  off-canvas `transform` panel, or a `aria-label="menu"` control. With none
+  of those, every page below that breakpoint is unreachable from a phone.
+  **Fails the build.** This is checking for a real bug found in the wild:
+  a site's entire primary nav going `display:none` under a breakpoint with
+  nothing replacing it.
+- At least one width-based media query exists (`max-width`/`min-width`, or
+  the modern `width>=`/`width<=` range syntax the Vite-built sites emit).
+  **Fails the build** if none exist.
+- Form `input`/`select`/`textarea` aren't styled under 16px font-size —
+  that's what makes iOS Safari zoom in on focus. **Fails the build.**
+- An `<img>` with a hardcoded `width` over 320 needs a `max-width` rule (or
+  `srcset`) somewhere on the page, or it can't shrink on a phone. **Fails.**
+- A `position:fixed` element with a fixed pixel width over 320px forces
+  horizontal scroll on narrow phones. **Fails the build.**
+- Fixed pixel widths over 320px on layout containers outside a media query,
+  `white-space:nowrap` on likely body copy, and `<table>` with no detected
+  scroll wrapper are printed as **warnings** — real but not reliably
+  distinguishable from decorative/short-label uses by static analysis, so
+  they don't fail the build. Same for tap targets: an explicit
+  `height`/`min-height` under 44px on a block-level link or button is a
+  warning, not a failure, since the real box model needs a browser to
+  confirm.
+
 Everything in `POLISH-BRIEF.md` still applies to every new page: 320px with
 no horizontal scroll, WCAG AA body contrast against the actual background,
 one `<h1>` per page, no skipped heading levels, visible `:focus-visible`,

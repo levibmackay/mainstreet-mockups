@@ -312,7 +312,7 @@ section{ padding-block:clamp(3rem,7vw,5.5rem); }
 .form-row{ display:flex; flex-direction:column; gap:0.35rem; margin-bottom:1.15rem; }
 .form-row label{ font-size:0.85rem; font-weight:700; color:var(--ink-soft); }
 .form-row input, .form-row textarea{
-  font:inherit; font-size:0.98rem; color:var(--ink);
+  font:inherit; font-size:1rem; color:var(--ink);
   background:var(--cream); border:1px solid rgba(27,77,74,0.28);
   border-radius:4px; padding:0.7rem 0.85rem; width:100%; max-width:100%;
 }

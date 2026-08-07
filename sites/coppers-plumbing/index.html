@@ -210,13 +210,33 @@
     .nav-call{transition:none;}
     .nav-call:hover,.nav-call:focus-visible{transform:none;}
   }
-  @media (max-width:720px){
+  @media (max-width:780px){
     .nav-links{display:none;}
   }
   @media (max-width:480px){
     .site-nav{flex-wrap:wrap;justify-content:center;row-gap:0.65rem;}
     .brand{flex:1 1 100%;justify-content:center;text-align:center;}
   }
+  /* mobile secondary nav strip: .nav-links hides under 780px with no JS
+     toggle, so this is the only way to reach the other pages from a phone. */
+  .mobile-nav{
+    display:none;
+    border-bottom:1px solid var(--line);
+    background:rgba(18,12,8,0.94);
+  }
+  @media (max-width:780px){ .mobile-nav{ display:block; } }
+  .mobile-nav ul{
+    list-style:none; display:flex; gap:0; margin:0; padding:0;
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
+  }
+  .mobile-nav a{
+    display:inline-flex; align-items:center; min-height:44px;
+    padding:0.5rem 1rem; font-size:0.85rem; font-weight:700;
+    text-decoration:none; color:var(--copper-100); white-space:nowrap;
+    border-bottom:2px solid transparent;
+  }
+  .mobile-nav a[aria-current="page"]{ color:var(--copper-500); border-color:var(--copper-500); }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--copper-500); }
 
   /* ---------- hero ---------- */
   .hero{
@@ -704,6 +724,14 @@
     </a>
   </nav>
 </header>
+
+<nav class="mobile-nav" aria-label="Pages">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 <main id="main">
 

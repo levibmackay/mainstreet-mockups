@@ -195,6 +195,27 @@ header.site.scrolled{
   .brand{ flex: 1 1 100%; justify-content: center; text-align: center; }
 }
 
+/* mobile secondary nav strip: .nav-links hides under 780px with no JS
+   toggle, so this is the only way to reach the other pages from a phone. */
+.mobile-nav{
+  display: none;
+  border-bottom: 1px solid var(--line);
+  background: rgba(18,12,8,0.94);
+}
+@media (max-width: 780px){ .mobile-nav{ display: block; } }
+.mobile-nav ul{
+  list-style: none; display: flex; gap: 0; margin: 0; padding: 0;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.mobile-nav a{
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700;
+  text-decoration: none; color: var(--copper-100); white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.mobile-nav a[aria-current="page"]{ color: var(--copper-500); border-color: var(--copper-500); }
+.mobile-nav a:hover, .mobile-nav a:focus-visible{ color: var(--copper-500); }
+
 /* ---------- page hero ---------- */
 .page-hero{
   position: relative;
@@ -446,7 +467,7 @@ section.band{ padding-block: clamp(3rem, 7vw, 5.5rem); }
 .form-row label{ font-size: 0.85rem; font-weight: 700; color: var(--copper-100); }
 .form-row input, .form-row textarea, .form-row select{
   font: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--paper);
   background: var(--ground-950);
   border: 1px solid var(--line);

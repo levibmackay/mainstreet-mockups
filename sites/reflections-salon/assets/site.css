@@ -132,6 +132,28 @@ nav.primary a.nav-link[aria-current="page"]{ color:var(--gold-deep); }
 
 @media (max-width: 900px){ nav.primary{ gap:1.1rem; } nav.primary a.nav-link{ font-size:0.74rem; letter-spacing:0.08em; } }
 @media (max-width: 720px){ nav.primary a.nav-link{ display:none; } }
+
+/* mobile secondary nav strip: nav.primary's text links hide under 720px on
+   these interior pages (they have no JS hamburger like index.html), so this
+   is the only way to reach the other pages from a phone. */
+.mobile-nav{
+  display:none;
+  border-bottom:1px solid var(--line);
+  background:var(--cream-dim);
+}
+@media (max-width: 720px){ .mobile-nav{ display:block; } }
+.mobile-nav ul{
+  list-style:none; display:flex; gap:0; margin:0; padding:0;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+}
+.mobile-nav a{
+  display:inline-flex; align-items:center; min-height:44px;
+  padding:0.5rem 1.1rem; font-size:0.8rem; font-weight:700;
+  letter-spacing:0.04em; text-decoration:none; color:var(--ink-soft);
+  white-space:nowrap; border-bottom:2px solid transparent;
+}
+.mobile-nav a[aria-current="page"]{ color:var(--gold-deep); border-color:var(--gold-deep); }
+.mobile-nav a:hover, .mobile-nav a:focus-visible{ color:var(--plum); }
 @media (max-width: 430px){
   .brand-text span{ display:none; }
   .brand-text strong{ font-size:0.98rem; }
@@ -318,7 +340,7 @@ section{ padding-block: clamp(2.75rem, 7vw, 5rem); position:relative; }
 .form-row input,
 .form-row select,
 .form-row textarea{
-  font:inherit; font-size:0.98rem; color:var(--ink);
+  font:inherit; font-size:1rem; color:var(--ink);
   background:var(--cream-dim); border:1px solid var(--line);
   border-radius:var(--radius); padding:0.75rem 0.9rem; width:100%; max-width:100%;
 }

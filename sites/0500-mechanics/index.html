@@ -170,9 +170,41 @@
   .btn-call:hover{ transform: translateY(-1px); box-shadow: 0 6px 22px rgba(224,30,38,0.35); }
   @media (prefers-reduced-motion: reduce){ .btn-call{ transition: none; } .btn-call:hover{ transform: none; } }
 
-  @media (max-width: 720px){
+  @media (max-width: 860px){
     nav.site-nav .nav-links{ display: none; }
   }
+
+  /* mobile secondary nav strip, since the primary nav links hide under 860px */
+  .mobile-nav{
+    display: none;
+    border-bottom: 1px solid var(--line);
+    background: var(--black-2);
+  }
+  @media (max-width: 860px){ .mobile-nav{ display: block; } }
+  .mobile-nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-nav a{
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0.95rem;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-dim);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible{ color: var(--red-text); }
+  .mobile-nav a[aria-current="page"]{ color: var(--red-text); border-bottom-color: var(--red); }
 
   /* Below ~400px the brand (177px) plus a full-text call button no longer fit
      inside the header's content box. Collapse the button to its icon; the
@@ -528,6 +560,16 @@
     </a>
   </nav>
 </header>
+
+<nav class="mobile-nav" aria-label="Pages">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 <main id="main">
 
