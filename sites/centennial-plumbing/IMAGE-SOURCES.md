@@ -51,7 +51,7 @@ carousel, thumbnail strip, or hero image to open or download.
 
 Screenshots taken as evidence of this check (not used on the page, scratch
 only):
-`/private/tmp/claude-501/-Users-levimackay/83e5a8e8-a0c5-4dda-9e4e-f6b3e90e5a7c/scratchpad/centennial-plumbing/raw/maps-search-result.png`,
+`scratch/centennial-plumbing/raw/maps-search-result.png`,
 `maps-listing.png`, `maps-photos-gallery.png`.
 
 ## Conclusion

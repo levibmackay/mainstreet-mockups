@@ -20,7 +20,7 @@ Optimized with macOS `sips` (JPEG quality 80). Original 958×960, kept at 958×9
 - Various favicon/cropped-icon files (`cropped-Back-to-Health-Chiro-1-*.jpg`) — skipped, low-res site icons, not usable as content photography.
 
 **Google Maps / Google Business Profile ("Back To Health Chiropractic", Rexburg, ID — confirmed correct listing, 60 S 2nd W, (208) 359-2264, 4.8★/reviews):**
-- Scraped with a dedicated headless Chromium instance launched via a local Node/Playwright script (not the shared MCP Playwright tool), at `/private/tmp/claude-501/-Users-levimackay/83e5a8e8-a0c5-4dda-9e4e-f6b3e90e5a7c/scratchpad/back-to-health-images/maps-scrape.js` and `maps-check2.js`.
+- Scraped with a dedicated headless Chromium instance launched via a local Node/Playwright script (not the shared MCP Playwright tool), at `scratch/back-to-health-images/maps-scrape.js` and `maps-check2.js`.
 - The listing panel was inspected directly (screenshot) and via DOM query (`$$eval` over all `<img>` and `<button>` elements). Result: **no photo carousel, no "Photos" button, and zero `googleusercontent.com` photo image URLs** anywhere on the listing — only base map tile images. This business's Google Business Profile currently has no uploaded photos at all.
 - Conclusion: nothing usable found on Google Maps. No images sourced from Maps.
 

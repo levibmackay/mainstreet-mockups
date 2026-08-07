@@ -105,7 +105,7 @@ listing):**
 
 Checked with a standalone Playwright/Chromium script (own browser instance,
 not the shared MCP tool), at
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-trades/all-about-plumbing/maps-scrape.js`,
+`scratch/agent-trades/all-about-plumbing/maps-scrape.js`,
 which searched "All About Plumbing Repair Rexburg, ID", opened the listing,
 and inspected the header photo and photo gallery entry point.
 

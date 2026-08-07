@@ -68,7 +68,7 @@ this listing.
 
 Screenshot taken as evidence of this check (not used on the page, scratch
 only):
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-proservices/forsberg-evans-law/raw/maps-listing.png`
+`scratch/agent-proservices/forsberg-evans-law/raw/maps-listing.png`
 
 ## Conclusion
 

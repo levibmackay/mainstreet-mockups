@@ -69,7 +69,7 @@ on the page per the no-fabricated-ratings rule):**
 
 - Scraped with a dedicated headless Chromium instance launched via a local
   Node/Playwright script (not the shared MCP Playwright tool), at
-  `/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-trades/coppers-plumbing/maps-scrape.js`
+  `scratch/agent-trades/coppers-plumbing/maps-scrape.js`
   through `maps-scrape4.js`. Searched "Coppers Plumbing St Anthony, ID",
   opened the listing, confirmed the match, then inspected the DOM for
   `<img>` `src` attributes and CSS `background-image` values pointing at

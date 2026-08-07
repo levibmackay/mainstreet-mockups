@@ -97,7 +97,7 @@ already provided, so nothing was downloaded from Maps.
 
 Screenshots taken as evidence of this check (not used on the page, scratch
 only):
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-trades/0500-mechanics/raw/maps-listing.png`,
+`scratch/agent-trades/0500-mechanics/raw/maps-listing.png`,
 `maps-photos-gallery.png`, `maps-photo-detail2.png`.
 
 ## Conclusion

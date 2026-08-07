@@ -35,7 +35,7 @@ URL below resolves directly on `uptownplazarexburg.com`.
 | `img/kitchen-prep-area.jpg` | https://uptownplazarexburg.com/api/image?id=c4717302-84ce-4eb8-b7b0-04f0e2c98516.jpg (event amenity: "Kitchen / Prep Area") | Gallery section, "Kitchen & prep area" | 2026-08-04 |
 
 Downloaded originals were saved (by an earlier pass on this same task) to
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-salon/raw-uptown/`
+`scratch/agent-salon/raw-uptown/`
 under random UUID filenames from the API. Each file's exact source URL was
 recovered by fetching `https://uptownplazarexburg.com/api/content`, which
 returns the live site's JSON (settings, `amenities[]`, `venueGallery[]`,

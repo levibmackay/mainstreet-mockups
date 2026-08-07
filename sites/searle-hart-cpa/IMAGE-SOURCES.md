@@ -64,7 +64,7 @@ the same media library across pages.)
 
 Checked with a standalone Playwright/Chromium script (own browser instance,
 not the shared MCP Playwright tool), run from
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-proservices/searle-hart-cpa/maps-scrape.js`.
+`scratch/agent-proservices/searle-hart-cpa/maps-scrape.js`.
 The script searched "Searle Hart & Associates Rexburg, ID" on Google Maps,
 opened the listing, and confirmed it is the correct business (phone
 "356-3716" and "Grand Loop" address both matched the listing text). It then
@@ -73,7 +73,7 @@ scanned the DOM for any `googleusercontent.com` photo URLs.
 Result: **zero** `googleusercontent.com` photo URLs found, and the listing
 page contains an "Add a photo" prompt — Google Maps' own indicator that no
 photos have been uploaded to this listing. Screenshot evidence saved at
-`/private/tmp/claude-501/-Users-levimackay/8e893c70-2c83-4406-8d99-79ed9020a931/scratchpad/agent-proservices/searle-hart-cpa/maps-listing.png`
+`scratch/agent-proservices/searle-hart-cpa/maps-listing.png`
 (scratch only, not used on the page). No images sourced from Maps.
 
 ## Net result
